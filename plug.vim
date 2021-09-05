@@ -26,6 +26,7 @@ if has("nvim")
   Plug 'alvan/vim-closetag'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'karb94/neoscroll.nvim'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

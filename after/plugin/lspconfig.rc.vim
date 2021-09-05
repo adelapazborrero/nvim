@@ -63,6 +63,8 @@ local on_attach = function(client, bufnr)
   }  
 
   require('nvim-autopairs').setup{} 
+  require('neoscroll').setup()
+
   
 end
 
