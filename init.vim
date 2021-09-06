@@ -269,6 +269,8 @@ highlight NvimTreeFolderIcon guibg=blue
 " Extras "{{{
 " ---------------------------------------------------------------------
 set exrc
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
 "}}}
 
 " vim: set foldmethod=marker foldlevel=0:i

@@ -27,6 +27,10 @@ if has("nvim")
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'karb94/neoscroll.nvim'
+  Plug 'ncm2/ncm2'
+  Plug 'ncm2/ncm2-jedi'
+  Plug 'ncm2/ncm2-path'
+  Plug 'roxma/nvim-yarp'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
