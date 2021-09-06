@@ -31,6 +31,8 @@ if has("nvim")
   Plug 'ncm2/ncm2-jedi'
   Plug 'ncm2/ncm2-path'
   Plug 'roxma/nvim-yarp'
+  Plug 'phpactor/phpactor', { 'do': ':call phpactor#Update()', 'for': 'php'}
+  Plug 'phpactor/ncm2-phpactor', {'for': 'php'}
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
