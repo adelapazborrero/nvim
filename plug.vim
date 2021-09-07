@@ -33,6 +33,8 @@ if has("nvim")
   Plug 'roxma/nvim-yarp'
   Plug 'phpactor/phpactor', { 'do': ':call phpactor#Update()', 'for': 'php'}
   Plug 'phpactor/ncm2-phpactor', {'for': 'php'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc-vetur'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
