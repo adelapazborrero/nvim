@@ -31,8 +31,6 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[augroup END]]
   end
 
-  require 'completion'.on_attach(client, bufnr)
-
   --protocol.SymbolKind = { }
   protocol.CompletionItemKind = {
     '', -- Text
@@ -62,8 +60,10 @@ local on_attach = function(client, bufnr)
     '', -- TypeParameter
   }  
 
-  require('nvim-autopairs').setup{} 
   require('neoscroll').setup()
+  require 'completion'.on_attach(client, bufnr)
+  require'lspconfig'.vuels.setup{}
+  require('nvim-autopairs').setup{}
 
   
 end

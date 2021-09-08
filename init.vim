@@ -96,8 +96,8 @@ endif
 
 " Autoclosing HTML tags "{{{
 "
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml, vue'
-let g:closetag_filetypes = 'html,xhtml,phtml, vue'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.vue'
+let g:closetag_filetypes = 'html,xhtml,phtml'
 let g:closetag_emptyTags_caseSensitive = 1
 
 let g:closetag_regions = {
@@ -272,5 +272,10 @@ set exrc
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
 "}}}
+
+
+let g:LanguageClient_serverCommands = {
+    \ 'vue': ['vls']
+    \ }
 
 " vim: set foldmethod=marker foldlevel=0:i
