@@ -48,11 +48,11 @@ set lazyredraw
 " Ignore case when searching
 set ignorecase
 " Be smart when using tabs ;)
-set smarttab
+" set smarttab
 " indents
 filetype plugin indent on
 set shiftwidth=2
-set tabstop=2
+set tabstop=4
 set ai "Auto indent
 set si "Smart indent
 set nowrap "No Wrap lines
@@ -126,9 +126,10 @@ au BufNewFile,BufRead *.flow set filetype=javascript
 
 set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 
-autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
+autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
+autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
+autocmd FileType vue setlocal shiftwidth=4 tabstop=4
 
 "}}}
 

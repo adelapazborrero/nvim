@@ -61,10 +61,10 @@ local on_attach = function(client, bufnr)
   }  
 
 
-  require 'completion'.on_attach(client, bufnr)
   
 end
 
+require 'completion'.on_attach(client, bufnr)
 require('neoscroll').setup()
 require'lspconfig'.vuels.setup{}
 require('nvim-autopairs').setup{}
