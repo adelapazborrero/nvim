@@ -13,12 +13,11 @@ set laststatus=2
 set scrolloff=10
 set expandtab
 "let loaded_matchparen = 1
-"set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
 
 " inoremap { {<CR><CR>}<C-o>k<C-o>S
 :set mouse=a
-
+set t_Co=256
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -151,6 +150,9 @@ colorscheme nord
 set background=dark
 
 let g:airline#extensions#tabline#enabled = 1
+
+"Transparent background"
+hi Normal guibg=NONE ctermbg=NONE
 
 "}}}
 
