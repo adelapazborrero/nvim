@@ -35,6 +35,10 @@ if has("nvim")
   Plug 'phpactor/ncm2-phpactor', {'for': 'php'}
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neoclide/coc-vetur'
+  Plug 'Yggdroot/indentLine'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

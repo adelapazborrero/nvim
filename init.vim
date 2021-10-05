@@ -1,15 +1,4 @@
-" Fundamentals "{{{
-" ---------------------------------------------------------------------
-
-" init autocmd
-autocmd!
-" set script encoding
-scriptencoding utf-8
-" stop loading config if it's on tiny or small
-if !1 | finish | endif
-
-set nocompatible
-set number
+" Fundamentals "{{{ -------------------------------------------------------------------- init autocmd autocmd!  set script encoding scriptencoding utf-8 stop loading config if it's on tiny or small if !1 | finish | endif set nocompatible set number
 syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=UTF-8
@@ -24,7 +13,7 @@ set laststatus=2
 set scrolloff=10
 set expandtab
 "let loaded_matchparen = 1
-set shell=fish
+"set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
 
 " inoremap { {<CR><CR>}<C-o>k<C-o>S
@@ -48,7 +37,7 @@ set lazyredraw
 " Ignore case when searching
 set ignorecase
 " Be smart when using tabs ;)
-" set smarttab
+set smarttab
 " indents
 filetype plugin indent on
 set shiftwidth=2
@@ -124,12 +113,7 @@ au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
 au BufNewFile,BufRead *.flow set filetype=javascript
 
-set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
-
-autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
-autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
-autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
-autocmd FileType vue setlocal shiftwidth=4 tabstop=4
+set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md,.vue
 
 "}}}
 
@@ -151,18 +135,37 @@ runtime ./maps.vim
 " ---------------------------------------------------------------------
 
 " true color
-if exists("&termguicolors") && exists("&winblend")
-  syntax enable
-  set termguicolors
-  set winblend=0
-  set wildoptions=pum
-  set pumblend=5
-  set background=dark
+"if exists("&termguicolors") && exists("&winblend")
+""  syntax enable
+""  set termguicolors
+""  set winblend=0 set wildoptions=pum
+""  set pumblend=5
+  "set background=dark
   " Use NeoSolarized
-  let g:neosolarized_termtrans=1
-  runtime ./colors/NeoSolarized.vim
-  colorscheme NeoSolarized
-endif
+  "let g:neosolarized_termtrans=1
+""  runtime ./colors/NeoSolarized.vim
+""  colorscheme NeoSolarized
+"endif
+
+colorscheme nord
+set background=dark
+
+let g:airline#extensions#tabline#enabled = 1
+
+"}}}
+
+" Tabs settings "{{{
+" ---------------------------------------------------------------------
+
+autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
+autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
+autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
+autocmd FileType vue setlocal shiftwidth=4 tabstop=4
+autocmd FileType php setlocal shiftwidth=4 tabstop=4
+
+nnoremap <C-h> :bprevious<CR>
+nnoremap <C-l> :bnext<CR>
+
 
 "}}}
 
