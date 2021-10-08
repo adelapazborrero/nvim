@@ -60,7 +60,6 @@ local on_attach = function(client, bufnr)
     '', -- TypeParameter
   }  
 
-
   
 end
 
@@ -68,6 +67,7 @@ require 'completion'.on_attach(client, bufnr)
 require('neoscroll').setup()
 require'lspconfig'.vuels.setup{}
 require('nvim-autopairs').setup{}
+
 
 local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
@@ -82,6 +82,7 @@ MUtils.completion_confirm=function()
     return npairs.autopairs_cr()
   end
 end
+
 
 
 remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})

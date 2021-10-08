@@ -1,0 +1,4 @@
+
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'phpactor/phpactor', { 'do': ':call phpactor#Update()', 'for': 'php'}
+  Plug 'phpactor/ncm2-phpactor', {'for': 'php'}

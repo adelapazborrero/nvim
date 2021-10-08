@@ -1,5 +1,5 @@
 " Fundamentals "{{{ -------------------------------------------------------------------- init autocmd autocmd!  set script encoding scriptencoding utf-8 stop loading config if it's on tiny or small if !1 | finish | endif set nocompatible set number
-syntax enable
+"syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=UTF-8
 set title
@@ -14,8 +14,9 @@ set scrolloff=10
 set expandtab
 "let loaded_matchparen = 1
 set backupskip=/tmp/*,/private/tmp/*
-
+nnoremap <C-m> :noh<CR>
 " inoremap { {<CR><CR>}<C-o>k<C-o>S
+
 :set mouse=a
 set t_Co=256
 
@@ -45,6 +46,7 @@ set ai "Auto indent
 set si "Smart indent
 set nowrap "No Wrap lines
 set backspace=start,eol,indent
+
 " Finding files - Search down into subfolders
 set path+=**
 set wildignore+=*/node_modules/*
@@ -84,7 +86,7 @@ endif
 
 " Autoclosing HTML tags "{{{
 "
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.vue'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.vue, *.blade.php'
 let g:closetag_filetypes = 'html,xhtml,phtml'
 let g:closetag_emptyTags_caseSensitive = 1
 
@@ -167,7 +169,7 @@ autocmd FileType php setlocal shiftwidth=4 tabstop=4
 
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
-
+nnoremap <C-p> :bd<CR>
 
 "}}}
 

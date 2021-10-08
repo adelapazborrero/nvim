@@ -22,7 +22,6 @@ if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
-  Plug 'ryanoasis/vim-devicons'
   Plug 'alvan/vim-closetag'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'kyazdani42/nvim-tree.lua'
@@ -31,8 +30,6 @@ if has("nvim")
   Plug 'ncm2/ncm2-jedi'
   Plug 'ncm2/ncm2-path'
   Plug 'roxma/nvim-yarp'
-  Plug 'phpactor/phpactor', { 'do': ':call phpactor#Update()', 'for': 'php'}
-  Plug 'phpactor/ncm2-phpactor', {'for': 'php'}
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neoclide/coc-vetur'
   Plug 'Yggdroot/indentLine'
