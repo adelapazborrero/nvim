@@ -68,6 +68,7 @@ require('neoscroll').setup()
 require'lspconfig'.vuels.setup{}
 require('nvim-autopairs').setup{}
 
+require'nvim-web-devicons'.get_icons()
 
 local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
