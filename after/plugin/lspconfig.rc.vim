@@ -66,9 +66,9 @@ end
 require 'completion'.on_attach(client, bufnr)
 require('neoscroll').setup()
 require'lspconfig'.vuels.setup{}
+require'nvim-web-devicons'.get_icons()
 require('nvim-autopairs').setup{}
 
-require'nvim-web-devicons'.get_icons()
 
 local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
@@ -87,6 +87,7 @@ end
 
 
 remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+
 local map_bs = true  -- map the <BS> key
 local disable_filetype = { "TelescopePrompt" }
 local ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]],"%s+", "")

@@ -35,6 +35,8 @@ if has("nvim")
   Plug 'arcticicestudio/nord-vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  
+  Plug 'leafOfTree/vim-vue-plugin'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
