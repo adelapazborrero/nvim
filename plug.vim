@@ -36,9 +36,9 @@ if has("nvim")
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   
-  Plug 'leafOfTree/vim-vue-plugin'
 endif
 
+Plug 'leafOfTree/vim-vue-plugin'
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee' }
 

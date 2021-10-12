@@ -15,22 +15,17 @@ set expandtab
 "let loaded_matchparen = 1
 set backupskip=/tmp/*,/private/tmp/*
 nnoremap <C-m> :noh<CR>
-" inoremap { {<CR><CR>}<C-o>k<C-o>S
 
 :set mouse=a
 set t_Co=256
 
-" incremental substitution (neovim)
 if has('nvim')
   set inccommand=split
 endif
 
-" Suppress appending <PasteStart> and <PasteEnd> when pasting
-set t_BE=
-
 set nosc noru nosm
 " Don't redraw while executng macros (good performance config)
-set lazyredraw
+"set lazyredraw
 "set showmatch
 " How many tenths of a second to blink when matching brackets
 "set mat=2
@@ -166,6 +161,8 @@ autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
 autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
 autocmd FileType vue setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
+autocmd FileType js setlocal shiftwidth=4 tabstop=4
+autocmd FileType ts setlocal shiftwidth=4 tabstop=4
 
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
@@ -212,8 +209,8 @@ let g:nvim_tree_window_picker_exclude = {
 let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } 
 let g:nvim_tree_show_icons = {
     \ 'git': 1,
-    \ 'folders': 0,
-    \ 'files': 0,
+    \ 'folders': 1,
+    \ 'files': 1,
     \ 'folder_arrows': 0,
     \ }
 
@@ -256,7 +253,40 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 
 "}}}
 
+" Airline Settings "{{{
+" ---------------------------------------------------------------------
+" air-line
+let g:airline_powerline_fonts = 1
 
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+"}}}
+"
 let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls']
     \ }
