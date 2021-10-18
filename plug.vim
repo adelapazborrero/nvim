@@ -38,6 +38,7 @@ if has("nvim")
   
 endif
 
+Plug 'tpope/vim-commentary'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee' }
