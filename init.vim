@@ -101,7 +101,7 @@ let g:closetag_close_shortcut = '<leader>>'
 " File types "{{{
 " ---------------------------------------------------------------------
 " JavaScript
-au BufNewFile,BufRead *.es6 setf javascript
+" au BufNewFile,BufRead *.es6 setf javascript
 " TypeScript
 au BufNewFile,BufRead *.tsx setf typescriptreact
 " Markdown
@@ -143,7 +143,8 @@ runtime ./maps.vim
 ""  colorscheme NeoSolarized
 "endif
 
-colorscheme nord
+colorscheme gruvbox
+" colorscheme nord
 set background=dark
 
 let g:airline#extensions#tabline#enabled = 1
@@ -151,6 +152,8 @@ let g:airline#extensions#tabline#enabled = 1
 "Transparent background"
 hi Normal guibg=NONE ctermbg=NONE
 
+" Javascript pretty colorful highlight
+" let g:vim_jsx_pretty_colorful_config = 1
 "}}}
 
 " Tabs settings "{{{
@@ -163,6 +166,7 @@ autocmd FileType vue setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
 autocmd FileType js setlocal shiftwidth=4 tabstop=4
 autocmd FileType ts setlocal shiftwidth=4 tabstop=4
+autocmd FileType tsx setlocal shiftwidth=4 tabstop=4
 
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>

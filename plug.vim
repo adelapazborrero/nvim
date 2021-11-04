@@ -32,10 +32,11 @@ if has("nvim")
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neoclide/coc-vetur'
   Plug 'Yggdroot/indentLine'
-  Plug 'arcticicestudio/nord-vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  
+
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'morhetz/gruvbox'
 endif
 
 Plug 'tpope/vim-commentary'
