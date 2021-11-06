@@ -143,8 +143,8 @@ runtime ./maps.vim
 ""  colorscheme NeoSolarized
 "endif
 
-colorscheme gruvbox
-" colorscheme nord
+" colorscheme gruvbox
+colorscheme nord
 set background=dark
 
 let g:airline#extensions#tabline#enabled = 1
@@ -171,6 +171,17 @@ autocmd FileType tsx setlocal shiftwidth=4 tabstop=4
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-p> :bd<CR>
+
+
+"}}}
+
+" File Exploration"{{{
+" ---------------------------------------------------------------------
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 
 "}}}
 
