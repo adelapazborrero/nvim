@@ -131,20 +131,20 @@ runtime ./maps.vim
 " ---------------------------------------------------------------------
 
 " true color
-"if exists("&termguicolors") && exists("&winblend")
-""  syntax enable
-""  set termguicolors
-""  set winblend=0 set wildoptions=pum
-""  set pumblend=5
-  "set background=dark
-  " Use NeoSolarized
-  "let g:neosolarized_termtrans=1
-""  runtime ./colors/NeoSolarized.vim
-""  colorscheme NeoSolarized
-"endif
+" if exists("&termguicolors") && exists("&winblend")
+"  syntax enable
+"  set termguicolors
+"  set winblend=0 set wildoptions=pum
+"  set pumblend=5
+"   set background=dark
+"   Use NeoSolarized
+"   let g:neosolarized_termtrans=1
+"  runtime ./colors/NeoSolarized.vim
+"  colorscheme NeoSolarized
+" endif
 
-" colorscheme gruvbox
-colorscheme nord
+colorscheme gruvbox
+" colorscheme nord
 set background=dark
 
 let g:airline#extensions#tabline#enabled = 1
@@ -166,22 +166,23 @@ autocmd FileType vue setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
 autocmd FileType js setlocal shiftwidth=4 tabstop=4
 autocmd FileType ts setlocal shiftwidth=4 tabstop=4
-autocmd FileType tsx setlocal shiftwidth=4 tabstop=4
-
-nnoremap <C-h> :bprevious<CR>
-nnoremap <C-l> :bnext<CR>
-nnoremap <C-p> :bd<CR>
+autocmd FileType tsx setlocal shiftwidth=2 tabstop=2
 
 
 "}}}
 
-" File Exploration"{{{
+" Custorm shortcuts"{{{
 " ---------------------------------------------------------------------
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nnoremap <C-h> :bprevious<CR>
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-p> :bd<CR>
+nnoremap ;g  :Gvdiffsplit<CR>
+" nnoremap hg  :q<CR>
 
 "}}}
 
