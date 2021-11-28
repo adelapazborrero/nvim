@@ -45,11 +45,6 @@ if has("nvim")
 
   ""Auto completion plugin
   Plug 'nvim-lua/completion-nvim'
-  " Plug 'hrsh7th/cmp-nvim-lsp'
-  " Plug 'hrsh7th/cmp-buffer'
-  " Plug 'hrsh7th/cmp-path'
-  " Plug 'hrsh7th/cmp-cmdline'
-  " Plug 'hrsh7th/nvim-cmp'
   
   ""Javascript and React plugins
   Plug 'pangloss/vim-javascript'
