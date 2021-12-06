@@ -25,6 +25,7 @@ if has("nvim")
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'karb94/neoscroll.nvim'
   Plug 'Yggdroot/indentLine'
+  Plug 'nicwest/vim-http'
 
   "" Lua plugins 
   Plug 'hoob3rt/lualine.nvim'
@@ -54,6 +55,9 @@ if has("nvim")
   Plug 'arcticicestudio/nord-vim'
   Plug 'morhetz/gruvbox'
   Plug 'folke/lsp-colors.nvim'
+  Plug 'cocopon/iceberg.vim'
+  Plug 'lifepillar/vim-solarized8'
+
 endif
 
 Plug 'tpope/vim-commentary'

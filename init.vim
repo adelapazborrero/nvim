@@ -1,10 +1,10 @@
-" Fundamentals "{{{ -------------------------------------------------------------------- init autocmd autocmd!  set script encoding scriptencoding utf-8 stop loading config if it's on tiny or small if !1 | finish | endif set nocompatible set number
+" Fundamentals "{{{ -------------------------------------------------------------------- 
+" init autocmd autocmd!  set script encoding scriptencoding utf-8 stop loading config if it's on tiny or small if !1 | finish | endif set nocompatible set number
 "syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=UTF-8
 set title
 set autoindent
-set background=dark
 set nobackup
 set hlsearch
 set showcmd
@@ -131,20 +131,11 @@ runtime ./maps.vim
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 
-" true color
-" if exists("&termguicolors") && exists("&winblend")
-"  syntax enable
-"  set termguicolors
-"  set winblend=0 set wildoptions=pum
-"  set pumblend=5
-"   set background=dark
-"   Use NeoSolarized
-"   let g:neosolarized_termtrans=1
-"  runtime ./colors/NeoSolarized.vim
-"  colorscheme NeoSolarized
-" endif
+autocmd vimenter * ++nested colorscheme solarized8
+let g:solarized_termtrans = 1
 
-colorscheme gruvbox
+" colorscheme iceberg
+" colorscheme gruvbox
 " colorscheme nord
 set background=dark
 
@@ -165,8 +156,8 @@ autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
 autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
 autocmd FileType vue setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
-autocmd FileType js setlocal shiftwidth=4 tabstop=4
-autocmd FileType ts setlocal shiftwidth=4 tabstop=4
+autocmd FileType js setlocal shiftwidth=2 tabstop=2
+autocmd FileType ts setlocal shiftwidth=2 tabstop=2
 autocmd FileType tsx setlocal shiftwidth=2 tabstop=2
 
 
@@ -303,7 +294,14 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 "}}}
-"
+
+" Settings for Http request"{{{
+" ---------------------------------------------------------------------
+let g:vim_http_split_vertically = 1
+let g:vim_http_tempbuffer = 1
+
+"}}}
+
 let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls']
     \ }

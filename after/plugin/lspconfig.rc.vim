@@ -24,12 +24,12 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   
   --Auto format on saving
-  if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.api.nvim_command [[augroup END]]
-  end
+  --if client.resolved_capabilities.document_formatting then
+  --  vim.api.nvim_command [[augroup Format]]
+  --  vim.api.nvim_command [[autocmd! * <buffer>]]
+  --  vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+  --  vim.api.nvim_command [[augroup END]]
+  --end
 
   --protocol.SymbolKind = { }
   protocol.CompletionItemKind = {
@@ -59,8 +59,6 @@ local on_attach = function(client, bufnr)
     'ﬦ', -- Operator
     '', -- TypeParameter
   }  
-
-  
 end
 
 require 'completion'.on_attach(client, bufnr)
@@ -68,7 +66,6 @@ require('neoscroll').setup()
 require'lspconfig'.vuels.setup{}
 require'nvim-web-devicons'.get_icons()
 require('nvim-autopairs').setup{}
-
 
 local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
@@ -83,8 +80,6 @@ MUtils.completion_confirm=function()
     return npairs.autopairs_cr()
   end
 end
-
-
 
 remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
 
