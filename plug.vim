@@ -26,6 +26,7 @@ if has("nvim")
   Plug 'karb94/neoscroll.nvim'
   Plug 'Yggdroot/indentLine'
   Plug 'nicwest/vim-http'
+  Plug 'tpope/vim-surround'
 
   "" Lua plugins 
   Plug 'hoob3rt/lualine.nvim'
