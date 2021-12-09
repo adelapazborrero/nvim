@@ -104,13 +104,19 @@ let g:closetag_close_shortcut = '<leader>>'
 " JavaScript
 " au BufNewFile,BufRead *.es6 setf javascript
 " TypeScript
-au BufNewFile,BufRead *.tsx setf typescriptreact
+" au BufNewFile,BufRead *.tsx setf typescriptreact
 " Markdown
 au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
 au BufNewFile,BufRead *.flow set filetype=javascript
 
 set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md,.vue
+
+augroup typescriptreact                                                          
+  au!                                                                            
+  autocmd BufNewFile,BufRead *.tsx   set filetype=typescript                     
+  autocmd BufNewFile,BufRead *.tsx   set filetype=javascript                     
+augroup END
 
 "}}}
 

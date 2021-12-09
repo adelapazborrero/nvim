@@ -16,6 +16,11 @@ if has("nvim")
   Plug 'glepnir/lspsaga.nvim'
   Plug 'roxma/nvim-yarp'
 
+  "" Typescript React support
+  Plug 'peitalin/vim-jsx-typescript'
+  Plug 'leafgarland/typescript-vim'
+  " Plug 'HerringtonDarkholme/yats.vim'
+
   "" Development plugins
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'nvim-telescope/telescope.nvim'
