@@ -16,7 +16,6 @@ require'nvim-tree'.setup {
   },
   hijack_cursor       = false,
   update_cwd          = false,
-  lsp_diagnostics     = false,
   update_focused_file = {
     enable      = false,
     update_cwd  = false,
@@ -26,7 +25,9 @@ require'nvim-tree'.setup {
     cmd  = nil,
     args = {}
   },
-
+  filters = {
+    dotfiles
+  },
   view = {
     width = 30,
     height = 30,
