@@ -118,6 +118,8 @@ augroup typescriptreact
   autocmd BufNewFile,BufRead *.tsx   set filetype=javascript                     
 augroup END
 
+let g:vim_json_conceal=0
+
 "}}}
 
 " Imports "{{{
@@ -160,11 +162,11 @@ hi Normal guibg=NONE ctermbg=NONE
 autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
 autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
 autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
-autocmd FileType vue setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
 autocmd FileType js setlocal shiftwidth=2 tabstop=2
 autocmd FileType ts setlocal shiftwidth=2 tabstop=2
 autocmd FileType tsx setlocal shiftwidth=2 tabstop=2
+autocmd FileType vue setlocal shiftwidth=2 tabstop=2
 
 
 "}}}
@@ -188,7 +190,7 @@ nnoremap ;g  :Gvdiffsplit<CR>
 " ---------------------------------------------------------------------
 set exrc
 autocmd BufEnter * call ncm2#enable_for_buffer()
-
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "}}}
 
 " Tree settings "{{{
@@ -196,19 +198,19 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 
 " let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
 " let g:nvim_tree_gitignore = 1 
-let g:nvim_tree_quit_on_open = 1 
+let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_indent_markers = 1 
 " let g:nvim_tree_hide_dotfiles = 0 
 let g:nvim_tree_git_hl = 1 
 let g:nvim_tree_highlight_opened_files = 1 
 let g:nvim_tree_root_folder_modifier = ':~' 
-let g:nvim_tree_add_trailing = 1 
-let g:nvim_tree_group_empty = 1 
-let g:nvim_tree_disable_window_picker = 1 
+let g:nvim_tree_add_trailing = 1
+let g:nvim_tree_group_empty = 1
+let g:nvim_tree_disable_window_picker = 1
 let g:nvim_tree_icon_padding = ' ' 
 let g:nvim_tree_symlink_arrow = ' >> ' 
 let g:nvim_tree_respect_buf_cwd = 1 
-let g:nvim_tree_create_in_closed_folder = 0 
+let g:nvim_tree_create_in_closed_folder = 0
 let g:nvim_tree_refresh_wait = 500 
 let g:nvim_tree_window_picker_exclude = {
     \   'filetype': [
