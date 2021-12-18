@@ -8,3 +8,4 @@
 - phpls
 - vetur
 - tsserver
+- coc-prettier
