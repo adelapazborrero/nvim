@@ -5,7 +5,24 @@
 
 #Installed so far
 
-- phpls
-- vetur
-- tsserver
+- coc-phpls
+- coc-vetur
+- coc-tsserver
 - coc-prettier
+
+#Together with npm global needed
+
+@vue/cli@4.5.15
+eslint-plugin-vue
+eslint
+gtop
+json-server
+neovim with python
+npm
+tree-sitter-cli
+ts-node
+typescript-language-server
+typescrlit
+vue-language-server
+vue-native-cli
+yarn
