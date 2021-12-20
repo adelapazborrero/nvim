@@ -1,7 +1,8 @@
 " Fundamentals "{{{ -------------------------------------------------------------------- 
 " init autocmd autocmd!  set script encoding scriptencoding utf-8 stop loading config if it's on tiny or small if !1 | finish | endif set nocompatible set number
 "syntax enable
-" set number
+" set langmenu=ja_JP
+let $LANG = 'ja_JP'
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=UTF-8
 set title
