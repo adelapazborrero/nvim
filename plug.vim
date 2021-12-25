@@ -29,7 +29,7 @@ if has("nvim")
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'karb94/neoscroll.nvim'
-  Plug 'Yggdroot/indentLine'
+  Plug 'Yggdroot/indentLine' " Comment this out for initial screen
   Plug 'nicwest/vim-http'
   Plug 'tpope/vim-surround'
 

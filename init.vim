@@ -170,6 +170,10 @@ autocmd FileType ts setlocal shiftwidth=2 tabstop=2
 autocmd FileType tsx setlocal shiftwidth=2 tabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2
 
+let g:indentLine_setColors = 0
+let g:indentLine_enabled = 0
+
+nnoremap <C-i> :IndentLinesToggle<CR>
 
 "}}}
 
@@ -316,5 +320,4 @@ let g:vim_http_tempbuffer = 1
 let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls']
     \ }
-
 " vim: set foldmethod=marker foldlevel=0:i
