@@ -15,6 +15,7 @@ if has("nvim")
   Plug 'neovim/nvim-lspconfig'
   Plug 'glepnir/lspsaga.nvim'
   Plug 'roxma/nvim-yarp'
+  Plug 'glepnir/dashboard-nvim'
 
   "" Typescript React support
   Plug 'peitalin/vim-jsx-typescript'
