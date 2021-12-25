@@ -27,10 +27,10 @@ endif
 
 set nosc noru nosm
 " Don't redraw while executng macros (good performance config)
-"set lazyredraw
-"set showmatch
+set lazyredraw
+set showmatch
 " How many tenths of a second to blink when matching brackets
-"set mat=2
+set mat=2
 " Ignore case when searching
 set ignorecase
 " Be smart when using tabs ;)
