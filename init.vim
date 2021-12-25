@@ -275,6 +275,7 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 " ---------------------------------------------------------------------
 " air-line
 let g:airline_powerline_fonts = 1
+" let g:airline_theme='papercolor'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
