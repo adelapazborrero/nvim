@@ -29,5 +29,5 @@ yarn
 
 ### If telescope running slow make sure to have this dependencies installed
 - fd
-- plocate   or   locate
+- plocate   or   locate ( findutils )
 - bat
