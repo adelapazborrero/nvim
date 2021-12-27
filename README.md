@@ -26,3 +26,8 @@ typescrlit
 vue-language-server
 vue-native-cli
 yarn
+
+### If telescope running slow make sure to have this dependencies installed
+- fd
+- plocate   or   locate
+- bat
