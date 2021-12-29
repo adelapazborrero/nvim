@@ -8,11 +8,23 @@ lua <<EOF
 local actions = require('telescope.actions')
 require('telescope').setup{
   defaults = {
+    file_ignore_patterns = {
+      "node_modules", 
+      "git",
+    },
     mappings = {
       n = {
         ["q"] = actions.close
       },
     },
+    pickers = {
+      fnd_files = {
+        previewer = false, 
+      },
+      file_browser = {
+        previewer = false,
+      }
+    }
   }
 }
 
