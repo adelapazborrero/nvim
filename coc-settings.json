@@ -1,6 +1,13 @@
 {
   "eslint.autoFixOnSave": true,
-  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact, vue"],
+  "eslint.filetypes": [
+    "javascript", 
+    "javascriptreact", 
+    "typescript", 
+    "typescriptreact", 
+    "vue",
+    "php"
+  ],
   "prettier.disableSuccessMessage": true,
   "prettier.singleQuote": true,
   "eslint.singleQuote": true,
@@ -10,7 +17,8 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "vue"
+    "vue",
+    "php"
   ],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true
