@@ -129,7 +129,7 @@ set background=dark
 let g:airline#extensions#tabline#enabled = 1
 
 "Transparent background"
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " Javascript pretty colorful highlight
 " let g:vim_jsx_pretty_colorful_config = 1
