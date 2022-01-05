@@ -1,4 +1,5 @@
-" Fundamentals "{{{ -------------------------------------------------------------------- 
+" Fundamentals "{{{ 
+" -------------------------------------------------------------------- 
 "
 " init autocmd autocmd!  set script encoding scriptencoding utf-8 stop loading config if it's on tiny or small if !1 | finish | endif set nocompatible set number
 "syntax enable
@@ -59,7 +60,7 @@ let g:jsx_ext_required = 1
 " let g:ycm_autoclose_preview_window_after_completion=1
 " map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "
-"}}}
+" }}}
 
 " Autoclosing HTML tags "{{{
 "
@@ -327,12 +328,16 @@ let g:dashboard_custom_shortcut={
 
 let g:dashboard_custom_section={
   \'open_nvim_tree': {
-    \'description' : ['פּ  プロジェクト構造'],
+    \'description' : ['פּ  プロジェクト構造  '],
     \'command': 'NvimTreeToggle',
   \},
   \'telescope_find_files': {
-    \'description' : ['  ファイル検索    '],
+    \'description' : ['  ファイル検索      '],
     \'command': 'Telescope find_files',
+  \},
+  \'zdashboar_find_word': {
+    \'description' : ['  最近開いたファイル'],
+    \'command': 'DashboardFindHistory',
   \}
 \}
 
