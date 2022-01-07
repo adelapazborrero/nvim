@@ -84,9 +84,9 @@ let g:closetag_close_shortcut = '<leader>>'
 " File types "{{{
 " ---------------------------------------------------------------------
 " JavaScript
-" au BufNewFile,BufRead *.es6 setf javascript
+au BufNewFile,BufRead *.es6 setf javascript
 " TypeScript
-" au BufNewFile,BufRead *.tsx setf typescriptreact
+au BufNewFile,BufRead *.tsx setf typescriptreact
 " Markdown
 au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
@@ -96,8 +96,8 @@ set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md,.vue
 
 augroup typescriptreact                                                          
   au!                                                                            
-  autocmd BufNewFile,BufRead *.tsx   set filetype=typescript                     
-  autocmd BufNewFile,BufRead *.tsx   set filetype=javascript                     
+  autocmd BufNewFile,BufRead *.tsx   set filetype=typescriptreact
+  autocmd BufNewFile,BufRead *.tsx   set filetype=javascript
 augroup END
 
 let g:vim_json_conceal=0
