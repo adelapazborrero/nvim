@@ -2,7 +2,7 @@
 " -------------------------------------------------------------------- 
 "
 " init autocmd autocmd!  set script encoding scriptencoding utf-8 stop loading config if it's on tiny or small if !1 | finish | endif set nocompatible set number
-"syntax enable
+" syntax enable
 " set langmenu=ja_JP
 let $LANG = 'ja_JP'
 set fileencodings=utf-8,sjis,euc-jp,latin
@@ -116,6 +116,16 @@ if has("unix")
 endif
 
 runtime ./maps.vim
+
+lua <<EOF
+require'toggle_lsp_diagnostics'.init()
+require('neoscroll').setup()
+require'lspconfig'.vuels.setup{}
+require'nvim-web-devicons'.get_icons()
+require('nvim-autopairs').setup{}
+EOF
+" let g:coc_diagnostic_disable = 1
+
 "}}}
 
 " Syntax theme "{{{

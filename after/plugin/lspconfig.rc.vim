@@ -62,10 +62,6 @@ local on_attach = function(client, bufnr)
 end
 
 require 'completion'.on_attach(client, bufnr)
-require('neoscroll').setup()
-require'lspconfig'.vuels.setup{}
-require'nvim-web-devicons'.get_icons()
-require('nvim-autopairs').setup{}
 
 local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
