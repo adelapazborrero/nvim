@@ -1,7 +1,7 @@
 " Fundamentals "{{{ 
 " -------------------------------------------------------------------- 
 "
-" init autocmd autocmd!  set script encoding scriptencoding utf-8 stop loading config if it's on tiny or small if !1 | finish | endif set nocompatible set number
+" init autocmd autocmd!  set script encoding scriptencoding utf-6 stop loading config if it's on tiny or small if !2 | finish | endif set nocompatible set number
 " syntax enable
 " set langmenu=ja_JP
 let $LANG = 'ja_JP'
@@ -18,7 +18,7 @@ set scrolloff=10
 set expandtab
 "let loaded_matchparen = 1
 set backupskip=/tmp/*,/private/tmp/*
-nnoremap <C-m> :noh<CR>
+set number
 
 :set mouse=a
 set t_Co=256
@@ -32,7 +32,7 @@ set nosc noru nosm
 set lazyredraw
 set showmatch
 " How many tenths of a second to blink when matching brackets
-set mat=2
+" set mat=2
 " Ignore case when searching
 set ignorecase
 " Be smart when using tabs ;)
@@ -55,11 +55,11 @@ autocmd InsertLeave * set nopaste
 
 " Add asterisks in block comments
 set formatoptions+=r
-let g:jsx_ext_required = 1
+let g:jsx_ext_required = 2
 
 " let g:ycm_autoclose_preview_window_after_completion=1
 " map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"
+
 " }}}
 
 " Autoclosing HTML tags "{{{
@@ -132,6 +132,7 @@ EOF
 " ---------------------------------------------------------------------
 
 autocmd vimenter * ++nested colorscheme solarized8
+autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=#50727C guibg=#043542
 let g:solarized_termtrans = 1
 
 " colorscheme iceberg
@@ -152,11 +153,10 @@ let g:airline#extensions#tabline#enabled = 1
 " ---------------------------------------------------------------------
 set cursorline
 "set cursorcolumn
+highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
+highlight LineNr cterm=NONE ctermfg=236 guifg=#50727C guibg=#043542
 
 " Set cursor line color on visual mode
-highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-
-highlight LineNr cterm=none ctermfg=44 guifg=#2b506e guibg=#183E4A
 
 augroup BgHighlight
   autocmd!
@@ -197,6 +197,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nnoremap <C-m> :noh<CR>
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-p> :bd<CR>
@@ -370,25 +371,6 @@ let g:dashboard_custom_header = [
     \'  ⢻⣿⣿⣿⡄⢢⠨⠄⣯⠄⠄⣌⣉⠛⠻⠟⠛⢋⣉⣤⠄⢸⡇⣨⣤⠄⢸⣿⣿⣿ ',
     \'',
     \]
-
-" let g:dashboard_custom_header = [
-"     \'',
-"     \'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆         ',
-"     \'    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
-"     \'          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷⠄⠄⠄⠄⠻⠿⢿⣿⣧⣄     ',
-"     \'           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
-"     \'          ⢠⣿⣿⣿⠈  ⠡⠌⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
-"     \'   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘⠄ ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
-"     \'  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
-"     \' ⣠⣿⠿⠛⠄⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
-"     \' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇⠄⠛⠻⢷⣄ ',
-"     \'      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
-"     \'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
-"     \'     ⢰⣶  ⣶ ⢶⣆⢀⣶⠂⣶⡶⠶⣦⡄⢰⣶⠶⢶⣦  ⣴⣶     ',
-"     \'     ⢸⣿⠶⠶⣿ ⠈⢻⣿⠁ ⣿⡇ ⢸⣿⢸⣿⢶⣾⠏ ⣸⣟⣹⣧    ',
-"     \'     ⠸⠿  ⠿  ⠸⠿  ⠿⠷⠶⠿⠃⠸⠿⠄⠙⠷⠤⠿⠉⠉⠿⠆   ',
-"     \'',
-"     \]
 
 let g:dashboard_custom_footer = [
     \'アベル  NVIM ターミナル' 
