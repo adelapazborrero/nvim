@@ -192,7 +192,6 @@ autocmd FileType vue setlocal shiftwidth=2 tabstop=2
 let g:indentLine_setColors = 1
 let g:indentLine_enabled = 0
 
-nnoremap <C-i> :IndentLinesToggle<CR>
 
 "}}}
 
@@ -203,6 +202,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nnoremap <C-i> :IndentLinesToggle<CR>
 nnoremap <C-m> :noh<CR>
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
