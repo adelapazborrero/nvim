@@ -59,7 +59,7 @@ yarn
 +-- @vue/cli@4.5.15
 +-- typescript-language-server@0.8.1
 +-- typescript@4.5.4
-+-- vue-language-server@0.0.67
++-- vls@0.7.6
 `-- yarn@1.22.17
 ```
 - Pip
