@@ -12,11 +12,8 @@ if has("nvim")
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'glepnir/lspsaga.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'glepnir/dashboard-nvim'
-  Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
   "" Typescript React support
   " Plug 'peitalin/vim-jsx-typescript'
@@ -63,9 +60,14 @@ if has("nvim")
   "" Colorschemes
   Plug 'arcticicestudio/nord-vim'
   Plug 'morhetz/gruvbox'
-  Plug 'folke/lsp-colors.nvim'
   Plug 'cocopon/iceberg.vim'
   Plug 'lifepillar/vim-solarized8'
+
+  " LSP Config
+  Plug 'folke/lsp-colors.nvim'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'glepnir/lspsaga.nvim'
+  Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
 endif
 

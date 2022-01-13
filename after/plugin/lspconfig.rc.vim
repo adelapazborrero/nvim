@@ -59,9 +59,9 @@ local on_attach = function(client, bufnr)
     'ﬦ', -- Operator
     '', -- TypeParameter
   }  
+  require 'completion'.on_attach(client, bufnr)
 end
 
-require 'completion'.on_attach(client, bufnr)
 
 local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
@@ -89,6 +89,6 @@ local check_ts = false
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx"}
-}
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
+} 
 EOF
