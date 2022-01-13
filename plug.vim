@@ -21,7 +21,8 @@ if has("nvim")
   "" Typescript React support
   " Plug 'peitalin/vim-jsx-typescript'
   Plug 'leafgarland/typescript-vim'
-  " Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'ianks/vim-tsx'
 
   "" Development plugins
   Plug 'nvim-treesitter/nvim-treesitter'

@@ -100,6 +100,12 @@ augroup typescriptreact
   autocmd BufNewFile,BufRead *.tsx   set filetype=javascript
 augroup END
 
+augroup SyntaxSettings
+  autocmd!
+  autocmd BufNewFile, BufRead *.tsx set filetype=typescript
+augroup END 
+
+
 let g:vim_json_conceal=0
 
 "}}}
@@ -183,7 +189,7 @@ autocmd FileType ts setlocal shiftwidth=2 tabstop=2
 autocmd FileType tsx setlocal shiftwidth=2 tabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2
 
-let g:indentLine_setColors = 0
+let g:indentLine_setColors = 1
 let g:indentLine_enabled = 0
 
 nnoremap <C-i> :IndentLinesToggle<CR>
