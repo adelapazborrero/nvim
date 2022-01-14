@@ -208,6 +208,9 @@ nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-p> :bd<CR>
 nnoremap ;g  :Gvdiffsplit<CR>
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " nnoremap hg  :q<CR>
 
 "}}}

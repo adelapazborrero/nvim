@@ -66,7 +66,7 @@ if has("nvim")
   " LSP Config
   Plug 'folke/lsp-colors.nvim'
   Plug 'neovim/nvim-lspconfig'
-  Plug 'glepnir/lspsaga.nvim'
+  " Plug 'glepnir/lspsaga.nvim'
   Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
 endif

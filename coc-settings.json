@@ -48,6 +48,13 @@
     "constructor": "  ",
     "value": "  ",
     "enumMember": "  "
-
-  }
+  },
+  "codeLens.enable": true,
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+  "diagnostic.enableMessage": "jump",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false 
 }
