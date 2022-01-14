@@ -55,5 +55,6 @@
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
   "diagnostic.virtualText": true,
-  "diagnostic.virtualTextCurrentLineOnly": false 
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.enableHighlightLineNumber": false
 }
