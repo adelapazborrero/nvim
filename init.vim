@@ -124,7 +124,7 @@ endif
 runtime ./maps.vim
 
 lua <<EOF
-require'toggle_lsp_diagnostics'.init()
+require'toggle_lsp_diagnostics'.init({start_on = false})
 require('neoscroll').setup()
 require'lspconfig'.vuels.setup{}
 require'nvim-web-devicons'.get_icons()
