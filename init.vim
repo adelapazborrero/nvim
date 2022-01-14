@@ -1,6 +1,8 @@
-" Fundamentals "{{{ -------------------------------------------------------------------- 
-" init autocmd autocmd!  set script encoding scriptencoding utf-8 stop loading config if it's on tiny or small if !1 | finish | endif set nocompatible set number
-"syntax enable
+" Fundamentals "{{{ 
+" -------------------------------------------------------------------- 
+"
+" init autocmd autocmd!  set script encoding scriptencoding utf-6 stop loading config if it's on tiny or small if !2 | finish | endif set nocompatible set number
+" syntax enable
 " set langmenu=ja_JP
 let $LANG = 'ja_JP'
 set fileencodings=utf-8,sjis,euc-jp,latin
@@ -16,7 +18,7 @@ set scrolloff=10
 set expandtab
 "let loaded_matchparen = 1
 set backupskip=/tmp/*,/private/tmp/*
-nnoremap <C-m> :noh<CR>
+set number
 
 :set mouse=a
 set t_Co=256
@@ -30,7 +32,7 @@ set nosc noru nosm
 set lazyredraw
 set showmatch
 " How many tenths of a second to blink when matching brackets
-set mat=2
+" set mat=2
 " Ignore case when searching
 set ignorecase
 " Be smart when using tabs ;)
@@ -53,11 +55,12 @@ autocmd InsertLeave * set nopaste
 
 " Add asterisks in block comments
 set formatoptions+=r
-let g:jsx_ext_required = 1
+let g:jsx_ext_required = 2
 
 " let g:ycm_autoclose_preview_window_after_completion=1
 " map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"}}}
+
+" }}}
 
 " Autoclosing HTML tags "{{{
 "
@@ -81,9 +84,9 @@ let g:closetag_close_shortcut = '<leader>>'
 " File types "{{{
 " ---------------------------------------------------------------------
 " JavaScript
-" au BufNewFile,BufRead *.es6 setf javascript
+au BufNewFile,BufRead *.es6 setf javascript
 " TypeScript
-" au BufNewFile,BufRead *.tsx setf typescriptreact
+au BufNewFile,BufRead *.tsx setf typescriptreact
 " Markdown
 au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
@@ -93,9 +96,15 @@ set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md,.vue
 
 augroup typescriptreact                                                          
   au!                                                                            
-  autocmd BufNewFile,BufRead *.tsx   set filetype=typescript                     
-  autocmd BufNewFile,BufRead *.tsx   set filetype=javascript                     
+  autocmd BufNewFile,BufRead *.tsx   set filetype=typescriptreact
+  autocmd BufNewFile,BufRead *.tsx   set filetype=javascript
 augroup END
+
+augroup SyntaxSettings
+  autocmd!
+  autocmd BufNewFile, BufRead *.tsx set filetype=typescript
+augroup END 
+
 
 let g:vim_json_conceal=0
 
@@ -113,12 +122,23 @@ if has("unix")
 endif
 
 runtime ./maps.vim
+
+lua <<EOF
+require'toggle_lsp_diagnostics'.init({start_on = false})
+require('neoscroll').setup()
+require'lspconfig'.vuels.setup{}
+require'nvim-web-devicons'.get_icons()
+require('nvim-autopairs').setup{}
+EOF
+" let g:coc_diagnostic_disable = 1
+
 "}}}
 
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 
 autocmd vimenter * ++nested colorscheme solarized8
+autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=#50727C guibg=#043542
 let g:solarized_termtrans = 1
 
 " colorscheme iceberg
@@ -129,7 +149,7 @@ set background=dark
 let g:airline#extensions#tabline#enabled = 1
 
 "Transparent background"
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " Javascript pretty colorful highlight
 " let g:vim_jsx_pretty_colorful_config = 1
@@ -139,11 +159,10 @@ hi Normal guibg=NONE ctermbg=NONE
 " ---------------------------------------------------------------------
 set cursorline
 "set cursorcolumn
+highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
+highlight LineNr cterm=NONE ctermfg=236 guifg=#50727C guibg=#043542
 
 " Set cursor line color on visual mode
-highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-
-highlight LineNr cterm=none ctermfg=44 guifg=#2b506e guibg=#183E4A
 
 augroup BgHighlight
   autocmd!
@@ -173,7 +192,6 @@ autocmd FileType vue setlocal shiftwidth=2 tabstop=2
 let g:indentLine_setColors = 1
 let g:indentLine_enabled = 0
 
-nnoremap <C-i> :IndentLinesToggle<CR>
 
 "}}}
 
@@ -184,10 +202,15 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nnoremap <C-i> :IndentLinesToggle<CR>
+nnoremap <C-m> :noh<CR>
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-p> :bd<CR>
 nnoremap ;g  :Gvdiffsplit<CR>
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " nnoremap hg  :q<CR>
 
 "}}}
@@ -304,9 +327,9 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
+let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+let g:airline_symbols.linenr = '  '
 
 "}}}
 
@@ -323,22 +346,38 @@ let g:dashboard_custom_shortcut={
 \ 'book_marks'         : 'SPC f b',
 \ }
 
+let g:dashboard_custom_section={
+  \'open_nvim_tree': {
+    \'description' : ['פּ  プロジェクト構造  '],
+    \'command': 'NvimTreeToggle',
+  \},
+  \'telescope_find_files': {
+    \'description' : ['  ファイル検索      '],
+    \'command': 'Telescope find_files',
+  \},
+  \'zdashboar_find_word': {
+    \'description' : ['  最近開いたファイル'],
+    \'command': 'DashboardFindHistory',
+  \}
+\}
+
 let g:dashboard_custom_header = [
     \'',
-    \'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆         ',
-    \'    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
-    \'          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷⠄⠄⠄⠄⠻⠿⢿⣿⣧⣄     ',
-    \'           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
-    \'          ⢠⣿⣿⣿⠈  ⠡⠌⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
-    \'   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘⠄ ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
-    \'  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
-    \' ⣠⣿⠿⠛⠄⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
-    \' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇⠄⠛⠻⢷⣄ ',
-    \'      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
-    \'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
-    \'     ⢰⣶  ⣶ ⢶⣆⢀⣶⠂⣶⡶⠶⣦⡄⢰⣶⠶⢶⣦  ⣴⣶     ',
-    \'     ⢸⣿⠶⠶⣿ ⠈⢻⣿⠁ ⣿⡇ ⢸⣿⢸⣿⢶⣾⠏ ⣸⣟⣹⣧    ',
-    \'     ⠸⠿  ⠿  ⠸⠿  ⠿⠷⠶⠿⠃⠸⠿⠄⠙⠷⠤⠿⠉⠉⠿⠆   ',
+    \'  ⠄⣾⣿⡇⢸⣿⣿⣿⠄⠈⣿⣿⣿⣿⠈⣿⡇⢹⣿⣿⣿⡇⡇⢸⣿⣿⡇⣿⣿⣿ ',
+    \'  ⢠⣿⣿⡇⢸⣿⣿⣿⡇⠄⢹⣿⣿⣿⡀⣿⣧⢸⣿⣿⣿⠁⡇⢸⣿⣿⠁⣿⣿⣿ ',
+    \'  ⢸⣿⣿⡇⠸⣿⣿⣿⣿⡄⠈⢿⣿⣿⡇⢸⣿⡀⣿⣿⡿⠸⡇⣸⣿⣿⠄⣿⣿⣿ ',
+    \'  ⢸⣿⡿⠷⠄⠿⠿⠿⠟⠓⠰⠘⠿⣿⣿⡈⣿⡇⢹⡟⠰⠦⠁⠈⠉⠋⠄⠻⢿⣿ ',
+    \'  ⢨⡑⠶⡏⠛⠐⠋⠓⠲⠶⣭⣤⣴⣦⣭⣥⣮⣾⣬⣴⡮⠝⠒⠂⠂⠘⠉⠿⠖⣬ ',
+    \'  ⠈⠉⠄⡀⠄⣀⣀⣀⣀⠈⢛⣿⣿⣿⣿⣿⣿⣿⣿⣟⠁⣀⣤⣤⣠⡀⠄⡀⠈⠁ ',
+    \'  ⠄⠠⣾⡀⣾⣿⣧⣼⣿⡿⢠⣿⣿⣿⣿⣿⣿⣿⣿⣧⣼⣿⣧⣼⣿⣿⢀⣿⡇⠄ ',
+    \'  ⡀⠄⠻⣷⡘⢿⣿⣿⡿⢣⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣜⢿⣿⣿⡿⢃⣾⠟⢁⠈ ',
+    \'  ⢃⢻⣶⣬⣿⣶⣬⣥⣶⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣷⣶⣶⣾⣿⣷⣾⣾⢣ ',
+    \'  ⡄⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠘ ',
+    \'  ⣿⡐⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢠⢃ ',
+    \'  ⣿⣷⡀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⡿⠋⢀⠆⣼ ',
+    \'  ⣿⣿⣷⡀⠄⠈⠛⢿⣿⣿⣿⣿⣷⣶⣶⣶⣶⣶⣿⣿⣿⣿⣿⠿⠋⠠⠂⢀⣾⣿ ',
+    \'  ⣿⣿⣿⣧⠄⠄⢵⢠⣈⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢋⡁⢰⠏⠄⠄⣼⣿⣿ ',
+    \'  ⢻⣿⣿⣿⡄⢢⠨⠄⣯⠄⠄⣌⣉⠛⠻⠟⠛⢋⣉⣤⠄⢸⡇⣨⣤⠄⢸⣿⣿⣿ ',
     \'',
     \]
 
@@ -354,6 +393,7 @@ let g:vim_http_split_vertically = 1
 let g:vim_http_tempbuffer = 1
 
 "}}}
+"
 
 let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls']

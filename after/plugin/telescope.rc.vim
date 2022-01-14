@@ -9,8 +9,8 @@ local actions = require('telescope.actions')
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = {
-      "node_modules", 
-      "git",
+      "node_modules",
+      "git"
     },
     mappings = {
       n = {
@@ -18,8 +18,8 @@ require('telescope').setup{
       },
     },
     pickers = {
-      fnd_files = {
-        previewer = false, 
+      find_files = {
+        previewer = false,
       },
       file_browser = {
         previewer = false,
