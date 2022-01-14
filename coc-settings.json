@@ -49,11 +49,11 @@
     "value": "  ",
     "enumMember": "  "
   },
-  "codeLens.enable": true,
+  "codeLens.enable": false,
   "diagnostic.errorSign": "",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
-  "diagnostic.hintSign": "",
+  "diagnostic.hintSign": "",
   "diagnostic.enableMessage": "jump",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false 
