@@ -9,6 +9,7 @@
 - coc-vetur
 - coc-tsserver
 - coc-prettier
+- coc-json
 
 #Together with npm global needed
 
