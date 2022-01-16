@@ -1,4 +1,6 @@
 {
+  "volar.diagnostics.tsLocale": "en",
+  "tsserver.locale": "en",
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": [
     "javascript",
@@ -7,11 +9,13 @@
     "typescriptreact",
     "vue",
     "php",
-    "json"
+    "json",
+    "css",
+    "config"
   ],
   "prettier.disableSuccessMessage": true,
   "prettier.singleQuote": true,
-  "eslint.singleQuote": true,
+  "prettier.bracketSpacing": true,
   "prettier.tabWidth": 2,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
@@ -20,7 +24,9 @@
     "typescriptreact",
     "vue",
     "php",
-    "json"
+    "json",
+    "css",
+    "config"
   ],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
