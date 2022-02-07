@@ -11,8 +11,10 @@
   ],
   "prettier.disableSuccessMessage": true,
   "prettier.singleQuote": true,
-  "eslint.singleQuote": true,
+  "prettier.semi": true,
   "prettier.tabWidth": 2,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",
