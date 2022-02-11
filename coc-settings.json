@@ -9,12 +9,6 @@
     "php",
     "json"
   ],
-  "prettier.disableSuccessMessage": true,
-  "prettier.singleQuote": true,
-  "prettier.semi": true,
-  "prettier.tabWidth": 2,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",
@@ -26,6 +20,12 @@
   ],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
+  "prettier.disableSuccessMessage": true,
+  "prettier.singleQuote": true,
+  "prettier.semi": true,
+  "prettier.tabWidth": 2,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "suggest.completionItemKindLabels": {
     "method": "  ",
     "function": "  ",
