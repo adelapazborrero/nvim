@@ -137,19 +137,19 @@ EOF
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 
-autocmd vimenter * ++nested colorscheme solarized8
-autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=#50727C guibg=#043542
-let g:solarized_termtrans = 1
+" autocmd vimenter * ++nested colorscheme solarized8
+" autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=#50727C guibg=#043542
+" let g:solarized_termtrans = 1
 
 " colorscheme iceberg
 " colorscheme gruvbox
-" colorscheme nord
+colorscheme nord
 set background=dark
 
 let g:airline#extensions#tabline#enabled = 1
 
 "Transparent background"
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 " Javascript pretty colorful highlight
 " let g:vim_jsx_pretty_colorful_config = 1
@@ -160,7 +160,7 @@ let g:airline#extensions#tabline#enabled = 1
 set cursorline
 "set cursorcolumn
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-highlight LineNr cterm=NONE ctermfg=236 guifg=#50727C guibg=#043542
+highlight LineNr cterm=NONE ctermfg=236 guifg=#4C566A guibg=#3B4252
 
 " Set cursor line color on visual mode
 
