@@ -187,7 +187,7 @@ autocmd FileType php setlocal shiftwidth=4 tabstop=4
 autocmd FileType js setlocal shiftwidth=2 tabstop=2
 autocmd FileType ts setlocal shiftwidth=2 tabstop=2
 autocmd FileType tsx setlocal shiftwidth=2 tabstop=2
-autocmd FileType vue setlocal shiftwidth=4 tabstop=4
+autocmd FileType vue setlocal shiftwidth=2 tabstop=2
 autocmd FileType json setlocal shiftwidth=2 tabstop=2
 
 let g:indentLine_setColors = 1

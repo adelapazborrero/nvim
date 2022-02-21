@@ -32,6 +32,7 @@ if has("nvim")
   Plug 'Yggdroot/indentLine' " Comment this out for initial screen
   Plug 'nicwest/vim-http'
   Plug 'tpope/vim-surround'
+  Plug 'mileszs/ack.vim'
 
   "" Lua plugins 
   Plug 'hoob3rt/lualine.nvim'

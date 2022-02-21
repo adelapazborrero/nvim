@@ -1,14 +1,4 @@
 {
-  "eslint.autoFixOnSave": true,
-  "eslint.filetypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue",
-    "php",
-    "json"
-  ],
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",
@@ -22,7 +12,6 @@
   "coc.preferences.formatOnType": true,
   "prettier.disableSuccessMessage": true,
   "prettier.singleQuote": true,
-  "prettier.semi": true,
   "prettier.tabWidth": 2,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
@@ -60,5 +49,8 @@
   "diagnostic.hintSign": "",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "diagnostic.enableHighlightLineNumber": false
+  "diagnostic.enableHighlightLineNumber": false,
+  "volar.autoClosingTags": true,
+  "volar.formatting.printWidth": 80,
+  "volar.takeOverMode.enabled": true
 }
