@@ -203,10 +203,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" nnoremap <C-i> :IndentLinesToggle<CR>
-" nnoremap <C-m> :noh<CR>
-nnoremap <C-i> :IndentLinesToggle<CR>
-nnoremap <C-m> :noh<CR>
+noremap fi :IndentLinesToggle<CR>
+noremap fn :noh<CR>
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-p> :bd<CR>
