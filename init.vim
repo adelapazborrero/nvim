@@ -182,12 +182,12 @@ endif
 
 autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
 autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
-autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
 autocmd FileType js setlocal shiftwidth=2 tabstop=2
 autocmd FileType ts setlocal shiftwidth=2 tabstop=2
 autocmd FileType tsx setlocal shiftwidth=2 tabstop=2
-autocmd FileType vue setlocal shiftwidth=2 tabstop=2
+autocmd FileType vue setlocal shiftwidth=4 tabstop=4
 autocmd FileType json setlocal shiftwidth=2 tabstop=2
 
 let g:indentLine_setColors = 1
@@ -203,12 +203,18 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" nnoremap <C-i> :IndentLinesToggle<CR>
+" nnoremap <C-m> :noh<CR>
 nnoremap <C-i> :IndentLinesToggle<CR>
 nnoremap <C-m> :noh<CR>
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-p> :bd<CR>
 nnoremap ;g  :Gvdiffsplit<CR>
+nnoremap fh  :diffget //2<CR>
+nnoremap fl  :diffget //3<CR>
+nnoremap [q  :cprev<CR>
+nnoremap ]q  :cnext<CR>
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
@@ -293,7 +299,6 @@ let g:nvim_tree_icons = {
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
-" NvimTreeOpen, NvimTreeClose, NvimTreeFocus and NvimTreeResize are also available if you need them
 
 set termguicolors " this variable must be enabled for colors to be applied properly
 
