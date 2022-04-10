@@ -6,7 +6,8 @@
     "typescriptreact",
     "vue",
     "php",
-    "json"
+    "json",
+    "prisma"
   ],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
@@ -16,9 +17,9 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "suggest.completionItemKindLabels": {
-    "method": "  ",
-    "function": "  ",
-    "variable": "  ",
+    "method": "  ",
+    "function": "  ",
+    "variable": "  ",
     "field": "  ",
     "typeParameter": "<>",
     "constant": "  ",

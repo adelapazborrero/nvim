@@ -143,13 +143,19 @@ EOF
 
 " colorscheme iceberg
 " colorscheme gruvbox
-colorscheme nord
+" colorscheme nord
+" colorscheme base16-default-dark
+" colorscheme OceanicNext
+colorscheme nordfox
 set background=dark
 
 let g:airline#extensions#tabline#enabled = 1
 
 "Transparent background"
 hi Normal guibg=NONE ctermbg=NONE
+hi LineNr guibg=NONE ctermbg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Javascript pretty colorful highlight
 " let g:vim_jsx_pretty_colorful_config = 1
@@ -209,6 +215,8 @@ nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-p> :bd<CR>
 nnoremap ;g  :Gvdiffsplit<CR>
+nnoremap gs  :G<CR>
+nnoremap gl  :Gclog<CR>
 nnoremap fh  :diffget //2<CR>
 nnoremap fl  :diffget //3<CR>
 nnoremap [q  :cprev<CR>
@@ -298,7 +306,9 @@ nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
-set termguicolors " this variable must be enabled for colors to be applied properly
+if (has("termguicolors"))
+  set termguicolors " this variable must be enabled for colors to be applied properly
+endif
 
 "}}}
 
@@ -307,6 +317,7 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 " air-line
 let g:airline_powerline_fonts = 1
 " let g:airline_theme='papercolor'
+" let g:airline_theme='oceanicnext'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}

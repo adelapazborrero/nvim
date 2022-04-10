@@ -8,6 +8,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 if has("nvim")
+  "" Test and Debug
+  Plug 'puremourning/vimspector'
+
   "" Configuration
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
@@ -33,6 +36,7 @@ if has("nvim")
   Plug 'nicwest/vim-http'
   Plug 'tpope/vim-surround'
   Plug 'mileszs/ack.vim'
+  Plug 'pantharshit00/vim-prisma'
 
   "" Lua plugins 
   Plug 'hoob3rt/lualine.nvim'
@@ -41,7 +45,6 @@ if has("nvim")
 
   "" Vuejs plugins and language servers
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'puremourning/vimspector'
   Plug 'neoclide/coc-vetur'
   Plug 'ncm2/ncm2'
   Plug 'ncm2/ncm2-jedi'
@@ -63,6 +66,9 @@ if has("nvim")
   Plug 'morhetz/gruvbox'
   Plug 'cocopon/iceberg.vim'
   Plug 'lifepillar/vim-solarized8'
+  Plug 'chriskempson/base16-vim'
+  Plug 'mhartington/oceanic-next'
+  Plug 'EdenEast/nightfox.nvim'
 
   " LSP Config
   Plug 'folke/lsp-colors.nvim'
