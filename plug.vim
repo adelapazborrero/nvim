@@ -69,6 +69,8 @@ if has("nvim")
   Plug 'chriskempson/base16-vim'
   Plug 'mhartington/oceanic-next'
   Plug 'EdenEast/nightfox.nvim'
+  Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+
 
   " LSP Config
   Plug 'folke/lsp-colors.nvim'

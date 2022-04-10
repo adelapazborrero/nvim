@@ -149,7 +149,6 @@ EOF
 colorscheme nordfox
 set background=dark
 
-let g:airline#extensions#tabline#enabled = 1
 
 "Transparent background"
 hi Normal guibg=NONE ctermbg=NONE
@@ -306,9 +305,7 @@ nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
-if (has("termguicolors"))
-  set termguicolors " this variable must be enabled for colors to be applied properly
-endif
+set termguicolors " this variable must be enabled for colors to be applied properly
 
 "}}}
 
@@ -316,6 +313,7 @@ endif
 " ---------------------------------------------------------------------
 " air-line
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 0
 " let g:airline_theme='papercolor'
 " let g:airline_theme='oceanicnext'
 
@@ -399,6 +397,71 @@ let g:dashboard_custom_header = [
 let g:dashboard_custom_footer = [
     \'アベル  NVIM ターミナル' 
     \]
+
+"}}}
+
+" Bufferline"{{{
+" ---------------------------------------------------------------------
+lua << EOF
+require("bufferline").setup{
+  options = {
+    separator_style = "thin", -- slant, padded_slant, think, thin
+    indicator_icon = '▎',
+    buffer_close_icon = '',
+    modified_icon = '●',
+    close_icon = '',
+    left_trunc_marker = '',
+    right_trunc_marker = '',
+    offsets = {{filetype = "NvimTree", text = "構造", text_align = "center"}},
+    color_icons = true, -- whether or not to add the filetype icon highlights
+    show_buffer_icons = true, -- disable filetype icons for buffers
+    show_buffer_close_icons = true,
+    show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
+    show_close_icon = true,
+    show_tab_indicators = true,
+    enforce_regular_tabs = false,
+    always_show_bufferline = true,
+    tab_size = 20,
+    diagnostics = 'coc',
+    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      local s = " "
+      for e, n in pairs(diagnostics_dict) do
+        local sym = e == "error" and " "
+          or (e == "warning" and " " or "" )
+        s = s .. n .. sym
+      end
+      return s
+    end,
+    custom_areas = {
+      right = function()
+        local result = {}
+        local seve = vim.diagnostic.severity
+        local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
+        local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
+        local info = #vim.diagnostic.get(0, {severity = seve.INFO})
+        local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
+
+        if error ~= 0 then
+          table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
+        end
+
+        if warning ~= 0 then
+          table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
+        end
+
+        if hint ~= 0 then
+          table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
+        end
+
+        if info ~= 0 then
+          table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
+        end
+        return result
+      end,
+    }
+  }
+}
+EOF
 
 "}}}
 
