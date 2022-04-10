@@ -143,10 +143,10 @@ EOF
 
 " colorscheme iceberg
 " colorscheme gruvbox
-" colorscheme nord
+colorscheme nord
 " colorscheme base16-default-dark
 " colorscheme OceanicNext
-colorscheme nordfox
+" colorscheme nordfox
 set background=dark
 
 
@@ -309,40 +309,40 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 
 "}}}
 
-" Airline Settings "{{{
+" Airline Settings (Disabled) "{{{
 " ---------------------------------------------------------------------
 " air-line
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 0
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 0
 " let g:airline_theme='papercolor'
 " let g:airline_theme='oceanicnext'
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+" if !exists('g:airline_symbols')
+"     let g:airline_symbols = {}
+" endif
 
 " unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '  '
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = '  '
 
 "}}}
 
@@ -426,42 +426,81 @@ require("bufferline").setup{
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       local s = " "
       for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and " "
-          or (e == "warning" and " " or "" )
+        local sym = e == "error" and "  "
+          or (e == "warning" and "  " or " " )
         s = s .. n .. sym
       end
       return s
     end,
-    custom_areas = {
-      right = function()
-        local result = {}
-        local seve = vim.diagnostic.severity
-        local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
-        local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
-        local info = #vim.diagnostic.get(0, {severity = seve.INFO})
-        local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
-
-        if error ~= 0 then
-          table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
-        end
-
-        if warning ~= 0 then
-          table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
-        end
-
-        if hint ~= 0 then
-          table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
-        end
-
-        if info ~= 0 then
-          table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
-        end
-        return result
-      end,
-    }
+--    custom_areas = {
+--      right = function()
+--        local result = {}
+--        local seve = vim.diagnostic.severity
+--        local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
+--        local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
+--        local info = #vim.diagnostic.get(0, {severity = seve.INFO})
+--        local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
+--
+--        if error ~= 0 then
+--          table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
+--        end
+--
+--        if warning ~= 0 then
+--          table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
+--        end
+--
+--        if hint ~= 0 then
+--          table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
+--        end
+--
+--        if info ~= 0 then
+--          table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
+--        end
+--        return result
+--      end,
+--    }
   }
 }
 EOF
+
+"}}}
+
+" Lua Line"{{{
+" ---------------------------------------------------------------------
+lua << END
+require('lualine').setup({
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    --component_separators = { left = '', right = ''},
+    --section_separators = { left = '', right = ''},
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+    -- section_separators = { left = ' ', right = ' ' },
+    disabled_filetypes = {},
+    always_divide_middle = true,
+    globalstatus = false,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+})
+END
 
 "}}}
 
@@ -471,7 +510,6 @@ let g:vim_http_split_vertically = 1
 let g:vim_http_tempbuffer = 1
 
 "}}}
-"
 
 let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls']

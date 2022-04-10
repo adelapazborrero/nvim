@@ -50,9 +50,10 @@ if has("nvim")
   Plug 'ncm2/ncm2-jedi'
   Plug 'ncm2/ncm2-path'
 
-  ""Airline plugins
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  "" Themes
+  Plug 'nvim-lualine/lualine.nvim'
+  " Plug 'vim-airline/vim-airline'
+  " Plug 'vim-airline/vim-airline-themes'
 
   ""Auto completion plugin
   Plug 'nvim-lua/completion-nvim'
