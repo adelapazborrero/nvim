@@ -37,6 +37,7 @@ if has("nvim")
   Plug 'tpope/vim-surround'
   Plug 'mileszs/ack.vim'
   Plug 'pantharshit00/vim-prisma'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
   "" Lua plugins 
   Plug 'hoob3rt/lualine.nvim'

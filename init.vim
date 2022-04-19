@@ -158,6 +158,34 @@ hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Javascript pretty colorful highlight
 " let g:vim_jsx_pretty_colorful_config = 1
+"
+lua << END
+-- require('nightfox').setup({
+--   options = {
+--     transparent = true,
+--     terminal_colors = true,
+--     dim_inactive = false,
+--     styles = {
+--       comments = "NONE",
+--       functions = "NONE",
+--       keywords = "NONE",
+--       numbers = "NONE",
+--       strings = "NONE",
+--       types = "NONE",
+--       variables = "NONE",
+--     },
+--     inverse = {
+--       match_paren = false,
+--       visual = false,
+--       search = false,
+--     },
+--     modules = {
+--     },
+--   }
+-- })
+END
+
+"
 "}}}
 
 " Highlights "{{{
