@@ -63,11 +63,12 @@ if has("nvim")
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
 
-  "" Colorschemes
+  "" Themes 
   Plug 'arcticicestudio/nord-vim'
   Plug 'morhetz/gruvbox'
   Plug 'cocopon/iceberg.vim'
   Plug 'lifepillar/vim-solarized8'
+  Plug 'overcache/NeoSolarized'
   Plug 'chriskempson/base16-vim'
   Plug 'mhartington/oceanic-next'
   Plug 'EdenEast/nightfox.nvim'

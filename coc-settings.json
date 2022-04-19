@@ -48,7 +48,7 @@
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
-  "diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic.enableHighlightLineNumber": false,
   "volar.autoClosingTags": true,

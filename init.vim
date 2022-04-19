@@ -137,18 +137,15 @@ EOF
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 
-" autocmd vimenter * ++nested colorscheme solarized8
-" autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=#50727C guibg=#043542
-" let g:solarized_termtrans = 1
-
 " colorscheme iceberg
 " colorscheme gruvbox
-colorscheme nord
+" colorscheme nord
 " colorscheme base16-default-dark
 " colorscheme OceanicNext
 " colorscheme nordfox
-set background=dark
+" colorscheme NeoSolarized
 
+set background=dark
 
 "Transparent background"
 hi Normal guibg=NONE ctermbg=NONE
@@ -156,34 +153,21 @@ hi LineNr guibg=NONE ctermbg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 
-" Javascript pretty colorful highlight
-" let g:vim_jsx_pretty_colorful_config = 1
-"
-lua << END
--- require('nightfox').setup({
---   options = {
---     transparent = true,
---     terminal_colors = true,
---     dim_inactive = false,
---     styles = {
---       comments = "NONE",
---       functions = "NONE",
---       keywords = "NONE",
---       numbers = "NONE",
---       strings = "NONE",
---       types = "NONE",
---       variables = "NONE",
---     },
---     inverse = {
---       match_paren = false,
---       visual = false,
---       search = false,
---     },
---     modules = {
---     },
---   }
--- })
-END
+" Neosolarized variables
+autocmd vimenter * ++nested colorscheme solarized8
+autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=#50727C guibg=#043542
+autocmd vimenter * ++nested highlight CursorLineNr cterm=NONE guifg=NONE guibg=#043542
+autocmd vimenter * ++nested hi! CocErrorSign guifg=#cb4b16
+autocmd vimenter * ++nested hi! CocInfoSign guibg=#268BD2
+autocmd vimenter * ++nested hi! CocWarningSign guifg=#D33682
+
+let g:solarized_termtrans = 1
+
+" hi! CocErrorSign guifg=#cb4b16
+" hi! CocInfoSign guibg=#268BD2
+" hi! CocWarningSign guifg=#D33682
+" highlight CocFloating ctermbg=color
+" highlight CocErrorFloat ctermfg=color
 
 "
 "}}}
@@ -433,8 +417,10 @@ let g:dashboard_custom_footer = [
 lua << EOF
 require("bufferline").setup{
   options = {
-    separator_style = "thin", -- slant, padded_slant, think, thin
-    indicator_icon = '▎',
+    separator_style = "thin", -- slant, padded_slant, thick, thin
+    --separator_style = {"|", "|"}, -- slant, padded_slant, think, thin
+    numbers = "ordinal",
+    --indicator_icon = '▎',
     buffer_close_icon = '',
     modified_icon = '●',
     close_icon = '',
@@ -450,43 +436,27 @@ require("bufferline").setup{
     enforce_regular_tabs = false,
     always_show_bufferline = true,
     tab_size = 20,
-    diagnostics = 'coc',
-    diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      local s = " "
-      for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and "  "
-          or (e == "warning" and "  " or " " )
-        s = s .. n .. sym
-      end
-      return s
-    end,
---    custom_areas = {
---      right = function()
---        local result = {}
---        local seve = vim.diagnostic.severity
---        local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
---        local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
---        local info = #vim.diagnostic.get(0, {severity = seve.INFO})
---        local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
---
---        if error ~= 0 then
---          table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
---        end
---
---        if warning ~= 0 then
---          table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
---        end
---
---        if hint ~= 0 then
---          table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
---        end
---
---        if info ~= 0 then
---          table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
---        end
---        return result
---      end,
---    }
+    highlights = {
+      tab = { 
+        guifg = '#dddddd',
+        guibg = '#ffffff'
+      },
+      tab_selected = {
+        guifg = "#ffffff",
+        guibg = "#ffffff",
+
+      }
+    }
+--    diagnostics = 'coc',
+--    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+--      local s = " "
+--      for e, n in pairs(diagnostics_dict) do
+--        local sym = e == "error" and "  "
+--          or (e == "warning" and "  " or " " )
+--        s = s .. n .. sym
+--      end
+--      return s
+--    end,
   }
 }
 EOF
@@ -499,19 +469,20 @@ lua << END
 require('lualine').setup({
   options = {
     icons_enabled = true,
-    theme = 'auto',
-    --component_separators = { left = '', right = ''},
+    theme = 'solarized_dark',
+    --theme = 'auto',
+    component_separators = { left = '', right = ''},
     --section_separators = { left = '', right = ''},
-    section_separators = { left = '', right = '' },
-    component_separators = { left = '', right = '' },
-    -- section_separators = { left = ' ', right = ' ' },
+    --section_separators = { left = '', right = '' },
+    --component_separators = { left = '', right = '' },
+    section_separators = { left = ' ', right = ' ' },
     disabled_filetypes = {},
     always_divide_middle = true,
     globalstatus = false,
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_b = {'branch', 'diff'},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
