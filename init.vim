@@ -4,8 +4,8 @@
 " init autocmd autocmd!  set script encoding scriptencoding utf-6 stop loading config if it's on tiny or small if !2 | finish | endif set nocompatible set number
 " syntax enable
 " set langmenu=ja_JP
-let $LANG = 'ja_JP'
-set fileencodings=utf-8,sjis,euc-jp,latin
+" let $LANG = 'ja_JP'
+" set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=UTF-8
 set title
 set autoindent
@@ -127,7 +127,14 @@ lua <<EOF
 require'toggle_lsp_diagnostics'.init({start_on = false})
 require('neoscroll').setup()
 require'lspconfig'.vuels.setup{}
-require'nvim-web-devicons'.get_icons()
+require'nvim-web-devicons'.setup{
+--  override = {
+--    vue = {
+--      icon = "﵂",
+--      name = "Vue"
+--    }
+--  }
+}
 require('nvim-autopairs').setup{}
 EOF
 " let g:coc_diagnostic_disable = 1
@@ -148,20 +155,23 @@ EOF
 set background=dark
 
 "Transparent background"
-hi Normal guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE ctermbg=NONE
-hi SignColumn guibg=NONE ctermbg=NONE
-hi EndOfBuffer guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
+" hi LineNr guibg=NONE ctermbg=NONE
+" hi SignColumn guibg=NONE ctermbg=NONE
+" hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Neosolarized variables
 autocmd vimenter * ++nested colorscheme solarized8
 autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=#50727C guibg=#043542
 autocmd vimenter * ++nested highlight CursorLineNr cterm=NONE guifg=NONE guibg=#043542
+
 autocmd vimenter * ++nested hi! CocErrorSign guifg=#cb4b16
 autocmd vimenter * ++nested hi! CocInfoSign guibg=#268BD2
 autocmd vimenter * ++nested hi! CocWarningSign guifg=#D33682
 
 let g:solarized_termtrans = 1
+
+set guifont="Hack Nerd Font"
 
 " hi! CocErrorSign guifg=#cb4b16
 " hi! CocInfoSign guibg=#268BD2
@@ -373,7 +383,7 @@ let g:dashboard_custom_shortcut={
 
 let g:dashboard_custom_section={
   \'open_nvim_tree': {
-    \'description' : ['פּ  プロジェクト構造  '],
+    \'description' : ['  プロジェクト構造  '],
     \'command': 'NvimTreeToggle',
   \},
   \'telescope_find_files': {
@@ -414,11 +424,11 @@ let g:dashboard_custom_footer = [
 
 " Bufferline"{{{
 " ---------------------------------------------------------------------
+
 lua << EOF
 require("bufferline").setup{
   options = {
     separator_style = "thin", -- slant, padded_slant, thick, thin
-    --separator_style = {"|", "|"}, -- slant, padded_slant, think, thin
     numbers = "ordinal",
     --indicator_icon = '▎',
     buffer_close_icon = '',
@@ -438,7 +448,7 @@ require("bufferline").setup{
     tab_size = 20,
     highlights = {
       tab = { 
-        guifg = '#dddddd',
+        guifg = '#ffffff',
         guibg = '#ffffff'
       },
       tab_selected = {
