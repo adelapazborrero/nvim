@@ -520,6 +520,11 @@ let g:vim_http_tempbuffer = 1
 
 "}}}
 
+" set clipboard=unnamedplus
+set clipboard=unnamed
+vnoremap <A-c> "+y
+vnoremap <A-v> "+p
+
 let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls']
     \ }
