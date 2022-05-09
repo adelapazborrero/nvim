@@ -17,6 +17,7 @@ if has("nvim")
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'roxma/nvim-yarp'
   Plug 'glepnir/dashboard-nvim'
+  Plug 'lifepillar/vim-colortemplate'
 
   "" Typescript React support
   " Plug 'peitalin/vim-jsx-typescript'
@@ -74,6 +75,8 @@ if has("nvim")
   Plug 'mhartington/oceanic-next'
   Plug 'EdenEast/nightfox.nvim'
   Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+  Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+  Plug 'kristijanhusak/vim-hybrid-material'
 
 
   " LSP Config
