@@ -42,7 +42,6 @@ local on_attach = function(client, bufnr)
     'ﬦ', -- Operator
     '', -- TypeParameter
   }  
-  require 'completion'.on_attach(client, bufnr)
 end
 
 

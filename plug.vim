@@ -43,6 +43,7 @@ if has("nvim")
   Plug 'hoob3rt/lualine.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
+  Plug 'norcalli/snippets.nvim'
 
   "" Vuejs plugins and language servers
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
