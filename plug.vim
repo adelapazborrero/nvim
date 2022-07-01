@@ -16,7 +16,7 @@ if has("nvim")
   Plug 'kristijanhusak/defx-icons'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'roxma/nvim-yarp'
-  Plug 'glepnir/dashboard-nvim'
+  " Plug 'glepnir/dashboard-nvim'
   Plug 'lifepillar/vim-colortemplate'
 
   "" Typescript React support
@@ -55,8 +55,6 @@ if has("nvim")
 
   "" Themes
   Plug 'nvim-lualine/lualine.nvim'
-  " Plug 'vim-airline/vim-airline'
-  " Plug 'vim-airline/vim-airline-themes'
 
   ""Auto completion plugin
   Plug 'nvim-lua/completion-nvim'

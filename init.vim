@@ -225,13 +225,13 @@ endif
 
 autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
 autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
-autocmd FileType js setlocal shiftwidth=2 tabstop=2
-autocmd FileType ts setlocal shiftwidth=2 tabstop=2
-autocmd FileType tsx setlocal shiftwidth=2 tabstop=2
-autocmd FileType vue setlocal shiftwidth=2 tabstop=2
-autocmd FileType json setlocal shiftwidth=2 tabstop=2
+autocmd FileType js setlocal shiftwidth=4 tabstop=4
+autocmd FileType ts setlocal shiftwidth=4 tabstop=4
+autocmd FileType tsx setlocal shiftwidth=4 tabstop=4
+autocmd FileType vue setlocal shiftwidth=4 tabstop=4
+autocmd FileType json setlocal shiftwidth=4 tabstop=4
 
 let g:indentLine_setColors = 1
 let g:indentLine_enabled = 0
@@ -280,17 +280,17 @@ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tab
 " let g:nvim_tree_gitignore = 1 
 " let g:nvim_tree_indent_markers = 1 
 " let g:nvim_tree_hide_dotfiles = 0 
-let g:nvim_tree_git_hl = 1 
-let g:nvim_tree_highlight_opened_files = 1 
-let g:nvim_tree_root_folder_modifier = ':~' 
-let g:nvim_tree_add_trailing = 1
-let g:nvim_tree_group_empty = 1
+" let g:nvim_tree_git_hl = 1 
+" let g:nvim_tree_highlight_opened_files = 1 
+" let g:nvim_tree_root_folder_modifier = ':~' 
+" let g:nvim_tree_add_trailing = 1
+" let g:nvim_tree_group_empty = 1
 " let g:nvim_tree_disable_window_picker = 1
-let g:nvim_tree_icon_padding = ' ' 
-let g:nvim_tree_symlink_arrow = ' >> ' 
-let g:nvim_tree_respect_buf_cwd = 1 
-let g:nvim_tree_create_in_closed_folder = 0
-let g:nvim_tree_refresh_wait = 500 
+" let g:nvim_tree_icon_padding = ' ' 
+" let g:nvim_tree_symlink_arrow = ' >> ' 
+" let g:nvim_tree_respect_buf_cwd = 1 
+" let g:nvim_tree_create_in_closed_folder = 0
+" let g:nvim_tree_refresh_wait = 500 
 " let g:nvim_tree_window_picker_exclude = {
 "     \   'filetype': [
 "     \     'notify',
@@ -301,43 +301,43 @@ let g:nvim_tree_refresh_wait = 500
 "     \     'terminal'
 "     \   ]
 "     \ }
-let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } 
-let g:nvim_tree_show_icons = {
-    \ 'git': 1,
-    \ 'folders': 1,
-    \ 'files': 1,
-    \ 'folder_arrows': 0,
-    \ }
+" let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } 
+" let g:nvim_tree_show_icons = {
+"     \ 'git': 1,
+"     \ 'folders': 1,
+"     \ 'files': 1,
+"     \ 'folder_arrows': 0,
+"     \ }
 
-let g:nvim_tree_icons = {
-    \ 'default': '',
-    \ 'symlink': '',
-    \ 'git': {
-    \   'unstaged': "✗",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "➜",
-    \   'untracked': "★",
-    \   'deleted': "",
-    \   'ignored': "◌"
-    \   },
-    \ 'folder': {
-    \   'arrow_open': "",
-    \   'arrow_closed': "",
-    \   'default': "",
-    \   'open': "",
-    \   'empty': "",
-    \   'empty_open': "",
-    \   'symlink': "",
-    \   'symlink_open': "",
-    \   },
-    \   'lsp': {
-    \     'hint': "",
-    \     'info': "",
-    \     'warning': "",
-    \     'error': "",
-    \   }
-    \ }
+" let g:nvim_tree_icons = {
+"     \ 'default': '',
+"     \ 'symlink': '',
+"     \ 'git': {
+"     \   'unstaged': "✗",
+"     \   'staged': "✓",
+"     \   'unmerged': "",
+"     \   'renamed': "➜",
+"     \   'untracked': "★",
+"     \   'deleted': "",
+"     \   'ignored': "◌"
+"     \   },
+"     \ 'folder': {
+"     \   'arrow_open': "",
+"     \   'arrow_closed': "",
+"     \   'default': "",
+"     \   'open': "",
+"     \   'empty': "",
+"     \   'empty_open': "",
+"     \   'symlink': "",
+"     \   'symlink_open': "",
+"     \   },
+"     \   'lsp': {
+"     \     'hint': "",
+"     \     'info': "",
+"     \     'warning': "",
+"     \     'error': "",
+"     \   }
+"     \ }
 
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
@@ -381,60 +381,6 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 " let g:airline_symbols.branch = ''
 " let g:airline_symbols.readonly = ''
 " let g:airline_symbols.linenr = '  '
-
-"}}}
-
-" Dashboard Settings"{{{
-" ---------------------------------------------------------------------
-let g:dashboard_default_executive ='telescope'
-let g:dashboard_custom_shortcut={
-\ 'find_file'          : 'SPC f f',
-\ 'find_history'       : 'SPC f h',
-\ 'change_colorscheme' : 'SPC t c',
-\ 'new_file'           : 'SPC c n',
-\ 'last_session'       : 'SPC s l',
-\ 'find_word'          : 'SPC f a',
-\ 'book_marks'         : 'SPC f b',
-\ }
-
-let g:dashboard_custom_section={
-  \'open_nvim_tree': {
-    \'description' : ['  プロジェクト構造  '],
-    \'command': 'NvimTreeToggle',
-  \},
-  \'telescope_find_files': {
-    \'description' : ['  ファイル検索      '],
-    \'command': 'Telescope find_files',
-  \},
-  \'zdashboar_find_word': {
-    \'description' : ['  最近開いたファイル'],
-    \'command': 'DashboardFindHistory',
-  \}
-\}
-
-let g:dashboard_custom_header = [
-    \'',
-    \'  ⠄⣾⣿⡇⢸⣿⣿⣿⠄⠈⣿⣿⣿⣿⠈⣿⡇⢹⣿⣿⣿⡇⡇⢸⣿⣿⡇⣿⣿⣿ ',
-    \'  ⢠⣿⣿⡇⢸⣿⣿⣿⡇⠄⢹⣿⣿⣿⡀⣿⣧⢸⣿⣿⣿⠁⡇⢸⣿⣿⠁⣿⣿⣿ ',
-    \'  ⢸⣿⣿⡇⠸⣿⣿⣿⣿⡄⠈⢿⣿⣿⡇⢸⣿⡀⣿⣿⡿⠸⡇⣸⣿⣿⠄⣿⣿⣿ ',
-    \'  ⢸⣿⡿⠷⠄⠿⠿⠿⠟⠓⠰⠘⠿⣿⣿⡈⣿⡇⢹⡟⠰⠦⠁⠈⠉⠋⠄⠻⢿⣿ ',
-    \'  ⢨⡑⠶⡏⠛⠐⠋⠓⠲⠶⣭⣤⣴⣦⣭⣥⣮⣾⣬⣴⡮⠝⠒⠂⠂⠘⠉⠿⠖⣬ ',
-    \'  ⠈⠉⠄⡀⠄⣀⣀⣀⣀⠈⢛⣿⣿⣿⣿⣿⣿⣿⣿⣟⠁⣀⣤⣤⣠⡀⠄⡀⠈⠁ ',
-    \'  ⠄⠠⣾⡀⣾⣿⣧⣼⣿⡿⢠⣿⣿⣿⣿⣿⣿⣿⣿⣧⣼⣿⣧⣼⣿⣿⢀⣿⡇⠄ ',
-    \'  ⡀⠄⠻⣷⡘⢿⣿⣿⡿⢣⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣜⢿⣿⣿⡿⢃⣾⠟⢁⠈ ',
-    \'  ⢃⢻⣶⣬⣿⣶⣬⣥⣶⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣷⣶⣶⣾⣿⣷⣾⣾⢣ ',
-    \'  ⡄⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠘ ',
-    \'  ⣿⡐⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢠⢃ ',
-    \'  ⣿⣷⡀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⡿⠋⢀⠆⣼ ',
-    \'  ⣿⣿⣷⡀⠄⠈⠛⢿⣿⣿⣿⣿⣷⣶⣶⣶⣶⣶⣿⣿⣿⣿⣿⠿⠋⠠⠂⢀⣾⣿ ',
-    \'  ⣿⣿⣿⣧⠄⠄⢵⢠⣈⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢋⡁⢰⠏⠄⠄⣼⣿⣿ ',
-    \'  ⢻⣿⣿⣿⡄⢢⠨⠄⣯⠄⠄⣌⣉⠛⠻⠟⠛⢋⣉⣤⠄⢸⡇⣨⣤⠄⢸⣿⣿⣿ ',
-    \'',
-    \]
-
-let g:dashboard_custom_footer = [
-    \'アベル  NVIM ターミナル' 
-    \]
 
 "}}}
 

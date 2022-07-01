@@ -13,7 +13,7 @@ require'nvim-tree'.setup {
   update_cwd          = false,
   update_to_buf_dir   = {
     enable = false,
-    auto_open = false,
+    auto_open = true,
   },
   actions = {
     open_file = {
