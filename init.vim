@@ -483,7 +483,8 @@ let g:vim_http_tempbuffer = 1
 "}}}
 
 " set clipboard=unnamedplus
-set clipboard=unnamed
+" set clipboard=unnamed
+set clipboard+=unnamedplus
 vnoremap <A-c> "+y
 vnoremap <A-v> "+p
 
