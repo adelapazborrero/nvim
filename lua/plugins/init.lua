@@ -5,6 +5,8 @@ local plugins = {
    ["nvim-lua/plenary.nvim"] = { module = "plenary" },
    ["wbthomason/packer.nvim"] = {},
    ["NvChad/extensions"] = { module = { "telescope", "nvchad" } },
+   ["jose-elias-alvarez/null-ls.nvim"] = {},
+   ["MunifTanjim/prettier.nvim"] = {},
 
    ["NvChad/base46"] = {
       config = function()
