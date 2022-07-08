@@ -8,13 +8,20 @@ require'nvim-tree'.setup {
   hijack_netrw        = true,
   open_on_setup       = false,
   ignore_ft_on_setup  = {},
-  auto_close          = true,
   open_on_tab         = false,
   hijack_cursor       = false,
   update_cwd          = false,
   update_to_buf_dir   = {
     enable = false,
-    auto_open = false,
+    auto_open = true,
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+      window_picker = {
+        enable = false    
+      }
+    }
   },
   diagnostics = {
     enable = false,
@@ -36,7 +43,6 @@ require'nvim-tree'.setup {
   },
   filters = {
     dotfiles = false,
-    git = true,
     custom = {}
   },  
   git = {
@@ -44,10 +50,24 @@ require'nvim-tree'.setup {
     ignore = true,
     timeout = 500,
   },
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
+    icons = {
+      webdev_colors = true,
+      git_placement = "before",
+    }
+  },
   view = {
     width = 30,
     height = 30,
-    side = 'right',
+    side = 'left',
     auto_resize = false,
     mappings = {
       custom_only = false,

@@ -4,8 +4,8 @@
 " init autocmd autocmd!  set script encoding scriptencoding utf-6 stop loading config if it's on tiny or small if !2 | finish | endif set nocompatible set number
 " syntax enable
 " set langmenu=ja_JP
-let $LANG = 'ja_JP'
-set fileencodings=utf-8,sjis,euc-jp,latin
+" let $LANG = 'ja_JP'
+" set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=UTF-8
 set title
 set autoindent
@@ -100,6 +100,12 @@ augroup typescriptreact
   autocmd BufNewFile,BufRead *.tsx   set filetype=javascript
 augroup END
 
+augroup SyntaxSettings
+  autocmd!
+  autocmd BufNewFile, BufRead *.tsx set filetype=typescript
+augroup END 
+
+
 let g:vim_json_conceal=0
 
 "}}}
@@ -118,35 +124,77 @@ endif
 runtime ./maps.vim
 
 lua <<EOF
-require'toggle_lsp_diagnostics'.init()
+require'toggle_lsp_diagnostics'.init({start_on = false})
 require('neoscroll').setup()
-require'lspconfig'.vuels.setup{}
-require'nvim-web-devicons'.get_icons()
+--require'lspconfig'.vuels.setup{}
+require'nvim-web-devicons'.setup{
+--  override = {
+--    vue = {
+--      icon = "﵂",
+--      name = "Vue"
+--    }
+--  }
+}
 require('nvim-autopairs').setup{}
 EOF
 " let g:coc_diagnostic_disable = 1
+let g:completion_enable_snippet='snippets.nvim'
 
 "}}}
 
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
-
-autocmd vimenter * ++nested colorscheme solarized8
-autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=#50727C guibg=#043542
-let g:solarized_termtrans = 1
+set background=dark
 
 " colorscheme iceberg
 " colorscheme gruvbox
 " colorscheme nord
-set background=dark
+" colorscheme base16-default-dark
+" colorscheme OceanicNext
+" colorscheme nordfox
+" colorscheme NeoSolarized
+colorscheme hybrid_material
+let g:enable_italic_font = 1
+"
+" colorscheme material
+" let g:material_theme_style = 'ocean' " 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
+" let g:material_terminal_italics = 1
 
-let g:airline#extensions#tabline#enabled = 1
 
 "Transparent background"
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
+hi LineNr guibg=#2c3b41 ctermbg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
+hi CursorLineNr cterm=NONE guifg=NONE guibg=#2c3b41
+hi CursorLine cterm=NONE guifg=NONE guibg=#2c3b41
+hi EndOfBuffer guibg=NONE ctermbg=NONE
 
-" Javascript pretty colorful highlight
-" let g:vim_jsx_pretty_colorful_config = 1
+" highlight NvimTreeFolderIcon guifg=#50727C
+
+hi! CocErrorSign guifg=#cc6666
+hi! CocInfoSign guibg=#268BD2
+hi! CocWarningSign guifg=#D33682
+autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=grey guibg=#2c3b41
+
+" highlight CocFloating ctermbg=color
+" highlight CocErrorFloat ctermfg=color
+
+" Neosolarized variables
+" autocmd vimenter * ++nested colorscheme solarized8
+" autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=#50727C guibg=#043542
+" autocmd vimenter * ++nested highlight CursorLineNr cterm=NONE guifg=NONE guibg=#043542
+" autocmd vimenter * ++nested highlight NvimTreeFolderIcon guifg=#238BD2
+
+" autocmd vimenter * ++nested hi! CocErrorSign guifg=#cb4b16
+" autocmd vimenter * ++nested hi! CocInfoSign guibg=#268BD2
+" autocmd vimenter * ++nested hi! CocWarningSign guifg=#D33682
+
+" let g:solarized_termtrans = 1
+" let g:solarized_extra_hi_groups = 1
+
+set guifont="Hack Nerd Font"
+
+"
 "}}}
 
 " Highlights "{{{
@@ -154,7 +202,7 @@ let g:airline#extensions#tabline#enabled = 1
 set cursorline
 "set cursorcolumn
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-highlight LineNr cterm=NONE ctermfg=236 guifg=#50727C guibg=#043542
+highlight LineNr cterm=NONE ctermfg=236 guifg=#4C566A guibg=#3B4252
 
 " Set cursor line color on visual mode
 
@@ -174,19 +222,20 @@ endif
 " Tabs settings "{{{
 " ---------------------------------------------------------------------
 
-autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
-autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
-autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
-autocmd FileType php setlocal shiftwidth=4 tabstop=4
-autocmd FileType js setlocal shiftwidth=2 tabstop=2
-autocmd FileType ts setlocal shiftwidth=2 tabstop=2
-autocmd FileType tsx setlocal shiftwidth=2 tabstop=2
-autocmd FileType vue setlocal shiftwidth=2 tabstop=2
+" autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
+" autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
+" autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
+" autocmd FileType php setlocal shiftwidth=4 tabstop=4
+" autocmd FileType js setlocal shiftwidth=4 tabstop=4
+" autocmd FileType ts setlocal shiftwidth=4 tabstop=4
+" autocmd FileType tsx setlocal shiftwidth=4 tabstop=4
+" autocmd FileType vue setlocal shiftwidth=4 tabstop=4
+" autocmd FileType json setlocal shiftwidth=4 tabstop=4
 
-let g:indentLine_setColors = 0
-let g:indentLine_enabled = 0
+set shiftwidth=4
 
-nnoremap <C-i> :IndentLinesToggle<CR>
+let g:indentLine_setColors = 1
+let g:indentLine_enabled = 1
 
 "}}}
 
@@ -197,11 +246,22 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-nnoremap <C-m> :noh<CR>
+noremap fi :IndentLinesToggle<CR>
+noremap fn :noh<CR>
+noremap ff :NvimTreeFindFile<CR>
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-p> :bd<CR>
 nnoremap ;g  :Gvdiffsplit<CR>
+nnoremap gs  :G<CR>
+nnoremap gl  :Gclog<CR>
+nnoremap fh  :diffget //2<CR>
+nnoremap fl  :diffget //3<CR>
+nnoremap [q  :cprev<CR>
+nnoremap ]q  :cnext<CR>
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " nnoremap hg  :q<CR>
 
 "}}}
@@ -216,165 +276,190 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Tree settings "{{{
 " ---------------------------------------------------------------------
 
+autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+
 " let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
 " let g:nvim_tree_gitignore = 1 
-let g:nvim_tree_quit_on_open = 1
-let g:nvim_tree_indent_markers = 1 
+" let g:nvim_tree_indent_markers = 1 
 " let g:nvim_tree_hide_dotfiles = 0 
-let g:nvim_tree_git_hl = 1 
-let g:nvim_tree_highlight_opened_files = 1 
-let g:nvim_tree_root_folder_modifier = ':~' 
-let g:nvim_tree_add_trailing = 1
-let g:nvim_tree_group_empty = 1
-let g:nvim_tree_disable_window_picker = 1
-let g:nvim_tree_icon_padding = ' ' 
-let g:nvim_tree_symlink_arrow = ' >> ' 
-let g:nvim_tree_respect_buf_cwd = 1 
-let g:nvim_tree_create_in_closed_folder = 0
-let g:nvim_tree_refresh_wait = 500 
-let g:nvim_tree_window_picker_exclude = {
-    \   'filetype': [
-    \     'notify',
-    \     'packer',
-    \     'qf'
-    \   ],
-    \   'buftype': [
-    \     'terminal'
-    \   ]
-    \ }
-let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } 
-let g:nvim_tree_show_icons = {
-    \ 'git': 1,
-    \ 'folders': 1,
-    \ 'files': 1,
-    \ 'folder_arrows': 0,
-    \ }
+" let g:nvim_tree_git_hl = 1 
+" let g:nvim_tree_highlight_opened_files = 1 
+" let g:nvim_tree_root_folder_modifier = ':~' 
+" let g:nvim_tree_add_trailing = 1
+" let g:nvim_tree_group_empty = 1
+" let g:nvim_tree_disable_window_picker = 1
+" let g:nvim_tree_icon_padding = ' ' 
+" let g:nvim_tree_symlink_arrow = ' >> ' 
+" let g:nvim_tree_respect_buf_cwd = 1 
+" let g:nvim_tree_create_in_closed_folder = 0
+" let g:nvim_tree_refresh_wait = 500 
+" let g:nvim_tree_window_picker_exclude = {
+"     \   'filetype': [
+"     \     'notify',
+"     \     'packer',
+"     \     'qf'
+"     \   ],
+"     \   'buftype': [
+"     \     'terminal'
+"     \   ]
+"     \ }
+" let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } 
+" let g:nvim_tree_show_icons = {
+"     \ 'git': 1,
+"     \ 'folders': 1,
+"     \ 'files': 1,
+"     \ 'folder_arrows': 0,
+"     \ }
 
-let g:nvim_tree_icons = {
-    \ 'default': '',
-    \ 'symlink': '',
-    \ 'git': {
-    \   'unstaged': "✗",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "➜",
-    \   'untracked': "★",
-    \   'deleted': "",
-    \   'ignored': "◌"
-    \   },
-    \ 'folder': {
-    \   'arrow_open': "",
-    \   'arrow_closed': "",
-    \   'default': "",
-    \   'open': "",
-    \   'empty': "",
-    \   'empty_open': "",
-    \   'symlink': "",
-    \   'symlink_open': "",
-    \   },
-    \   'lsp': {
-    \     'hint': "",
-    \     'info': "",
-    \     'warning': "",
-    \     'error': "",
-    \   }
-    \ }
+" let g:nvim_tree_icons = {
+"     \ 'default': '',
+"     \ 'symlink': '',
+"     \ 'git': {
+"     \   'unstaged': "✗",
+"     \   'staged': "✓",
+"     \   'unmerged': "",
+"     \   'renamed': "➜",
+"     \   'untracked': "★",
+"     \   'deleted': "",
+"     \   'ignored': "◌"
+"     \   },
+"     \ 'folder': {
+"     \   'arrow_open': "",
+"     \   'arrow_closed': "",
+"     \   'default': "",
+"     \   'open': "",
+"     \   'empty': "",
+"     \   'empty_open': "",
+"     \   'symlink': "",
+"     \   'symlink_open': "",
+"     \   },
+"     \   'lsp': {
+"     \     'hint': "",
+"     \     'info': "",
+"     \     'warning': "",
+"     \     'error': "",
+"     \   }
+"     \ }
 
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
-" NvimTreeOpen, NvimTreeClose, NvimTreeFocus and NvimTreeResize are also available if you need them
 
 set termguicolors " this variable must be enabled for colors to be applied properly
 
 "}}}
 
-" Airline Settings "{{{
+" Bufferline"{{{
 " ---------------------------------------------------------------------
-" air-line
-let g:airline_powerline_fonts = 1
-" let g:airline_theme='papercolor'
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+lua << EOF
+require("bufferline").setup{
+  options = {
+    separator_style = "thin", -- slant, padded_slant, thick, thin
+    numbers = "ordinal",
+    --indicator_icon = '▎',
+    buffer_close_icon = '',
+    modified_icon = '●',
+    close_icon = '',
+    left_trunc_marker = '',
+    right_trunc_marker = '',
+    offsets = {{filetype = "NvimTree", text = "構造", text_align = "center"}},
+    color_icons = true, -- whether or not to add the filetype icon highlights
+    show_buffer_icons = true, -- disable filetype icons for buffers
+    show_buffer_close_icons = true,
+    show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
+    show_close_icon = true,
+    show_tab_indicators = true,
+    enforce_regular_tabs = false,
+    always_show_bufferline = true,
+    tab_size = 20,
+    highlights = {
+      tab = { 
+        guifg = '#ffffff',
+        guibg = '#ffffff'
+      },
+      tab_selected = {
+        guifg = "#ffffff",
+        guibg = "#ffffff",
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '  '
+      }
+    }
+--    diagnostics = 'coc',
+--    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+--      local s = " "
+--      for e, n in pairs(diagnostics_dict) do
+--        local sym = e == "error" and "  "
+--          or (e == "warning" and "  " or " " )
+--        s = s .. n .. sym
+--      end
+--      return s
+--    end,
+  }
+}
+EOF
 
 "}}}
 
-" Dashboard Settings"{{{
+" Persisted sessions "{{{
+
+lua << END
+require("persisted").setup({
+  save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
+  command = "VimLeavePre", -- the autocommand for which the session is saved
+  use_git_branch = false, -- create session files based on the branch of the git enabled repository
+  autosave = true, -- automatically save session files when exiting Neovim
+  autoload = true, -- automatically load the session for the cwd on Neovim startup
+  allowed_dirs = nil, -- table of dirs that the plugin will auto-save and auto-load from
+  ignored_dirs = nil, -- table of dirs that are ignored when auto-saving and auto-loading
+  before_save = nil, -- function to run before the session is saved to disk
+  after_save = nil, -- function to run after the session is saved to disk
+  after_source = nil, -- function to run after the session is sourced
+  telescope = { -- options for the telescope extension
+    before_source = nil, -- function to run before the session is sourced via telescope
+    after_source = nil, -- function to run after the session is sourced via telescope
+  },
+})
+END
+
+" }}}
+
+" Lua Line"{{{
 " ---------------------------------------------------------------------
-let g:dashboard_default_executive ='telescope'
-let g:dashboard_custom_shortcut={
-\ 'find_file'          : 'SPC f f',
-\ 'find_history'       : 'SPC f h',
-\ 'change_colorscheme' : 'SPC t c',
-\ 'new_file'           : 'SPC c n',
-\ 'last_session'       : 'SPC s l',
-\ 'find_word'          : 'SPC f a',
-\ 'book_marks'         : 'SPC f b',
-\ }
-
-let g:dashboard_custom_section={
-  \'open_nvim_tree': {
-    \'description' : ['פּ  プロジェクト構造  '],
-    \'command': 'NvimTreeToggle',
-  \},
-  \'telescope_find_files': {
-    \'description' : ['  ファイル検索      '],
-    \'command': 'Telescope find_files',
-  \},
-  \'zdashboar_find_word': {
-    \'description' : ['  最近開いたファイル'],
-    \'command': 'DashboardFindHistory',
-  \}
-\}
-
-let g:dashboard_custom_header = [
-    \'',
-    \'  ⠄⣾⣿⡇⢸⣿⣿⣿⠄⠈⣿⣿⣿⣿⠈⣿⡇⢹⣿⣿⣿⡇⡇⢸⣿⣿⡇⣿⣿⣿ ',
-    \'  ⢠⣿⣿⡇⢸⣿⣿⣿⡇⠄⢹⣿⣿⣿⡀⣿⣧⢸⣿⣿⣿⠁⡇⢸⣿⣿⠁⣿⣿⣿ ',
-    \'  ⢸⣿⣿⡇⠸⣿⣿⣿⣿⡄⠈⢿⣿⣿⡇⢸⣿⡀⣿⣿⡿⠸⡇⣸⣿⣿⠄⣿⣿⣿ ',
-    \'  ⢸⣿⡿⠷⠄⠿⠿⠿⠟⠓⠰⠘⠿⣿⣿⡈⣿⡇⢹⡟⠰⠦⠁⠈⠉⠋⠄⠻⢿⣿ ',
-    \'  ⢨⡑⠶⡏⠛⠐⠋⠓⠲⠶⣭⣤⣴⣦⣭⣥⣮⣾⣬⣴⡮⠝⠒⠂⠂⠘⠉⠿⠖⣬ ',
-    \'  ⠈⠉⠄⡀⠄⣀⣀⣀⣀⠈⢛⣿⣿⣿⣿⣿⣿⣿⣿⣟⠁⣀⣤⣤⣠⡀⠄⡀⠈⠁ ',
-    \'  ⠄⠠⣾⡀⣾⣿⣧⣼⣿⡿⢠⣿⣿⣿⣿⣿⣿⣿⣿⣧⣼⣿⣧⣼⣿⣿⢀⣿⡇⠄ ',
-    \'  ⡀⠄⠻⣷⡘⢿⣿⣿⡿⢣⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣜⢿⣿⣿⡿⢃⣾⠟⢁⠈ ',
-    \'  ⢃⢻⣶⣬⣿⣶⣬⣥⣶⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣷⣶⣶⣾⣿⣷⣾⣾⢣ ',
-    \'  ⡄⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠘ ',
-    \'  ⣿⡐⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢠⢃ ',
-    \'  ⣿⣷⡀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⡿⠋⢀⠆⣼ ',
-    \'  ⣿⣿⣷⡀⠄⠈⠛⢿⣿⣿⣿⣿⣷⣶⣶⣶⣶⣶⣿⣿⣿⣿⣿⠿⠋⠠⠂⢀⣾⣿ ',
-    \'  ⣿⣿⣿⣧⠄⠄⢵⢠⣈⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢋⡁⢰⠏⠄⠄⣼⣿⣿ ',
-    \'  ⢻⣿⣿⣿⡄⢢⠨⠄⣯⠄⠄⣌⣉⠛⠻⠟⠛⢋⣉⣤⠄⢸⡇⣨⣤⠄⢸⣿⣿⣿ ',
-    \'',
-    \]
-
-let g:dashboard_custom_footer = [
-    \'アベル  NVIM ターミナル' 
-    \]
+lua << END
+require('lualine').setup({
+  options = {
+    icons_enabled = true,
+    --theme = 'solarized_dark',
+    theme = 'auto',
+    --component_separators = { left = '', right = ''},
+    --section_separators = { left = '', right = ''},
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+    --section_separators = { left = ' ', right = ' ' },
+    disabled_filetypes = {},
+    always_divide_middle = true,
+    globalstatus = false,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+})
+END
 
 "}}}
 
@@ -384,6 +469,10 @@ let g:vim_http_split_vertically = 1
 let g:vim_http_tempbuffer = 1
 
 "}}}
+
+set clipboard+=unnamedplus
+vnoremap <A-c> "+y
+vnoremap <A-v> "+p
 
 let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls']
