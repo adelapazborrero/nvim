@@ -26,10 +26,10 @@ M.general = {
       ["<ESC>"] = { "<cmd> noh <CR>", "  no highlight" },
 
       -- switch between windows
-      ["<C-h>"] = { "<C-w>h", " window left" },
-      ["<C-l>"] = { "<C-w>l", " window right" },
-      ["<C-j>"] = { "<C-w>j", " window down" },
-      ["<C-k>"] = { "<C-w>k", " window up" },
+      -- ["<C-h>"] = { "<C-w>h", " window left" },
+      -- ["<C-l>"] = { "<C-w>l", " window right" },
+      -- ["<C-j>"] = { "<C-w>j", " window down" },
+      -- ["<C-k>"] = { "<C-w>k", " window up" },
 
       -- save
       ["<C-s>"] = { "<cmd> w <CR>", "﬚  save file" },
@@ -65,15 +65,18 @@ M.tabufline = {
       ["<S-b>"] = { "<cmd> enew <CR>", "烙 new buffer" },
 
       -- cycle through buffers
-      ["<TAB>"] = { "<cmd> Tbufnext <CR>", "  goto next buffer" },
-      ["<S-Tab>"] = { "<cmd> Tbufprev <CR> ", "  goto prev buffer" },
+      -- ["<TAB>"] = { "<cmd> Tbufnext <CR>", "  goto next buffer" },
+      -- ["<S-Tab>"] = { "<cmd> Tbufprev <CR> ", "  goto prev buffer" },
+
+      ["<C-h>"] = { "<cmd> Tbufnext <CR>", "  goto next buffer" },
+      ["<C-l>"] = { "<cmd> Tbufprev <CR> ", "  goto prev buffer" },
 
       -- cycle through tabs
       ["<leader>tp"] = { "<cmd> tabprevious <CR>", "  goto next tab" },
       ["<leader>tn"] = { "<cmd> tabnext <CR> ", "  goto prev tab" },
 
       -- close buffer + hide terminal buffer
-      ["<leader>x"] = {
+      ["<C-p>"] = {
          function()
             require("core.utils").close_buffer()
          end,
@@ -177,14 +180,14 @@ M.lspconfig = {
          "   floating diagnostic",
       },
 
-      ["[d"] = {
+      ["[g"] = {
          function()
             vim.diagnostic.goto_prev()
          end,
          "   goto prev",
       },
 
-      ["d]"] = {
+      ["]g"] = {
          function()
             vim.diagnostic.goto_next()
          end,
@@ -242,7 +245,7 @@ M.nvimtree = {
 M.telescope = {
    n = {
       -- find
-      ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "  find files" },
+      [";f"] = { "<cmd> Telescope find_files <CR>", "  find files" },
       ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "  find all" },
       ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "   live grep" },
       ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "  find buffers" },
