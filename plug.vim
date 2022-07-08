@@ -18,6 +18,7 @@ if has("nvim")
   Plug 'roxma/nvim-yarp'
   " Plug 'glepnir/dashboard-nvim'
   Plug 'lifepillar/vim-colortemplate'
+  Plug 'olimorris/persisted.nvim'
 
   "" Typescript React support
   " Plug 'peitalin/vim-jsx-typescript'

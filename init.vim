@@ -153,12 +153,11 @@ set background=dark
 " colorscheme OceanicNext
 " colorscheme nordfox
 " colorscheme NeoSolarized
-
 colorscheme hybrid_material
 let g:enable_italic_font = 1
 "
 " colorscheme material
-" let g:material_theme_style = 'default' " 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
+" let g:material_theme_style = 'ocean' " 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
 " let g:material_terminal_italics = 1
 
 
@@ -223,18 +222,20 @@ endif
 " Tabs settings "{{{
 " ---------------------------------------------------------------------
 
-autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
-autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
-autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
-autocmd FileType php setlocal shiftwidth=4 tabstop=4
-autocmd FileType js setlocal shiftwidth=4 tabstop=4
-autocmd FileType ts setlocal shiftwidth=4 tabstop=4
-autocmd FileType tsx setlocal shiftwidth=4 tabstop=4
-autocmd FileType vue setlocal shiftwidth=4 tabstop=4
-autocmd FileType json setlocal shiftwidth=4 tabstop=4
+" autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
+" autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
+" autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
+" autocmd FileType php setlocal shiftwidth=4 tabstop=4
+" autocmd FileType js setlocal shiftwidth=4 tabstop=4
+" autocmd FileType ts setlocal shiftwidth=4 tabstop=4
+" autocmd FileType tsx setlocal shiftwidth=4 tabstop=4
+" autocmd FileType vue setlocal shiftwidth=4 tabstop=4
+" autocmd FileType json setlocal shiftwidth=4 tabstop=4
+
+set shiftwidth=4
 
 let g:indentLine_setColors = 1
-let g:indentLine_enabled = 0
+let g:indentLine_enabled = 1
 
 "}}}
 
@@ -247,6 +248,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 noremap fi :IndentLinesToggle<CR>
 noremap fn :noh<CR>
+noremap ff :NvimTreeFindFile<CR>
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-p> :bd<CR>
@@ -347,43 +349,6 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 
 "}}}
 
-" Airline Settings (Disabled) "{{{
-" ---------------------------------------------------------------------
-" air-line
-" let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 0
-" let g:airline_theme='papercolor'
-" let g:airline_theme='oceanicnext'
-
-" if !exists('g:airline_symbols')
-"     let g:airline_symbols = {}
-" endif
-
-" unicode symbols
-" let g:airline_left_sep = '»'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '«'
-" let g:airline_right_sep = '◀'
-" let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-" let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
-" let g:airline_symbols.paste = '∥'
-" let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = ''
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = '  '
-
-"}}}
-
 " Bufferline"{{{
 " ---------------------------------------------------------------------
 
@@ -435,6 +400,29 @@ EOF
 
 "}}}
 
+" Persisted sessions "{{{
+
+lua << END
+require("persisted").setup({
+  save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
+  command = "VimLeavePre", -- the autocommand for which the session is saved
+  use_git_branch = false, -- create session files based on the branch of the git enabled repository
+  autosave = true, -- automatically save session files when exiting Neovim
+  autoload = true, -- automatically load the session for the cwd on Neovim startup
+  allowed_dirs = nil, -- table of dirs that the plugin will auto-save and auto-load from
+  ignored_dirs = nil, -- table of dirs that are ignored when auto-saving and auto-loading
+  before_save = nil, -- function to run before the session is saved to disk
+  after_save = nil, -- function to run after the session is saved to disk
+  after_source = nil, -- function to run after the session is sourced
+  telescope = { -- options for the telescope extension
+    before_source = nil, -- function to run before the session is sourced via telescope
+    after_source = nil, -- function to run after the session is sourced via telescope
+  },
+})
+END
+
+" }}}
+
 " Lua Line"{{{
 " ---------------------------------------------------------------------
 lua << END
@@ -443,11 +431,11 @@ require('lualine').setup({
     icons_enabled = true,
     --theme = 'solarized_dark',
     theme = 'auto',
-    component_separators = { left = '', right = ''},
+    --component_separators = { left = '', right = ''},
     --section_separators = { left = '', right = ''},
-    --section_separators = { left = '', right = '' },
-    --component_separators = { left = '', right = '' },
-    section_separators = { left = ' ', right = ' ' },
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+    --section_separators = { left = ' ', right = ' ' },
     disabled_filetypes = {},
     always_divide_middle = true,
     globalstatus = false,

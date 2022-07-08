@@ -13,7 +13,7 @@
   "coc.preferences.formatOnType": true,
   "prettier.disableSuccessMessage": true,
   "prettier.singleQuote": true,
-  "prettier.tabWidth": 2,
+  "prettier.tabWidth": 4,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "suggest.completionItemKindLabels": {
