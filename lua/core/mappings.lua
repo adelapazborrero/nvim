@@ -251,11 +251,11 @@ M.telescope = {
       ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "  find buffers" },
       ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "  help page" },
       ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "   find oldfiles" },
-      ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
+      [";k"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
 
       -- git
       ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "   git commits" },
-      ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "  git status" },
+      ["gt"] = { "<cmd> Telescope git_status <CR>", "  git status" },
 
       -- pick a hidden term
       ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "   pick hidden term" },

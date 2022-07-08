@@ -11,6 +11,13 @@ local utils = require "core.utils"
 
 require "ui.lsp"
 
+require'lspconfig'.volar.setup{
+  takeOverMode = true
+}
+
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.intelephense.setup{}
+
 M.on_attach = function(client, bufnr)
    local vim_version = vim.version()
 
