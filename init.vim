@@ -153,7 +153,9 @@ set background=dark
 " colorscheme OceanicNext
 " colorscheme nordfox
 " colorscheme NeoSolarized
-colorscheme hybrid_material
+" colorscheme hybrid_material
+colorscheme one 
+let g:one_allow_italics = 1
 let g:enable_italic_font = 1
 "
 " colorscheme material
@@ -162,7 +164,7 @@ let g:enable_italic_font = 1
 
 
 "Transparent background"
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 hi LineNr guibg=#2c3b41 ctermbg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
 hi CursorLineNr cterm=NONE guifg=NONE guibg=#2c3b41
@@ -278,68 +280,86 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 
-" let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
-" let g:nvim_tree_gitignore = 1 
-" let g:nvim_tree_indent_markers = 1 
-" let g:nvim_tree_hide_dotfiles = 0 
-" let g:nvim_tree_git_hl = 1 
-" let g:nvim_tree_highlight_opened_files = 1 
-" let g:nvim_tree_root_folder_modifier = ':~' 
-" let g:nvim_tree_add_trailing = 1
-" let g:nvim_tree_group_empty = 1
-" let g:nvim_tree_disable_window_picker = 1
-" let g:nvim_tree_icon_padding = ' ' 
-" let g:nvim_tree_symlink_arrow = ' >> ' 
-" let g:nvim_tree_respect_buf_cwd = 1 
-" let g:nvim_tree_create_in_closed_folder = 0
-" let g:nvim_tree_refresh_wait = 500 
-" let g:nvim_tree_window_picker_exclude = {
-"     \   'filetype': [
-"     \     'notify',
-"     \     'packer',
-"     \     'qf'
-"     \   ],
-"     \   'buftype': [
-"     \     'terminal'
-"     \   ]
-"     \ }
-" let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } 
-" let g:nvim_tree_show_icons = {
-"     \ 'git': 1,
-"     \ 'folders': 1,
-"     \ 'files': 1,
-"     \ 'folder_arrows': 0,
-"     \ }
+lua << EOF
+require'nvim-tree'.setup {
+  disable_netrw       = false,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  open_on_tab         = false,
+  hijack_cursor       = false,
+  update_cwd          = false,
+  update_to_buf_dir   = {
+    enable = false,
+    auto_open = true,
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+      window_picker = {
+        enable = false    
+      }
+    }
+  },
+  diagnostics = {
+    enable = false,
+    icons = {
+      hint = "?",
+      info = "?",
+      warning = "?",
+      error = "?",
+    }
+  },
+  update_focused_file = {
+    enable      = false,
+    update_cwd  = false,
+    ignore_list = {}
+  },
+  system_open = {
+    cmd  = nil,
+    args = {}
+  },
+  filters = {
+    dotfiles = false,
+    custom = {}
+  },  
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
+    icons = {
+      webdev_colors = true,
+      git_placement = "before",
+    }
+  },
+  view = {
+    width = 30,
+    height = 30,
+    side = 'left',
+    auto_resize = false,
+    mappings = {
+      custom_only = false,
+      list = {}
+    }
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true
+  }
+}
 
-" let g:nvim_tree_icons = {
-"     \ 'default': '',
-"     \ 'symlink': '',
-"     \ 'git': {
-"     \   'unstaged': "✗",
-"     \   'staged': "✓",
-"     \   'unmerged': "",
-"     \   'renamed': "➜",
-"     \   'untracked': "★",
-"     \   'deleted': "",
-"     \   'ignored': "◌"
-"     \   },
-"     \ 'folder': {
-"     \   'arrow_open': "",
-"     \   'arrow_closed': "",
-"     \   'default': "",
-"     \   'open': "",
-"     \   'empty': "",
-"     \   'empty_open': "",
-"     \   'symlink': "",
-"     \   'symlink_open': "",
-"     \   },
-"     \   'lsp': {
-"     \     'hint': "",
-"     \     'info': "",
-"     \     'warning': "",
-"     \     'error': "",
-"     \   }
-"     \ }
+
+EOF
 
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
@@ -419,6 +439,54 @@ require("persisted").setup({
     after_source = nil, -- function to run after the session is sourced via telescope
   },
 })
+END
+
+" }}}
+
+" Git Signs "{{{
+
+lua << END
+require('gitsigns').setup {
+  signs = {
+    add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+    change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+  },
+  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+  watch_gitdir = {
+    interval = 1000,
+    follow_files = true
+  },
+  attach_to_untracked = true,
+  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+  current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+    delay = 1000,
+    ignore_whitespace = false,
+  },
+  current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+  sign_priority = 6,
+  update_debounce = 100,
+  status_formatter = nil, -- Use default
+  max_file_length = 40000,
+  preview_config = {
+    -- Options passed to nvim_open_win
+    border = 'single',
+    style = 'minimal',
+    relative = 'cursor',
+    row = 0,
+    col = 1
+  },
+  yadm = {
+    enable = false
+  },
+}
 END
 
 " }}}
