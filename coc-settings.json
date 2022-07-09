@@ -55,5 +55,10 @@
     "diagnostic.enableHighlightLineNumber": false,
     "volar.autoClosingTags": true,
     "volar.formatting.printWidth": 80,
-    "volar.takeOverMode.enabled": true
+    "volar.takeOverMode.enabled": true,
+    "Lua": {
+        "diagnostics": {
+            "globals": ["vim"]
+        }
+    }
 }
