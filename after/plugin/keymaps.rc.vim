@@ -7,7 +7,7 @@ noremap ff :NvimTreeFindFile<CR>
 " nnoremap <C-h> :bprevious<CR>
 " nnoremap <C-l> :bnext<CR>
 nnoremap <C-p> :bd<CR>
-nnoremap ;g  :Gvdiffsplit<CR>
+" nnoremap ;g  :Gvdiffsplit<CR>
 nnoremap gs  :G<CR>
 nnoremap gl  :Gclog<CR>
 nnoremap fh  :diffget //2<CR>

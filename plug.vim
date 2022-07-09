@@ -35,6 +35,7 @@ if has("nvim")
     Plug 'nvim-lua/plenary.nvim'
     Plug 'norcalli/snippets.nvim'
     Plug 'NvChad/nvterm'
+    Plug 'sindrets/diffview.nvim'
 
     "" Installers
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
