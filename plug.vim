@@ -19,15 +19,13 @@ if has("nvim")
     Plug 'mileszs/ack.vim'
     Plug 'lukas-reineke/indent-blankline.nvim'
 
-    Plug 'roxma/nvim-yarp'
-    Plug 'glepnir/dashboard-nvim'
-
     "" Language support
     Plug 'leafgarland/typescript-vim'
     Plug 'HerringtonDarkholme/yats.vim'
     Plug 'ianks/vim-tsx'
     Plug 'pangloss/vim-javascript'
     Plug 'mxw/vim-jsx'
+    Plug 'roxma/nvim-yarp'
 
     "" Utils
     Plug 'nvim-lua/completion-nvim'
