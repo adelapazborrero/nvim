@@ -124,11 +124,15 @@ function openDiff()
     vim.cmd('DiffviewOpen')
 end
 
+function openHistory()
+    vim.cmd('DiffviewFileHistory')
+end
+
 function closeDiff()
     vim.cmd('DiffviewClose')
 end
 
-function toggleMenu()
+function toggleGitDiff()
     if menuOpen == true then
         closeDiff()
         menuOpen = false
@@ -138,6 +142,17 @@ function toggleMenu()
     end
 end
 
-vim.api.nvim_set_keymap('n', ';g', ':lua toggleMenu()<CR>', {noremap = true})
+function toggleGitHistory()
+    if menuOpen == true then
+        closeDiff()
+        menuOpen = false
+    else
+        openHistory()
+        menuOpen = true
+    end
+end
+
+vim.api.nvim_set_keymap('n', ';g', ':lua toggleGitDiff()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gh', ':lua toggleGitHistory()<CR>', {noremap = true})
 
 EOF

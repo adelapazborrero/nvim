@@ -132,7 +132,4 @@ set clipboard+=unnamedplus
 vnoremap <A-c> "+y
 vnoremap <A-v> "+p
 
-let g:LanguageClient_serverCommands = {
-    \ 'vue': ['vls']
-    \ }
 " vim: set foldmethod=marker foldlevel=0:i

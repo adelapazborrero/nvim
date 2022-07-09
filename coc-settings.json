@@ -6,7 +6,8 @@
         "typescriptreact",
         "vue",
         "php",
-        "json"
+        "json",
+        "lua"
     ],
     "tsserver.formatOnType": true,
     "coc.source.around.enable": false,
@@ -57,6 +58,9 @@
     "volar.formatting.printWidth": 80,
     "volar.takeOverMode.enabled": true,
     "Lua": {
+        "completion": {
+            "workspaceWord": false
+        },
         "diagnostics": {
             "globals": ["vim"]
         }
