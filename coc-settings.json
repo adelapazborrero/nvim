@@ -6,8 +6,7 @@
         "typescriptreact",
         "vue",
         "php",
-        "json",
-        "lua"
+        "json"
     ],
     "tsserver.formatOnType": true,
     "coc.source.around.enable": false,
@@ -62,7 +61,9 @@
             "workspaceWord": false
         },
         "diagnostics": {
-            "globals": ["vim"]
+            "enable": true,
+            "globals": ["vim"],
+            "workspaceDelay": -1
         }
     }
 }
