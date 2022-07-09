@@ -2,6 +2,8 @@ if !exists('g:loaded_nvim_treesitter')
   finish
 endif
 
+autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+
 lua << EOF
 require'nvim-tree'.setup {
   disable_netrw       = false,
@@ -82,3 +84,9 @@ require'nvim-tree'.setup {
 
 
 EOF
+
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+
+set termguicolors " this variable must be enabled for colors to be applied properly
