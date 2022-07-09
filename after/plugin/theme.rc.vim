@@ -9,6 +9,7 @@ set background=dark
 " colorscheme NeoSolarized
 " colorscheme hybrid_material
 colorscheme one 
+
 let g:one_allow_italics = 1
 let g:enable_italic_font = 1
 "
@@ -19,18 +20,18 @@ let g:enable_italic_font = 1
 
 "Transparent background"
 " hi Normal guibg=NONE ctermbg=NONE
-hi LineNr guibg=#2c3b41 ctermbg=NONE
-hi SignColumn guibg=NONE ctermbg=NONE
-hi CursorLineNr cterm=NONE guifg=NONE guibg=#2c3b41
-hi CursorLine cterm=NONE guifg=NONE guibg=#2c3b41
-hi EndOfBuffer guibg=NONE ctermbg=NONE
+" hi LineNr guibg=#2c3b41 ctermbg=NONE
+" hi SignColumn guibg=NONE ctermbg=NONE
+" hi CursorLineNr cterm=NONE guifg=NONE guibg=#2c3b41
+" hi CursorLine cterm=NONE guifg=NONE guibg=#2c3b41
+" hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " highlight NvimTreeFolderIcon guifg=#50727C
 
 hi! CocErrorSign guifg=#cc6666
 hi! CocInfoSign guibg=#268BD2
 hi! CocWarningSign guifg=#D33682
-autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=grey guibg=#2c3b41
+" autocmd vimenter * ++nested highlight LineNr cterm=NONE guifg=grey guibg=#2c3b41
 
 " highlight CocFloating ctermbg=color
 " highlight CocErrorFloat ctermfg=color

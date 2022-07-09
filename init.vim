@@ -89,16 +89,6 @@ runtime ./maps.vim
 
 lua <<EOF
 require'toggle_lsp_diagnostics'.init({start_on = false})
-require('neoscroll').setup()
---require'lspconfig'.vuels.setup{}
-require'nvim-web-devicons'.setup{
---  override = {
---    vue = {
---      icon = "﵂",
---      name = "Vue"
---    }
---  }
-}
 require('nvim-autopairs').setup{}
 EOF
 " let g:coc_diagnostic_disable = 1

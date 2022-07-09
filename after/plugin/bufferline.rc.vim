@@ -1,7 +1,7 @@
 lua << EOF
 require("bufferline").setup{
   options = {
-    separator_style = "thin", -- slant, padded_slant, thick, thin
+    separator_style = "thick", -- slant, padded_slant, thick, thin
     numbers = "ordinal",
     --indicator_icon = '▎',
     buffer_close_icon = '',
@@ -43,3 +43,9 @@ require("bufferline").setup{
   }
 }
 EOF
+
+nnoremap <silent><C-h> :BufferLineCyclePrev<CR>
+nnoremap <silent><C-l> :BufferLineCycleNext<CR>
+
+nnoremap <silent>bh :BufferLineMovePrev<CR>
+nnoremap <silent>bl :BufferLineMoveNext<CR>

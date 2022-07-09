@@ -8,85 +8,63 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 if has("nvim")
-  "" Test and Debug
-  Plug 'puremourning/vimspector'
+    "" IDE
+    Plug 'puremourning/vimspector'
+    Plug 'lewis6991/gitsigns.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'windwp/nvim-autopairs' 
+    Plug 'alvan/vim-closetag'
+    Plug 'olimorris/persisted.nvim'
+    Plug 'mileszs/ack.vim'
+    Plug 'lukas-reineke/indent-blankline.nvim'
 
-  "" Configuration
-  Plug 'kristijanhusak/defx-git'
-  Plug 'kristijanhusak/defx-icons'
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'roxma/nvim-yarp'
-  " Plug 'glepnir/dashboard-nvim'
-  Plug 'lifepillar/vim-colortemplate'
-  Plug 'olimorris/persisted.nvim'
+    "" Language support
+    Plug 'leafgarland/typescript-vim'
+    Plug 'HerringtonDarkholme/yats.vim'
+    Plug 'ianks/vim-tsx'
+    Plug 'pangloss/vim-javascript'
+    Plug 'mxw/vim-jsx'
+    Plug 'roxma/nvim-yarp'
 
-  "" Typescript React support
-  " Plug 'peitalin/vim-jsx-typescript'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'HerringtonDarkholme/yats.vim'
-  Plug 'ianks/vim-tsx'
+    "" Utils
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'karb94/neoscroll.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'norcalli/snippets.nvim'
+    Plug 'NvChad/nvterm'
 
-  "" Development plugins
-  Plug 'nvim-treesitter/nvim-treesitter'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'windwp/nvim-autopairs'
-  Plug 'alvan/vim-closetag'
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'kyazdani42/nvim-tree.lua'
-  Plug 'karb94/neoscroll.nvim'
-  " Plug 'Yggdroot/indentLine' " Comment this out for initial screen
-  Plug 'lukas-reineke/indent-blankline.nvim'
-  Plug 'nicwest/vim-http'
-  Plug 'tpope/vim-surround'
-  Plug 'mileszs/ack.vim'
-  Plug 'pantharshit00/vim-prisma'
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-  Plug 'lewis6991/gitsigns.nvim'
+    "" Installers
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'ncm2/ncm2'
+    Plug 'ncm2/ncm2-jedi'
+    Plug 'ncm2/ncm2-path'
 
-  "" Lua plugins 
-  Plug 'hoob3rt/lualine.nvim'
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'norcalli/snippets.nvim'
-  Plug 'NvChad/nvterm'
-
-  "" Vuejs plugins and language servers
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'neoclide/coc-vetur'
-  Plug 'ncm2/ncm2'
-  Plug 'ncm2/ncm2-jedi'
-  Plug 'ncm2/ncm2-path'
-
-  "" Themes
-
-  ""Auto completion plugin
-  Plug 'nvim-lua/completion-nvim'
-  
-  ""Javascript and React plugins
-  Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
-
-  "" Themes 
-  Plug 'nvim-lualine/lualine.nvim'
-  Plug 'arcticicestudio/nord-vim'
-  Plug 'morhetz/gruvbox'
-  Plug 'cocopon/iceberg.vim'
-  Plug 'lifepillar/vim-solarized8'
-  Plug 'overcache/NeoSolarized'
-  Plug 'chriskempson/base16-vim'
-  Plug 'mhartington/oceanic-next'
-  Plug 'EdenEast/nightfox.nvim'
-  Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
-  Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-  Plug 'kristijanhusak/vim-hybrid-material'
-  Plug 'rakr/vim-one'
+  "" UI
+    Plug 'lifepillar/vim-colortemplate'
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'hoob3rt/lualine.nvim'
+    Plug 'nvim-lualine/lualine.nvim'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'morhetz/gruvbox'
+    Plug 'cocopon/iceberg.vim'
+    Plug 'lifepillar/vim-solarized8'
+    Plug 'overcache/NeoSolarized'
+    Plug 'chriskempson/base16-vim'
+    Plug 'mhartington/oceanic-next'
+    Plug 'EdenEast/nightfox.nvim'
+    Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+    Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+    Plug 'kristijanhusak/vim-hybrid-material'
+    Plug 'rakr/vim-one'
 
 
-  " LSP Config
-  Plug 'folke/lsp-colors.nvim'
-  Plug 'neovim/nvim-lspconfig'
-  " Plug 'glepnir/lspsaga.nvim'
-  Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
+    " LSP Config
+    Plug 'folke/lsp-colors.nvim'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
 endif
 
