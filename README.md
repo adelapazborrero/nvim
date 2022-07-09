@@ -2,14 +2,14 @@
 
 - CocInstall marketplace
 
-#Installed coc-plugins
+## Installed coc-plugins
 
 - coc-phpls
 - coc-volar
 - coc-prettier
 - coc-luakk
 
-# Recommended npm global packages
+## Recommended npm global packages
 
 @volar/vue-language-server
 npm
@@ -23,12 +23,3 @@ yarn
 - bat
 
 For python it is better to run pip3 istall --upgrade neovim
-```
-- Pip
-```
-greenlet   1.1.2
-msgpack    1.0.3
-neovim     0.3.1
-pip        21.2.4
-pynvim     0.4.3
-setuptools 58.1.0
