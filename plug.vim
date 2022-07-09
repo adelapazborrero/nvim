@@ -34,18 +34,21 @@ if has("nvim")
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'karb94/neoscroll.nvim'
-  Plug 'Yggdroot/indentLine' " Comment this out for initial screen
+  " Plug 'Yggdroot/indentLine' " Comment this out for initial screen
+  Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'nicwest/vim-http'
   Plug 'tpope/vim-surround'
   Plug 'mileszs/ack.vim'
   Plug 'pantharshit00/vim-prisma'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+  Plug 'lewis6991/gitsigns.nvim'
 
   "" Lua plugins 
   Plug 'hoob3rt/lualine.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'norcalli/snippets.nvim'
+  Plug 'NvChad/nvterm'
 
   "" Vuejs plugins and language servers
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -55,7 +58,6 @@ if has("nvim")
   Plug 'ncm2/ncm2-path'
 
   "" Themes
-  Plug 'nvim-lualine/lualine.nvim'
 
   ""Auto completion plugin
   Plug 'nvim-lua/completion-nvim'
@@ -65,6 +67,7 @@ if has("nvim")
   Plug 'mxw/vim-jsx'
 
   "" Themes 
+  Plug 'nvim-lualine/lualine.nvim'
   Plug 'arcticicestudio/nord-vim'
   Plug 'morhetz/gruvbox'
   Plug 'cocopon/iceberg.vim'
@@ -76,6 +79,7 @@ if has("nvim")
   Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
   Plug 'kaicataldo/material.vim', { 'branch': 'main' }
   Plug 'kristijanhusak/vim-hybrid-material'
+  Plug 'rakr/vim-one'
 
 
   " LSP Config
