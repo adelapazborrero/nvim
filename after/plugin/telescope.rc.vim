@@ -5,7 +5,6 @@ nnoremap <silent>;; <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 lua <<EOF
 
-
 vim.g.theme_switcher_loaded = true
 
 require("telescope").setup{

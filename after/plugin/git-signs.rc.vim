@@ -41,3 +41,5 @@ require('gitsigns').setup {
   },
 }
 END
+
+nnoremap gb :Gitsigns blame_line<CR>
