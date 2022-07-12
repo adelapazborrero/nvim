@@ -36,6 +36,7 @@ if has("nvim")
     Plug 'norcalli/snippets.nvim'
     Plug 'NvChad/nvterm'
     Plug 'sindrets/diffview.nvim'
+    Plug 'github/copilot.vim'
 
     "" Installers
     Plug 'neoclide/coc.nvim', {'branch': 'release'}

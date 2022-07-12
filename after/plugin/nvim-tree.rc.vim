@@ -21,7 +21,7 @@ require'nvim-tree'.setup {
     view = {
         width = 30,
         side = 'left',
-        auto_resize = false,
+       -- auto_resize = false,
         adaptive_size = true,
         hide_root_folder = true,
     },
@@ -106,10 +106,6 @@ require'nvim-tree'.setup {
     trash = {
         cmd = "trash",
         require_confirm = true
-    },
-    update_to_buf_dir   = {
-        enable = false,
-        auto_open = true,
     },
 }
 

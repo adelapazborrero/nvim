@@ -17,7 +17,7 @@ set laststatus=2
 set scrolloff=10
 set expandtab
 set backupskip=/tmp/*,/private/tmp/*
-set number
+set relativenumber 
 
 :set mouse=a
 set t_Co=256
