@@ -78,13 +78,6 @@ let g:vim_json_conceal=0
 " Imports "{{{
 " ---------------------------------------------------------------------
 runtime ./plug.vim
-if has("unix")
-  let s:uname = system("uname -s")
-  " Do Mac stuff
-  if s:uname == "Darwin\n"
-    runtime ./macos.vim
-  endif
-endif
 
 lua <<EOF
 require'toggle_lsp_diagnostics'.init({start_on = false})
@@ -99,6 +92,7 @@ require('setup.dev-icons')
 require('setup.git-signs')
 require('setup.lualine')
 require('setup.nvterm')
+require('theme')
 
 EOF
 

@@ -14,7 +14,6 @@ if has("nvim")
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'windwp/nvim-autopairs' 
-    Plug 'alvan/vim-closetag'
     Plug 'olimorris/persisted.nvim'
     Plug 'mileszs/ack.vim'
     Plug 'lukas-reineke/indent-blankline.nvim'
