@@ -94,6 +94,11 @@ require('setup.nvim-tree')
 require('setup.neoscroll')
 require('setup.persisted-session')
 require('setup.telescope')
+require('setup.bufferline')
+require('setup.dev-icons')
+require('setup.git-signs')
+require('setup.lualine')
+require('setup.nvterm')
 
 EOF
 

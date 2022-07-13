@@ -1,4 +1,3 @@
-lua << EOF
 require("bufferline").setup{
   options = {
     separator_style = "thick", -- slant, padded_slant, thick, thin
@@ -20,7 +19,7 @@ require("bufferline").setup{
     always_show_bufferline = true,
     tab_size = 20,
     highlights = {
-      tab = { 
+      tab = {
         guifg = '#ffffff',
         guibg = '#ffffff'
       },
@@ -32,10 +31,9 @@ require("bufferline").setup{
     }
   }
 }
-EOF
 
-nnoremap <silent><C-h> :BufferLineCyclePrev<CR>
-nnoremap <silent><C-l> :BufferLineCycleNext<CR>
+vim.api.nvim_set_keymap("n", "<C-h>", ":BufferLineCyclePrev<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-l>", ":BufferLineCycleNext<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "bh", ":BufferLineMovePrev<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "bl", ":BufferLineMoveNext<CR>", {noremap = true, silent = true})
 
-nnoremap <silent>bh :BufferLineMovePrev<CR>
-nnoremap <silent>bl :BufferLineMoveNext<CR>

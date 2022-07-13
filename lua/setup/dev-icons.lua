@@ -1,5 +1,3 @@
-lua << EOF
-
 require'nvim-web-devicons'.setup{
 --  override = {
 --    vue = {
@@ -8,5 +6,3 @@ require'nvim-web-devicons'.setup{
 --    }
 --  }
 }
-
-EOF
