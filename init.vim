@@ -17,7 +17,8 @@ set laststatus=2
 set scrolloff=10
 set expandtab
 set backupskip=/tmp/*,/private/tmp/*
-set relativenumber 
+set number 
+set termguicolors
 
 :set mouse=a
 set t_Co=256
@@ -85,13 +86,14 @@ if has("unix")
   endif
 endif
 
-runtime ./maps.vim
-
 lua <<EOF
 require'toggle_lsp_diagnostics'.init({start_on = false})
 require('nvim-autopairs').setup{}
+require('setup.git-diff')
+require('setup.nvim-tree')
+require('setup.neoscroll')
 EOF
-" let g:coc_diagnostic_disable = 1
+
 let g:completion_enable_snippet='snippets.nvim'
 
 "}}}
