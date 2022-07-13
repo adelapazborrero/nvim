@@ -1,4 +1,3 @@
-lua << END
 require("persisted").setup({
     save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
     command = "VimLeavePre", -- the autocommand for which the session is saved
@@ -23,4 +22,3 @@ require("persisted").setup({
         after_source = nil, -- function to run after the session is sourced via telescope
     },
 })
-END

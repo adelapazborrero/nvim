@@ -1,10 +1,3 @@
-if !exists('g:loaded_nvim_treesitter')
-  finish
-endif
-
-autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-
-lua << EOF
 require'nvim-tree'.setup {
     disable_netrw       = true,
     hijack_netrw        = true,
@@ -21,7 +14,6 @@ require'nvim-tree'.setup {
     view = {
         width = 30,
         side = 'left',
-       -- auto_resize = false,
         adaptive_size = true,
         hide_root_folder = true,
     },
@@ -37,7 +29,7 @@ require'nvim-tree'.setup {
             resize_window = true,
             quit_on_open = true,
             window_picker = {
-                enable = false    
+                enable = false
             }
         }
     },
@@ -57,7 +49,7 @@ require'nvim-tree'.setup {
                 file = true,
                 folder = true,
                 folder_arrow = true,
-                git = true 
+                git = true
             },
             webdev_colors = true,
             git_placement = "before",
@@ -102,7 +94,7 @@ require'nvim-tree'.setup {
     filters = {
         dotfiles = false,
         custom = {}
-    },  
+    },
     trash = {
         cmd = "trash",
         require_confirm = true
@@ -110,10 +102,7 @@ require'nvim-tree'.setup {
 }
 
 
-EOF
+vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-f>', ':NvimTreeFindFile<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeRefresh()<CR>', {noremap = true})
 
-nnoremap <C-n> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
-
-set termguicolors " this variable must be enabled for colors to be applied properly

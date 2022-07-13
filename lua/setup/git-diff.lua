@@ -1,4 +1,3 @@
-lua << EOF
 local actions = require("diffview.actions")
 
 require("diffview").setup({
@@ -120,39 +119,38 @@ require("diffview").setup({
 
 local menuOpen = false
 
-function openDiff()
+function OpenDiff()
     vim.cmd('DiffviewOpen')
 end
 
-function openHistory()
+function OpenHistory()
     vim.cmd('DiffviewFileHistory')
 end
 
-function closeDiff()
+function CloseDiff()
     vim.cmd('DiffviewClose')
 end
 
-function toggleGitDiff()
+function ToggleGitDiff()
     if menuOpen == true then
-        closeDiff()
+        CloseDiff()
         menuOpen = false
     else
-        openDiff()
+        OpenDiff()
         menuOpen = true
     end
 end
 
-function toggleGitHistory()
+function ToggleGitHistory()
     if menuOpen == true then
-        closeDiff()
+        CloseDiff()
         menuOpen = false
     else
-        openHistory()
+        OpenHistory()
         menuOpen = true
     end
 end
 
-vim.api.nvim_set_keymap('n', ';g', ':lua toggleGitDiff()<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', 'gh', ':lua toggleGitHistory()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', ';g', ':lua ToggleGitDiff()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gh', ':lua ToggleGitHistory()<CR>', {noremap = true})
 
-EOF

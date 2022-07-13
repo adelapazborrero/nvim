@@ -17,7 +17,8 @@ set laststatus=2
 set scrolloff=10
 set expandtab
 set backupskip=/tmp/*,/private/tmp/*
-set relativenumber 
+set number 
+set termguicolors
 
 :set mouse=a
 set t_Co=256
@@ -77,21 +78,24 @@ let g:vim_json_conceal=0
 " Imports "{{{
 " ---------------------------------------------------------------------
 runtime ./plug.vim
-if has("unix")
-  let s:uname = system("uname -s")
-  " Do Mac stuff
-  if s:uname == "Darwin\n"
-    runtime ./macos.vim
-  endif
-endif
-
-runtime ./maps.vim
 
 lua <<EOF
 require'toggle_lsp_diagnostics'.init({start_on = false})
 require('nvim-autopairs').setup{}
+require('setup.git-diff')
+require('setup.nvim-tree')
+require('setup.neoscroll')
+require('setup.persisted-session')
+require('setup.telescope')
+require('setup.bufferline')
+require('setup.dev-icons')
+require('setup.git-signs')
+require('setup.lualine')
+require('setup.nvterm')
+require('theme')
+
 EOF
-" let g:coc_diagnostic_disable = 1
+
 let g:completion_enable_snippet='snippets.nvim'
 
 "}}}
@@ -127,6 +131,8 @@ set exrc
 autocmd BufEnter * call ncm2#enable_for_buffer()
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "}}}
+"
+set completeopt=menu,menuone,noselect
 
 set clipboard+=unnamedplus
 vnoremap <A-c> "+y

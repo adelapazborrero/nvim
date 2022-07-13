@@ -1,4 +1,3 @@
-lua << EOF
 require("bufferline").setup{
   options = {
     separator_style = "thick", -- slant, padded_slant, thick, thin
@@ -20,7 +19,7 @@ require("bufferline").setup{
     always_show_bufferline = true,
     tab_size = 20,
     highlights = {
-      tab = { 
+      tab = {
         guifg = '#ffffff',
         guibg = '#ffffff'
       },
@@ -30,22 +29,11 @@ require("bufferline").setup{
 
       }
     }
---    diagnostics = 'coc',
---    diagnostics_indicator = function(count, level, diagnostics_dict, context)
---      local s = " "
---      for e, n in pairs(diagnostics_dict) do
---        local sym = e == "error" and "  "
---          or (e == "warning" and "  " or " " )
---        s = s .. n .. sym
---      end
---      return s
---    end,
   }
 }
-EOF
 
-nnoremap <silent><C-h> :BufferLineCyclePrev<CR>
-nnoremap <silent><C-l> :BufferLineCycleNext<CR>
+vim.api.nvim_set_keymap("n", "<C-h>", ":BufferLineCyclePrev<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-l>", ":BufferLineCycleNext<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "bh", ":BufferLineMovePrev<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "bl", ":BufferLineMoveNext<CR>", {noremap = true, silent = true})
 
-nnoremap <silent>bh :BufferLineMovePrev<CR>
-nnoremap <silent>bl :BufferLineMoveNext<CR>
