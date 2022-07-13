@@ -1,9 +1,8 @@
-nnoremap <silent>;f <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <silent>;r <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <silent>;; <cmd>lua require('telescope.builtin').grep_string()<cr>
-nnoremap <silent>\\ <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-lua <<EOF
+vim.api.nvim_set_keymap('n', ';f', ':lua require(\'telescope.builtin\').find_files()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', ';r', ':lua require(\'telescope.builtin\').live_grep()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', ';;', ':lua require(\'telescope.builtin\').grep_string()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '\\\\', ':lua require(\'telescope.builtin\').help_tags()<CR>', {noremap = true, silent = true})
 
 vim.g.theme_switcher_loaded = true
 
@@ -54,10 +53,10 @@ require("telescope").setup{
       -- Developer configurations: Not meant for general override
       buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
       mappings = {
-         n = { 
+         n = {
                 ["q"] = require("telescope.actions").close ,
             },
-         i = { 
+         i = {
                 ["<ESC>"] = require("telescope.actions").close ,
             }
       },
@@ -68,5 +67,3 @@ require("telescope").setup{
         },
    },
 }
-
-EOF

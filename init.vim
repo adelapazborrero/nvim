@@ -92,6 +92,9 @@ require('nvim-autopairs').setup{}
 require('setup.git-diff')
 require('setup.nvim-tree')
 require('setup.neoscroll')
+require('setup.persisted-session')
+require('setup.telescope')
+
 EOF
 
 let g:completion_enable_snippet='snippets.nvim'
@@ -129,6 +132,8 @@ set exrc
 autocmd BufEnter * call ncm2#enable_for_buffer()
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "}}}
+"
+set completeopt=menu,menuone,noselect
 
 set clipboard+=unnamedplus
 vnoremap <A-c> "+y
