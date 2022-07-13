@@ -15,7 +15,6 @@ if has("nvim")
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'windwp/nvim-autopairs' 
     Plug 'olimorris/persisted.nvim'
-    Plug 'mileszs/ack.vim'
     Plug 'lukas-reineke/indent-blankline.nvim'
 
     "" Language support
@@ -44,7 +43,6 @@ if has("nvim")
     Plug 'ncm2/ncm2-path'
 
   "" UI
-    Plug 'lifepillar/vim-colortemplate'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'hoob3rt/lualine.nvim'
     Plug 'nvim-lualine/lualine.nvim'
@@ -61,7 +59,6 @@ if has("nvim")
     Plug 'kristijanhusak/vim-hybrid-material'
     Plug 'rakr/vim-one'
 
-
     " LSP Config
     Plug 'folke/lsp-colors.nvim'
     Plug 'neovim/nvim-lspconfig'
@@ -69,8 +66,10 @@ if has("nvim")
 
 endif
 
+" Enables proper indentation for vue files
+Plug 'leafOfTree/vim-vue-plugin' 
+
 Plug 'tpope/vim-commentary'
-Plug 'leafOfTree/vim-vue-plugin'
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee' }
 
