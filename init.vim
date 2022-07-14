@@ -30,7 +30,6 @@ endif
 set nosc noru nosm
 set lazyredraw
 set showmatch
-" How many tenths of a second to blink when matching brackets
 " set mat=2
 set ignorecase
 set smarttab
@@ -40,9 +39,6 @@ set wildignore+=*/node_modules/*
 autocmd InsertLeave * set nopaste
 set formatoptions+=r
 let g:jsx_ext_required = 2
-
-" let g:ycm_autoclose_preview_window_after_completion=1
-" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " }}}
 
@@ -116,9 +112,9 @@ let g:completion_enable_snippet='snippets.nvim'
 filetype plugin indent on
 set shiftwidth=4
 set tabstop=4
-set ai "Auto indent
-set si "Smart indent
-set nowrap "No Wrap lines
+set ai 
+set si
+set nowrap
 
 let g:indentLine_setColors = 1
 let g:indentLine_enabled = 1
