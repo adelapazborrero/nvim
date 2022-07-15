@@ -93,9 +93,24 @@ nvim_lsp.sumneko_lua.setup {
 nvim_lsp.volar.setup {
     on_attach = on_attach,
     capabilities = capabilities,
+    volar = {
+        takeOverMode = {
+            enabled = true
+        }
+    }
+}
+
+nvim_lsp.tsserver.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
 }
 
 nvim_lsp.intelephense.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+nvim_lsp.jsonls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
