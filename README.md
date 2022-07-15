@@ -1,25 +1,26 @@
 ## Personal neovim settings. Clone this in case settings are needed.
 
-- CocInstall marketplace
+-   Install packer
+    `https://github.com/wbthomason/packer.nvim`
 
-## Installed coc-plugins
+## Installed language servers
 
-- coc-phpls
-- coc-volar
-- coc-prettier
-- coc-luakk
+-   volar
+-   intelephense
+-   sumneko_lua
+-   ts-server
+-   jsonls
 
 ## Recommended npm global packages
 
-@volar/vue-language-server
-npm
-typescript-language-server
-typescrlit
-yarn
+-   prettier _installed through npm_
+-   stylua _installed as package depending on os_
+-   php-cs-fixer _installed through composer_
 
 ### If telescope running slow make sure to have this dependencies installed
-- fd
-- plocate   or   locate ( findutils )
-- bat
+
+-   fd
+-   plocate or locate ( findutils )
+-   bat
 
 For python it is better to run pip3 istall --upgrade neovim
