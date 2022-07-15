@@ -84,15 +84,30 @@ _G.packer_plugins = {
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
-  ["coc.nvim"] = {
+  ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/coc.nvim",
-    url = "https://github.com/neoclide/coc.nvim"
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
   },
-  ["completion-nvim"] = {
+  ["cmp-cmdline"] = {
     loaded = true,
-    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/completion-nvim",
-    url = "https://github.com/nvim-lua/completion-nvim"
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
+  ["cmp-vsnip"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["copilot.vim"] = {
     loaded = true,
@@ -174,6 +189,16 @@ _G.packer_plugins = {
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -208,6 +233,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/oceanic-next",
     url = "https://github.com/mhartington/oceanic-next"
+  },
+  ["packer.nvim"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
   },
   ["persisted.nvim"] = {
     loaded = true,
@@ -298,6 +328,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-tsx",
     url = "https://github.com/ianks/vim-tsx"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   },
   ["vim-vue-plugin"] = {
     loaded = true,

@@ -40,26 +40,26 @@ let g:jsx_ext_required = 2
 " File types "{{{
 " ---------------------------------------------------------------------
 " JavaScript
-au BufNewFile,BufRead *.es6 setf javascript
+" au BufNewFile,BufRead *.es6 setf javascript
 " TypeScript
-au BufNewFile,BufRead *.tsx setf typescriptreact
+" au BufNewFile,BufRead *.tsx setf typescriptreact
 " Markdown
-au BufNewFile,BufRead *.md set filetype=markdown
+" au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
-au BufNewFile,BufRead *.flow set filetype=javascript
+" au BufNewFile,BufRead *.flow set filetype=javascript
 
-set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md,.vue
+" set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md,.vue
 
-augroup typescriptreact                                                          
-  au!                                                                            
-  autocmd BufNewFile,BufRead *.tsx   set filetype=typescriptreact
-  autocmd BufNewFile,BufRead *.tsx   set filetype=javascript
-augroup END
+" augroup typescriptreact                                                          
+"   au!                                                                            
+"   autocmd BufNewFile,BufRead *.tsx   set filetype=typescriptreact
+"   autocmd BufNewFile,BufRead *.tsx   set filetype=javascript
+" augroup END
 
-augroup SyntaxSettings
-  autocmd!
-  autocmd BufNewFile, BufRead *.tsx set filetype=typescript
-augroup END 
+" augroup SyntaxSettings
+"   autocmd!
+"   autocmd BufNewFile, BufRead *.tsx set filetype=typescript
+" augroup END 
 
 let g:vim_json_conceal=0
 
@@ -71,10 +71,10 @@ runtime ./plug.vim
 
 lua <<EOF
 require'toggle_lsp_diagnostics'.init({start_on = true})
-require('setup.formatter')
 require('nvim-autopairs').setup{}
 require("setup.lsp-installer")
 require('setup.lspconfig')
+require('setup.nvim-cmp')
 require('setup.git-diff')
 require('setup.nvim-tree')
 require('setup.neoscroll')
@@ -91,22 +91,10 @@ require('plugins')
 
 EOF
 
-let g:completion_enable_snippet='snippets.nvim'
-
 "}}}
 
 " Tabs settings "{{{
 " ---------------------------------------------------------------------
-
-" autocmd FileType coffee setlocal shiftwidth=4 tabstop=4
-" autocmd FileType ruby setlocal shiftwidth=4 tabstop=4
-" autocmd FileType yaml setlocal shiftwidth=4 tabstop=4
-" autocmd FileType php setlocal shiftwidth=4 tabstop=4
-" autocmd FileType js setlocal shiftwidth=4 tabstop=4
-" autocmd FileType ts setlocal shiftwidth=4 tabstop=4
-" autocmd FileType tsx setlocal shiftwidth=4 tabstop=4
-" autocmd FileType vue setlocal shiftwidth=4 tabstop=4
-" autocmd FileType json setlocal shiftwidth=4 tabstop=4
 
 filetype plugin indent on
 set shiftwidth=4
@@ -122,14 +110,14 @@ let g:indentLine_enabled = 1
 
 " Extras "{{{
 " ---------------------------------------------------------------------
-set exrc
-autocmd BufEnter * call ncm2#enable_for_buffer()
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" set exrc
+" autocmd BufEnter * call ncm2#enable_for_buffer()
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost * FormatWrite
-augroup END
+" augroup FormatAutogroup
+"   autocmd!
+"   autocmd BufWritePost * FormatWrite
+" augroup END
 "}}}
 "
 set completeopt=menu,menuone,noselect

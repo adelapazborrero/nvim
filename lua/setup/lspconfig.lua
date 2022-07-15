@@ -4,7 +4,34 @@ if not present then
    return
 end
 
-local protocol = require'vim.lsp.protocol'
+local signs = {
+    { name = 'DiagnosticSignError', text = '' },
+    { name = 'DiagnosticSignWarn', text = '' },
+    { name = 'DiagnosticSignHint', text = '' },
+    { name = 'DiagnosticSignInfo', text = '' },
+}
+
+for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
+end
+
+ vim.diagnostic.config {
+    virtual_text = false,
+    signs = {
+        active = signs,
+    },
+    update_in_insert = true,
+    underline = true,
+    severity_sort = true,
+    float = {
+        focusable = true,
+        style = '',
+        border = 'rounded',
+        source = 'always',
+        header = '',
+        prefix = '',
+    },
+}
 
 local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -21,6 +48,7 @@ local on_attach = function(client, bufnr)
     end
 
     local opts = { noremap = true, silent = true}
+
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']g', vim.diagnostic.goto_next, opts)
@@ -32,41 +60,10 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
-    protocol.CompletionItemKind = {
-        '', -- Text
-        '', -- Method
-        '', -- Function
-        '', -- Constructor
-        '', -- Field
-        '', -- Variable
-        '', -- Class
-        'ﰮ', -- Interface
-        '', -- Module
-        '', -- Property
-        '', -- Unit
-        '', -- Value
-        '', -- Enum
-        '', -- Keyword
-        '﬌', -- Snippet
-        '', -- Color
-        '', -- File
-        '', -- Reference
-        '', -- Folder
-        '', -- EnumMember
-        '', -- Constant
-        '', -- Struct
-        '', -- Event
-        'ﬦ', -- Operator
-        '', -- TypeParameter
-    }
+    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
-}
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 nvim_lsp.sumneko_lua.setup {
     on_attach = on_attach,
@@ -75,7 +72,7 @@ nvim_lsp.sumneko_lua.setup {
     settings = {
         Lua = {
             diagnostics = {
-                globals = { "vim", "use" },
+                globals = { "vim", "use", "augroup" },
             },
             workspace = {
                 library = {
@@ -87,4 +84,14 @@ nvim_lsp.sumneko_lua.setup {
             },
         },
     },
+}
+
+nvim_lsp.volar.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+nvim_lsp.intelephense.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
 }

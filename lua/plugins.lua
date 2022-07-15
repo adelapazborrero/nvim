@@ -13,7 +13,6 @@ return require('packer').startup(function()
     use 'windwp/nvim-autopairs'
     use 'olimorris/persisted.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
-    use 'mhartington/formatter.nvim'
 
     -- Language support
     use 'leafgarland/typescript-vim'
@@ -35,7 +34,7 @@ return require('packer').startup(function()
     use 'github/copilot.vim'
 
     -- Installers
-    use {'neoclide/coc.nvim', branch = 'release'}
+    -- use {'neoclide/coc.nvim', branch = 'release'}
     use 'ncm2/ncm2'
     use 'ncm2/ncm2-jedi'
     use 'ncm2/ncm2-path'
@@ -61,6 +60,15 @@ return require('packer').startup(function()
     use 'neovim/nvim-lspconfig'
     use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
     use 'williamboman/nvim-lsp-installer'
+
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+    use 'onsails/lspkind.nvim'
 
     use 'leafOfTree/vim-vue-plugin'
 
