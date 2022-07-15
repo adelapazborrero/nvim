@@ -14,6 +14,7 @@ return require("packer").startup(function()
 	use("olimorris/persisted.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
+	use("windwp/nvim-ts-autotag")
 
 	-- Language support
 	use("leafgarland/typescript-vim")
@@ -41,7 +42,6 @@ return require("packer").startup(function()
 
 	-- UI
 	use("kyazdani42/nvim-web-devicons")
-	-- use("hoob3rt/lualine.nvim")
 	use("nvim-lualine/lualine.nvim")
 	use("arcticicestudio/nord-vim")
 	use("morhetz/gruvbox")
