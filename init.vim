@@ -74,6 +74,7 @@ require'toggle_lsp_diagnostics'.init({start_on = true})
 require('nvim-autopairs').setup{}
 require("setup.lsp-installer")
 require('setup.lspconfig')
+require('setup.lsp-format')
 require('setup.nvim-cmp')
 require('setup.git-diff')
 require('setup.nvim-tree')
@@ -89,6 +90,7 @@ require('setup.indent-blankline')
 require('theme')
 require('plugins')
 
+vim.cmd('autocmd BufWritePost * Format')
 EOF
 
 "}}}

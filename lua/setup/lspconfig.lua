@@ -1,7 +1,7 @@
 local present, nvim_lsp = pcall(require, "lspconfig")
 
 if not present then
-   return
+    return
 end
 
 local signs = {
@@ -15,7 +15,7 @@ for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
 end
 
- vim.diagnostic.config {
+vim.diagnostic.config {
     virtual_text = false,
     signs = {
         active = signs,
@@ -35,7 +35,10 @@ end
 
 local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    require "lsp-format".on_attach(client)
 
     local vim_version = vim.version()
 
@@ -47,7 +50,7 @@ local on_attach = function(client, bufnr)
         client.resolved_capabilities.document_range_formatting = false
     end
 
-    local opts = { noremap = true, silent = true}
+    local opts = { noremap = true, silent = true }
 
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, opts)
@@ -60,7 +63,8 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
-    vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+    -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+    -- vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())

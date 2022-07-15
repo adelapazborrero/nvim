@@ -13,6 +13,7 @@ return require('packer').startup(function()
     use 'windwp/nvim-autopairs'
     use 'olimorris/persisted.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
+    use "lukas-reineke/lsp-format.nvim"
 
     -- Language support
     use 'leafgarland/typescript-vim'
