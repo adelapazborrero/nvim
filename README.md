@@ -23,6 +23,10 @@
 -   lua
 -   typescript
 -   vue _scheme has been added to support script tags_
+-   html 
+-   css 
+-   javascript 
+-   scss 
 
 ### If telescope running slow make sure to have this dependencies installed
 

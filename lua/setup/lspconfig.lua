@@ -95,9 +95,12 @@ nvim_lsp.sumneko_lua.setup({
 nvim_lsp.volar.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	volar = {
-		takeOverMode = {
-			enabled = true,
+
+	settings = {
+		volar = {
+			takeOverMode = {
+				enabled = true,
+			},
 		},
 	},
 })
