@@ -41,7 +41,8 @@ return require("packer").startup(function()
 
 	-- UI
 	use("kyazdani42/nvim-web-devicons")
-	use("hoob3rt/lualine.nvim")
+	-- use("hoob3rt/lualine.nvim")
+	use("nvim-lualine/lualine.nvim")
 	use("arcticicestudio/nord-vim")
 	use("morhetz/gruvbox")
 	use("cocopon/iceberg.vim")
