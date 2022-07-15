@@ -7,7 +7,7 @@ end
 indentline.setup {
     buftype_exclude = { 'terminal' },
     char = '▏',
-    filetype_exclude = { 'help', 'NvimTree', 'dashboard', 'packer', 'TelescopePrompt' },
+    filetype_exclude = { 'help', 'NvimTree', 'dashboard', 'packer', 'TelescopePrompt', 'lsp-installer' },
     show_current_context = true,
     space_char_blankline = ' ',
     use_treesitter = true,
