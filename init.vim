@@ -1,11 +1,6 @@
 " Fundamentals "{{{ 
 " -------------------------------------------------------------------- 
 "
-" init autocmd autocmd!  set script encoding scriptencoding utf-6 stop loading config if it's on tiny or small if !2 | finish | endif set nocompatible set number
-" syntax enable
-" set langmenu=ja_JP
-" let $LANG = 'ja_JP'
-" set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=UTF-8
 set title
 set autoindent
@@ -89,6 +84,7 @@ require('setup.git-signs')
 require('setup.lualine')
 require('setup.nvterm')
 require('theme')
+require('plugins')
 
 EOF
 

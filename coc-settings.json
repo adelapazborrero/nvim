@@ -62,7 +62,7 @@
         },
         "diagnostics": {
             "enable": true,
-            "globals": ["vim"],
+            "globals": ["vim", "use"],
             "workspaceDelay": -1
         }
     }
