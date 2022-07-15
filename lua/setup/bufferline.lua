@@ -1,4 +1,10 @@
-require("bufferline").setup{
+local present, bufferline = pcall(require, "bufferline")
+
+if not present then
+    return
+end
+
+bufferline.setup{
   options = {
     separator_style = "thick", -- slant, padded_slant, thick, thin
     numbers = "ordinal",

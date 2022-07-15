@@ -61,7 +61,6 @@ augroup SyntaxSettings
   autocmd BufNewFile, BufRead *.tsx set filetype=typescript
 augroup END 
 
-
 let g:vim_json_conceal=0
 
 "}}}
@@ -71,8 +70,11 @@ let g:vim_json_conceal=0
 runtime ./plug.vim
 
 lua <<EOF
-require'toggle_lsp_diagnostics'.init({start_on = false})
+require'toggle_lsp_diagnostics'.init({start_on = true})
+require('setup.formatter')
 require('nvim-autopairs').setup{}
+require("setup.lsp-installer")
+require('setup.lspconfig')
 require('setup.git-diff')
 require('setup.nvim-tree')
 require('setup.neoscroll')
@@ -83,6 +85,7 @@ require('setup.dev-icons')
 require('setup.git-signs')
 require('setup.lualine')
 require('setup.nvterm')
+require('setup.indent-blankline')
 require('theme')
 require('plugins')
 
@@ -122,6 +125,11 @@ let g:indentLine_enabled = 1
 set exrc
 autocmd BufEnter * call ncm2#enable_for_buffer()
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost * FormatWrite
+augroup END
 "}}}
 "
 set completeopt=menu,menuone,noselect
@@ -129,5 +137,3 @@ set completeopt=menu,menuone,noselect
 set clipboard+=unnamedplus
 vnoremap <A-c> "+y
 vnoremap <A-v> "+p
-
-" vim: set foldmethod=marker foldlevel=0:i

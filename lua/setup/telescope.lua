@@ -1,12 +1,10 @@
+local present, telescope = pcall(require, "telescope")
 
-vim.api.nvim_set_keymap('n', ';f', ':lua require(\'telescope.builtin\').find_files()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', ';r', ':lua require(\'telescope.builtin\').live_grep()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', ';;', ':lua require(\'telescope.builtin\').grep_string()<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '\\\\', ':lua require(\'telescope.builtin\').help_tags()<CR>', {noremap = true, silent = true})
+if not present then
+   return
+end
 
-vim.g.theme_switcher_loaded = true
-
-require("telescope").setup{
+telescope.setup{
    defaults = {
       vimgrep_arguments = {
          "rg",
@@ -67,3 +65,10 @@ require("telescope").setup{
         },
    },
 }
+
+vim.api.nvim_set_keymap('n', ';f', ':lua require(\'telescope.builtin\').find_files()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', ';r', ':lua require(\'telescope.builtin\').live_grep()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', ';;', ':lua require(\'telescope.builtin\').grep_string()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '\\\\', ':lua require(\'telescope.builtin\').help_tags()<CR>', {noremap = true, silent = true})
+
+vim.g.theme_switcher_loaded = true

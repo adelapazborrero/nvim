@@ -1,4 +1,10 @@
-require'nvim-tree'.setup {
+local present, tree = pcall(require, "nvim-tree")
+
+if not present then
+   return
+end
+
+tree.setup {
     disable_netrw       = true,
     hijack_netrw        = true,
     open_on_setup       = false,
@@ -39,16 +45,16 @@ require'nvim-tree'.setup {
         indent_markers = {
             enable = true,
             icons = {
-                corner = "└ ",
+                corner = "└",
                 edge = "│ ",
-                none = "  ",
+                none = " ",
             },
         },
         icons = {
             show = {
                 file = true,
                 folder = true,
-                folder_arrow = true,
+                folder_arrow = false,
                 git = true
             },
             webdev_colors = true,

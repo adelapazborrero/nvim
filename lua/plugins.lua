@@ -1,6 +1,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
+    use 'wbthomason/packer.nvim'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
 
@@ -12,6 +13,7 @@ return require('packer').startup(function()
     use 'windwp/nvim-autopairs'
     use 'olimorris/persisted.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
+    use 'mhartington/formatter.nvim'
 
     -- Language support
     use 'leafgarland/typescript-vim'
@@ -22,7 +24,6 @@ return require('packer').startup(function()
     use 'roxma/nvim-yarp'
 
     -- Utils
-    use 'nvim-lua/completion-nvim'
     use 'karb94/neoscroll.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-lua/popup.nvim'
@@ -30,6 +31,7 @@ return require('packer').startup(function()
     use 'norcalli/snippets.nvim'
     use 'NvChad/nvterm'
     use 'sindrets/diffview.nvim'
+    use 'tpope/vim-commentary'
     use 'github/copilot.vim'
 
     -- Installers
@@ -58,11 +60,11 @@ return require('packer').startup(function()
     use 'folke/lsp-colors.nvim'
     use 'neovim/nvim-lspconfig'
     use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
+    use 'williamboman/nvim-lsp-installer'
 
     use 'leafOfTree/vim-vue-plugin'
 
-    use 'tpope/vim-commentary'
-    use {'groenewege/vim-less'}
+    use 'groenewege/vim-less'
     use 'kchmck/vim-coffee-script'
 
 end)

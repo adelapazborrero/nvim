@@ -1,11 +1,12 @@
-local M = {}
+-- auto-indent on newline
+local npairs = require('nvim-autopairs')
 
-function M.map(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+ _G.MUtils= {}
 
-return M
+ MUtils.completion_confirm=function()
+   if vim.fn.pumvisible() ~= 0  then
+       return npairs.esc("<cr>")
+   else
+     return npairs.autopairs_cr()
+   end
+ end
