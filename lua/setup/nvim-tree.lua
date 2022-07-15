@@ -1,21 +1,21 @@
-local present, tree = pcall(require, "nvim-tree")
+local present, tree = pcall(require, 'nvim-tree')
 
 if not present then
-   return
+    return
 end
 
 tree.setup {
-    disable_netrw       = true,
-    hijack_netrw        = true,
-    open_on_setup       = false,
-    ignore_ft_on_setup  = {"alpha"},
-    open_on_tab         = false,
-    hijack_cursor       = true,
+    disable_netrw = true,
+    hijack_netrw = true,
+    open_on_setup = false,
+    ignore_ft_on_setup = { 'alpha' },
+    open_on_tab = false,
+    hijack_cursor = true,
     hijack_unnamed_buffer_when_opening = false,
-    update_cwd          = true,
+    update_cwd = true,
     update_focused_file = {
-        enable      = true,
-        update_cwd  = false,
+        enable = true,
+        update_cwd = false,
     },
     view = {
         width = 30,
@@ -35,19 +35,19 @@ tree.setup {
             resize_window = true,
             quit_on_open = true,
             window_picker = {
-                enable = false
-            }
-        }
+                enable = false,
+            },
+        },
     },
     renderer = {
         highlight_git = false,
-        highlight_opened_files = "none",
+        highlight_opened_files = 'none',
         indent_markers = {
             enable = true,
             icons = {
-                corner = "└",
-                edge = "│ ",
-                none = " ",
+                corner = '└',
+                edge = '│ ',
+                none = ' ',
             },
         },
         icons = {
@@ -55,60 +55,58 @@ tree.setup {
                 file = true,
                 folder = true,
                 folder_arrow = false,
-                git = true
+                git = true,
             },
             webdev_colors = true,
-            git_placement = "before",
+            git_placement = 'before',
             glyphs = {
-                default = "",
-                symlink = "",
+                default = '',
+                symlink = '',
                 folder = {
-                    default = "",
-                    empty = "",
-                    empty_open = "",
-                    open = "",
-                    symlink = "",
-                    symlink_open = "",
-                    arrow_open = "",
-                    arrow_closed = "",
+                    default = '',
+                    empty = '',
+                    empty_open = '',
+                    open = '',
+                    symlink = '',
+                    symlink_open = '',
+                    arrow_open = '',
+                    arrow_closed = '',
                 },
                 git = {
-                    unstaged = "✗",
-                    staged = "✓",
-                    unmerged = "",
-                    renamed = "➜",
-                    untracked = "★",
-                    deleted = "",
-                    ignored = "◌",
+                    unstaged = '✗',
+                    staged = '✓',
+                    unmerged = '',
+                    renamed = '➜',
+                    untracked = '★',
+                    deleted = '',
+                    ignored = '◌',
                 },
             },
-        }
+        },
     },
     diagnostics = {
         enable = false,
         icons = {
-            hint = "?",
-            info = "?",
-            warning = "?",
-            error = "?",
-        }
+            hint = '?',
+            info = '?',
+            warning = '?',
+            error = '?',
+        },
     },
     system_open = {
-        cmd  = nil,
-        args = {}
+        cmd = nil,
+        args = {},
     },
     filters = {
         dotfiles = false,
-        custom = {}
+        custom = {},
     },
     trash = {
-        cmd = "trash",
-        require_confirm = true
+        cmd = 'trash',
+        require_confirm = true,
     },
 }
 
-
-vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-f>', ':NvimTreeFindFile<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeRefresh()<CR>', {noremap = true})
-
+vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-f>', ':NvimTreeFindFile<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeRefresh()<CR>', { noremap = true })

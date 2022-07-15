@@ -1,4 +1,4 @@
-local present, nvim_lsp = pcall(require, "lspconfig")
+local present, nvim_lsp = pcall(require, 'lspconfig')
 
 if not present then
     return
@@ -34,11 +34,11 @@ vim.diagnostic.config {
 }
 
 local on_attach = function(client, bufnr)
-    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    local function buf_set_option(...)
+        vim.api.nvim_buf_set_option(bufnr, ...)
+    end
 
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-    require "lsp-format".on_attach(client)
 
     local vim_version = vim.version()
 
@@ -62,9 +62,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
-
-    -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
-    -- vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -76,12 +73,12 @@ nvim_lsp.sumneko_lua.setup {
     settings = {
         Lua = {
             diagnostics = {
-                globals = { "vim", "use", "augroup" },
+                globals = { 'vim', 'use', 'augroup' },
             },
             workspace = {
                 library = {
-                    [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-                    [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+                    [vim.fn.expand '$VIMRUNTIME/lua'] = true,
+                    [vim.fn.expand '$VIMRUNTIME/lua/vim/lsp'] = true,
                 },
                 maxPreload = 100000,
                 preloadFileSize = 10000,
@@ -95,9 +92,9 @@ nvim_lsp.volar.setup {
     capabilities = capabilities,
     volar = {
         takeOverMode = {
-            enabled = true
-        }
-    }
+            enabled = true,
+        },
+    },
 }
 
 nvim_lsp.tsserver.setup {

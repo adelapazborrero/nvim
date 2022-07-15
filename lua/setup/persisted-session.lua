@@ -1,12 +1,12 @@
-local present, persisted = pcall(require, "persisted")
+local present, persisted = pcall(require, 'persisted')
 
 if not present then
-   return
+    return
 end
 
-persisted.setup({
-    save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
-    command = "VimLeavePre", -- the autocommand for which the session is saved
+persisted.setup {
+    save_dir = vim.fn.expand(vim.fn.stdpath 'data' .. '/sessions/'), -- directory where session files are saved
+    command = 'VimLeavePre', -- the autocommand for which the session is saved
     use_git_branch = false, -- create session files based on the branch of the git enabled repository
     autosave = true, -- automatically save session files when exiting Neovim
     autoload = true, -- automatically load the session for the cwd on Neovim startup
@@ -27,4 +27,4 @@ persisted.setup({
         before_source = nil, -- function to run before the session is sourced via telescope
         after_source = nil, -- function to run after the session is sourced via telescope
     },
-})
+}

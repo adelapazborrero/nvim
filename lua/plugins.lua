@@ -13,7 +13,7 @@ return require('packer').startup(function()
     use 'windwp/nvim-autopairs'
     use 'olimorris/persisted.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
-    use "lukas-reineke/lsp-format.nvim"
+    use 'jose-elias-alvarez/null-ls.nvim'
 
     -- Language support
     use 'leafgarland/typescript-vim'
@@ -35,7 +35,6 @@ return require('packer').startup(function()
     use 'github/copilot.vim'
 
     -- Installers
-    -- use {'neoclide/coc.nvim', branch = 'release'}
     use 'ncm2/ncm2'
     use 'ncm2/ncm2-jedi'
     use 'ncm2/ncm2-path'
@@ -51,8 +50,8 @@ return require('packer').startup(function()
     use 'chriskempson/base16-vim'
     use 'mhartington/oceanic-next'
     use 'EdenEast/nightfox.nvim'
-    use {'akinsho/bufferline.nvim',  tag = '*' }
-    use {'kaicataldo/material.vim',  branch = 'main' }
+    use { 'akinsho/bufferline.nvim', tag = '*' }
+    use { 'kaicataldo/material.vim', branch = 'main' }
     use 'kristijanhusak/vim-hybrid-material'
     use 'rakr/vim-one'
 
@@ -75,5 +74,4 @@ return require('packer').startup(function()
 
     use 'groenewege/vim-less'
     use 'kchmck/vim-coffee-script'
-
 end)
