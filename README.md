@@ -27,6 +27,7 @@
 -   css 
 -   javascript 
 -   scss 
+-   tsx 
 
 ### If telescope running slow make sure to have this dependencies installed
 
