@@ -144,10 +144,15 @@ _G.packer_plugins = {
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
     url = "https://github.com/folke/lsp-colors.nvim"
   },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/hoob3rt/lualine.nvim"
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["material.vim"] = {
     loaded = true,
@@ -184,6 +189,11 @@ _G.packer_plugins = {
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/nord-vim",
     url = "https://github.com/arcticicestudio/nord-vim"
   },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -213,6 +223,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -293,11 +308,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-hybrid-material",
     url = "https://github.com/kristijanhusak/vim-hybrid-material"
-  },
-  ["vim-javascript"] = {
-    loaded = true,
-    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-javascript",
-    url = "https://github.com/pangloss/vim-javascript"
   },
   ["vim-jsx"] = {
     loaded = true,

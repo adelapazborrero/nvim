@@ -64,9 +64,6 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 	vim.keymap.set("n", "fn", ":noh<CR>", opts)
 	vim.keymap.set("n", "<C-p>", ":bd<CR>", opts)
-
-	-- noremap fn :noh<CR>
-	-- nnoremap <C-p> :bd<CR>
 end
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
