@@ -38,6 +38,8 @@ vim.cmd("set clipboard+=unnamedplus")
 --vim.cmd("vnoremap <A-c> \"+y)"
 --vim.cmd("vnoremap <A-v> \"+p)"
 
+require("plugins")
+require("theme")
 require("toggle_lsp_diagnostics").init({ start_on = true })
 require("nvim-autopairs").setup({})
 require("setup.lsp-installer")
@@ -58,7 +60,5 @@ require("setup.nvim-treesitter")
 require("setup.nvterm")
 require("setup.indent-blankline")
 require("setup.lsp-colors")
-require("theme")
-require("plugins")
 
 vim.cmd("autocmd BufWritePost * lua vim.lsp.buf.formatting()")
