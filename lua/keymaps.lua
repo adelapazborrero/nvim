@@ -1,3 +1,4 @@
+local opts = { noremap = true, silent = true }
 
--- vim.api.nvim_set_keymap("n", "gd", "<Plug>(coc-jumpDefinition)")
--- vim.api.nvim_set_keymap("n", "gd", ":call CocActionAsync('jumpDefinition')<CR>")
+vim.keymap.set("n", "fn", ":noh<CR>", opts)
+vim.keymap.set("n", "<C-p>", ":bd<CR>", opts)

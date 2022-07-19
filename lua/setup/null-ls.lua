@@ -1,13 +1,13 @@
-local null_ls = require 'null-ls'
+local null_ls = require("null-ls")
 
 local formatting = null_ls.builtins.formatting
 
 local sources = {
-    formatting.prettierd,
-    formatting.stylua,
-    formatting.phpcsfixer,
+	formatting.prettierd,
+	formatting.stylua,
+	formatting.phpcsfixer,
 }
 
-null_ls.setup {
-    sources = sources,
-}
+null_ls.setup({
+	sources = sources,
+})

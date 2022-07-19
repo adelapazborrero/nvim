@@ -1,14 +1,16 @@
-local present, icons = pcall(require, 'nvim-web-devicons')
-
-if not present then
-    return
-end
-
-icons.setup {
-    --  override = {
-    --    vue = {
-    --      icon = "﵂",
-    --      name = "Vue"
-    --    }
-    --  }
-}
+require("nvim-web-devicons").setup({
+	override = {
+		vue = {
+			icon = "",
+			color = "#428850",
+			cterm_color = "65",
+			name = "Zsh",
+		},
+		feature = {
+			icon = "﯑",
+			color = "#428850",
+			cterm_color = "65",
+			name = "Feature",
+		},
+	},
+})
