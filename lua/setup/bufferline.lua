@@ -36,8 +36,3 @@ bufferline.setup({
 		},
 	},
 })
-
-vim.api.nvim_set_keymap("n", "<C-h>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "bh", ":BufferLineMovePrev<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "bl", ":BufferLineMoveNext<CR>", { noremap = true, silent = true })

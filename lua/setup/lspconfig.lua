@@ -49,21 +49,6 @@ local on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
 	end
-
-	local opts = { noremap = true, silent = true }
-
-	vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-	vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, opts)
-	vim.keymap.set("n", "]g", vim.diagnostic.goto_next, opts)
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-	vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-	vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
-	vim.keymap.set("n", "fn", ":noh<CR>", opts)
-	vim.keymap.set("n", "<C-p>", ":bd<CR>", opts)
 end
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())

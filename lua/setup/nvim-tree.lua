@@ -46,7 +46,8 @@ tree.setup({
 			enable = true,
 			icons = {
 				corner = "└",
-				edge = "│ ",
+				-- edge = "│ ",
+				edge = "| ",
 				none = " ",
 			},
 		},

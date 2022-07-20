@@ -61,6 +61,7 @@ return require("packer").startup(function()
 	use("neovim/nvim-lspconfig")
 	use("WhoIsSethDaniel/toggle-lsp-diagnostics.nvim")
 	use("williamboman/nvim-lsp-installer")
+	use("glepnir/lspsaga.nvim")
 
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
