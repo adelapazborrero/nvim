@@ -19,7 +19,7 @@ saga.init_lsp_saga({
 	-- is function type it will have a param `entry`
 	-- entry is a table type has these filed
 	-- { bufnr, code, col, end_col, end_lnum, lnum, message, severity, source }
-	diagnostic_header = { "", "", "", "😐" },
+	diagnostic_header = { " ", " ", " ", " " },
 	-- show diagnostic source
 	show_diagnostic_source = true,
 	-- add bracket or something with diagnostic source, just have 2 elements
@@ -42,7 +42,7 @@ saga.init_lsp_saga({
 		link = "  ",
 	},
 	-- preview lines of lsp_finder and definition preview
-	max_preview_lines = 10,
+	max_preview_lines = 20,
 	finder_action_keys = {
 		open = "o",
 		vsplit = "s",

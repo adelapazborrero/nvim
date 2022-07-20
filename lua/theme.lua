@@ -30,15 +30,19 @@ vim.cmd("set cursorline")
 vim.cmd("highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40")
 vim.cmd("highlight LineNr cterm=NONE ctermfg=236 guifg=#4C566A guibg=#3B4252")
 
+-- Diagnostics Colors
 vim.cmd("highlight DiagnosticError ctermfg=1 guifg=#CF5A68")
 vim.cmd("highlight DiagnosticWarn ctermfg=1 guifg=#F1CA81")
-vim.cmd("highlight DiagnosticInfo ctermfg=1 guifg=#FFFEFA")
+vim.cmd("highlight DiagnosticInfo ctermfg=1 guifg=##6AC0FF")
 vim.cmd("highlight DiagnosticHint ctermfg=1 guifg=#5581B0")
 
-vim.cmd("highlight DiagnosticUnderlineError ctermfg=1 guifg=#CF5A68")
-vim.cmd("highlight DiagnosticUnderlineWarn ctermfg=1 guifg=#F1CA81")
-vim.cmd("highlight DiagnosticUnderlineInfo ctermfg=1 guifg=#FFFEFA")
-vim.cmd("highlight DiagnosticUnderlineHint ctermfg=1 guifg=#5581B0")
+vim.cmd("highlight LspSagaHoverBorder guifg='#6ac0ff'")
+
+-- Diagnostic underlines
+-- vim.cmd("highlight DiagnosticUnderlineError ctermfg=1 guifg=#CF5A68")
+-- vim.cmd("highlight DiagnosticUnderlineWarn ctermfg=1 guifg=#F1CA81")
+-- vim.cmd("highlight DiagnosticUnderlineInfo ctermfg=1 guifg=#FFFEFA")
+-- vim.cmd("highlight DiagnosticUnderlineHint ctermfg=1 guifg=#5581B0")
 
 -- NEOSOLARIZED --
 -- vim.cmd("autocmd vimenter * ++nested colorscheme solarized8")
