@@ -46,8 +46,8 @@ tree.setup({
 			enable = true,
 			icons = {
 				corner = "└",
-				-- edge = "│ ",
-				edge = "| ",
+				edge = "│ ",
+				-- edge = "| ",
 				none = " ",
 			},
 		},
@@ -107,7 +107,3 @@ tree.setup({
 		require_confirm = true,
 	},
 })
-
-vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-f>", ":NvimTreeFindFile<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeRefresh()<CR>", { noremap = true })

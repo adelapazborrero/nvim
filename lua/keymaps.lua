@@ -13,6 +13,11 @@ vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
+-- Nvim Tree
+vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
+vim.keymap.set("n", "<C-f>", ":NvimTreeFindFile<CR>", opts)
+vim.keymap.set("n", "<leader>n", ":NvimTreeRefresh()<CR>", opts)
+
 -- LSP Saga
 vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>", opts)
 vim.keymap.set("n", "[g", ":Lspsaga diagnostic_jump_prev<CR>", opts)

@@ -6,7 +6,6 @@ return require("packer").startup(function()
 	use("tpope/vim-rhubarb")
 
 	-- IDE
-	use("puremourning/vimspector")
 	use("lewis6991/gitsigns.nvim")
 	use("nvim-treesitter/nvim-treesitter")
 	use("kyazdani42/nvim-tree.lua")
