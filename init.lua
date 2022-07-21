@@ -34,6 +34,8 @@ vim.cmd("set ai ")
 vim.cmd("set si")
 vim.cmd("set nowrap")
 
+vim.g["sneak#label"] = 1
+
 vim.cmd("set completeopt=menu,menuone,noselect")
 vim.cmd("set clipboard+=unnamedplus")
 --vim.cmd("vnoremap <A-c> \"+y)"

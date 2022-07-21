@@ -15,6 +15,7 @@ return require("packer").startup(function()
 	use("lukas-reineke/indent-blankline.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("windwp/nvim-ts-autotag")
+	use("justinmk/vim-sneak")
 
 	-- Language support
 	use("leafgarland/typescript-vim")
