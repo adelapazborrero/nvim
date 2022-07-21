@@ -41,3 +41,4 @@ vim.keymap.set("n", "bl", ":BufferLineMoveNext<CR>", opts)
 
 -- Other
 vim.keymap.set("n", "fn", ":noh<CR>", opts)
+vim.keymap.set("n", "rn", ":%s/\\<<c-r><c-w>\\>//<left>", opts)
