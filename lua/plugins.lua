@@ -16,6 +16,7 @@ return require("packer").startup(function()
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("windwp/nvim-ts-autotag")
 	use("justinmk/vim-sneak")
+	use("ray-x/lsp_signature.nvim")
 
 	-- Language support
 	use("leafgarland/typescript-vim")
