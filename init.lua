@@ -35,6 +35,8 @@ vim.cmd("set si")
 vim.cmd("set nowrap")
 
 vim.g["sneak#label"] = 1
+vim.cmd("map f <Plug>Sneak_s")
+vim.cmd("map F <Plug>Sneak_S")
 
 vim.cmd("set completeopt=menu,menuone,noselect")
 vim.cmd("set clipboard+=unnamedplus")
