@@ -38,8 +38,8 @@ vim.g["sneak#label"] = 1
 
 vim.cmd("set completeopt=menu,menuone,noselect")
 vim.cmd("set clipboard+=unnamedplus")
---vim.cmd("vnoremap <A-c> \"+y)"
---vim.cmd("vnoremap <A-v> \"+p)"
+
+local color = "#22272E"
 
 require("plugins")
 require("theme")

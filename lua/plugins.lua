@@ -16,6 +16,7 @@ return require("packer").startup(function()
 	use("windwp/nvim-ts-autotag")
 	use("justinmk/vim-sneak")
 	use("ray-x/lsp_signature.nvim")
+	use({ "rrethy/vim-hexokinase", run = "make hexokinase" })
 
 	-- Language support
 	use("leafgarland/typescript-vim")

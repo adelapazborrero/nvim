@@ -144,10 +144,20 @@ _G.packer_plugins = {
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
     url = "https://github.com/folke/lsp-colors.nvim"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
+  },
+  ["lspsaga.nvim"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
+    url = "https://github.com/glepnir/lspsaga.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -304,10 +314,20 @@ _G.packer_plugins = {
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-hexokinase"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-hexokinase",
+    url = "https://github.com/rrethy/vim-hexokinase"
+  },
   ["vim-hybrid-material"] = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-hybrid-material",
     url = "https://github.com/kristijanhusak/vim-hybrid-material"
+  },
+  ["vim-javascript"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-javascript",
+    url = "https://github.com/pangloss/vim-javascript"
   },
   ["vim-jsx"] = {
     loaded = true,
@@ -329,6 +349,11 @@ _G.packer_plugins = {
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
     url = "https://github.com/tpope/vim-rhubarb"
   },
+  ["vim-sneak"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-sneak",
+    url = "https://github.com/justinmk/vim-sneak"
+  },
   ["vim-solarized8"] = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-solarized8",
@@ -348,11 +373,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vim-vue-plugin",
     url = "https://github.com/leafOfTree/vim-vue-plugin"
-  },
-  vimspector = {
-    loaded = true,
-    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/vimspector",
-    url = "https://github.com/puremourning/vimspector"
   },
   ["yats.vim"] = {
     loaded = true,
