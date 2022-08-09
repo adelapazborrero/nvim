@@ -39,13 +39,12 @@ vim.g["sneak#label"] = 1
 vim.cmd("set completeopt=menu,menuone,noselect")
 vim.cmd("set clipboard+=unnamedplus")
 
-local color = "#22272E"
-
 require("plugins")
 require("theme")
 require("keymaps")
 require("toggle_lsp_diagnostics").init({ start_on = true })
 require("nvim-autopairs").setup({})
+require("setup.hop")
 require("setup.lsp-installer")
 require("setup.lspsaga")
 require("setup.lspconfig")
