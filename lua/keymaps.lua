@@ -7,6 +7,12 @@ vim.keymap.set("n", "<C-p>", ":bd<CR>", opts)
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+vim.keymap.set("n", "vs", ":vs<CR> :BufferLineCyclePrev<CR><C-w>w", opts)
+vim.keymap.set("n", "wh", "<C-w>h", opts)
+vim.keymap.set("n", "wj", "<C-w>j", opts)
+vim.keymap.set("n", "wk", "<C-w>k", opts)
+vim.keymap.set("n", "wl", "<C-w>l", opts)
+vim.keymap.set("n", "wp", "<C-w>q", opts)
 
 -- Dianostics
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
