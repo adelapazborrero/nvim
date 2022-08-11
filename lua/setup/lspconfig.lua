@@ -16,7 +16,7 @@ for _, sign in ipairs(signs) do
 end
 
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_text = false,
 	signs = {
 		active = signs,
 	},
