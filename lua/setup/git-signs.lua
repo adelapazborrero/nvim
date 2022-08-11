@@ -10,7 +10,8 @@ gitsigns.setup({
 		change = { hl = "GitSignsChange", text = "│", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
 		delete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
 		topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		changedelete = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+		-- changedelete = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+		changedelete = { hl = "GitSignsChange", text = "│", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
 	},
 	signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 	numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
@@ -34,12 +35,9 @@ gitsigns.setup({
 	status_formatter = nil, -- Use default
 	max_file_length = 40000,
 	preview_config = {
-		-- Options passed to nvim_open_win
 		border = "rounded",
 		style = "minimal",
-		relative = "cursor",
-		row = 0,
-		col = 1,
+		relative = "cursor", -- win, editor, cursor
 	},
 	yadm = {
 		enable = false,

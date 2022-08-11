@@ -35,8 +35,8 @@ vim.cmd("highlight DiagnosticError ctermfg=1 guifg=#CF5A68")
 vim.cmd("highlight DiagnosticWarn ctermfg=1 guifg=#F1CA81")
 vim.cmd("highlight DiagnosticInfo ctermfg=1 guifg=##6AC0FF")
 vim.cmd("highlight DiagnosticHint ctermfg=1 guifg=#5581B0")
-vim.cmd("highlight Sneak guifg=black guibg=#6ac0ff ctermfg=black ")
 
+vim.cmd("highlight FloatBorder ctermfg=1 guifg=#6ac0ff")
 vim.cmd("highlight LspSagaHoverBorder guifg='#6ac0ff'")
 
 -- Diagnostic underlines
