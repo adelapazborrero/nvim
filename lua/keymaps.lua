@@ -26,6 +26,9 @@ vim.keymap.set("n", "<C-k>", ":Lspsaga preview_definition<CR>", opts)
 
 -- GitSigns
 vim.keymap.set("n", "gb", ":Gitsigns blame_line<CR>", opts)
+vim.keymap.set("n", "gv", ":Gitsigns preview_hunk<CR>", opts)
+vim.keymap.set("n", "gr", ":Gitsigns reset_hunk<CR>", opts)
+vim.keymap.set("n", "gd", ":Gitsigns diffthis<CR>", opts)
 
 -- Telescope
 vim.keymap.set("n", ";f", ":lua require('telescope.builtin').find_files()<CR>", opts)
