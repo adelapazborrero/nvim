@@ -66,5 +66,4 @@ require("setup.nvterm")
 require("setup.indent-blankline")
 require("setup.lsp-colors")
 
-vim.cmd("autocmd BufWritePost * lua vim.lsp.buf.formatting()")
 vim.cmd("autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab")

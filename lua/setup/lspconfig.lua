@@ -111,4 +111,3 @@ nvim_lsp.gopls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-
