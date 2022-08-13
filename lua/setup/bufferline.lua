@@ -6,8 +6,8 @@ end
 
 bufferline.setup({
 	options = {
-		separator_style = "thick", -- slant, padded_slant, thick, thin
-		numbers = "ordinal",
+		separator_style = "thin", -- slant, padded_slant, thick, thin
+		-- numbers = "ordinal",
 		--indicator_icon = '▎',
 		buffer_close_icon = "",
 		modified_icon = "●",
@@ -17,7 +17,7 @@ bufferline.setup({
 		offsets = { { filetype = "NvimTree", text = "構造", text_align = "center" } },
 		color_icons = true, -- whether or not to add the filetype icon highlights
 		show_buffer_icons = true, -- disable filetype icons for buffers
-		show_buffer_close_icons = true,
+		show_buffer_close_icons = false,
 		show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
 		show_close_icon = true,
 		show_tab_indicators = true,

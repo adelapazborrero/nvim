@@ -58,6 +58,7 @@ return require("packer").startup(function()
 	use({ "kaicataldo/material.vim", branch = "main" })
 	use("kristijanhusak/vim-hybrid-material")
 	use("rakr/vim-one")
+	use("xiyaowong/nvim-transparent")
 
 	-- LSP Config
 	use("folke/lsp-colors.nvim")
