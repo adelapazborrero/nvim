@@ -35,7 +35,6 @@ return require("packer").startup(function()
 	use("NvChad/nvterm")
 	use("sindrets/diffview.nvim")
 	use("tpope/vim-commentary")
-	use("github/copilot.vim")
 
 	-- Installers
 	use("ncm2/ncm2")
