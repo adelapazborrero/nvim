@@ -28,7 +28,7 @@ vim.keymap.set("n", "<leader>n", ":NvimTreeRefresh()<CR>", opts)
 vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>", opts)
 vim.keymap.set("n", "[g", ":Lspsaga diagnostic_jump_prev<CR>", opts)
 vim.keymap.set("n", "]g", ":Lspsaga diagnostic_jump_next<CR>", opts)
-vim.keymap.set("n", "<C-k>", ":Lspsaga preview_definition<CR>", opts)
+vim.keymap.set("n", "<C-k>", ":Lspsaga peek_definition<CR>", opts)
 
 -- GitSigns
 vim.keymap.set("n", "gb", ":Gitsigns blame_line<CR>", opts)
