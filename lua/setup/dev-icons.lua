@@ -1,16 +1,9 @@
-require("nvim-web-devicons").setup({
-	override = {
-		vue = {
-			icon = "",
-			color = "#428850",
-			cterm_color = "65",
-			name = "Zsh",
-		},
-		feature = {
-			icon = "﯑",
-			color = "#428850",
-			cterm_color = "65",
-			name = "Feature",
-		},
+require("nvim-web-devicons").set_icon({
+	vue = {
+		icon = "﵂",
+		-- color = "#AEDDFF",
+		color = "#77C0F7",
+		cterm_color = "65",
+		name = "vue",
 	},
 })
