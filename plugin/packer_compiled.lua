@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  NeoSolarized = {
-    loaded = true,
-    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/NeoSolarized",
-    url = "https://github.com/overcache/NeoSolarized"
-  },
   ["base16-vim"] = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/base16-vim",
@@ -113,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
+  },
+  ["colorbuddy.nvim"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
+    url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
   ["diffview.nvim"] = {
     loaded = true,
@@ -193,6 +193,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
     url = "https://github.com/karb94/neoscroll.nvim"
+  },
+  ["neosolarized.nvim"] = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/neosolarized.nvim",
+    url = "https://github.com/svrana/neosolarized.nvim"
   },
   ["nightfox.nvim"] = {
     loaded = true,

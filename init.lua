@@ -40,6 +40,10 @@ vim.cmd("set completeopt=menu,menuone,noselect")
 vim.cmd("set clipboard+=unnamedplus")
 
 require("plugins")
+require("colorbuddy").setup()
+-- require("neosolarized").setup({
+-- 	comment_italics = true,
+-- })
 require("theme")
 require("keymaps")
 require("toggle_lsp_diagnostics").init({ start_on = true })
@@ -68,3 +72,4 @@ require("setup.indent-blankline")
 require("setup.lsp-colors")
 
 vim.cmd("autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab")
+vim.cmd("autocmd FileType json setlocal ts=4 sts=4 sw=4 expandtab")
