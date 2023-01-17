@@ -6,8 +6,11 @@ vim.cmd("hi! CocErrorSign guifg=#cc6666")
 vim.cmd("hi! CocInfoSign guibg=#268BD2")
 vim.cmd("hi! CocWarningSign guifg=#D33682")
 
+local hello = ""
+
 -- COLOR THEMES --
-vim.cmd("colorscheme one")
+vim.cmd("colorscheme everforest")
+-- vim.cmd("colorscheme one")
 -- vim.cmd("colorscheme base16-default-dark")
 -- vim.cmd("colorscheme OceanicNext")
 -- vim.cmd("colorscheme nordfox")

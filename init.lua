@@ -41,9 +41,6 @@ vim.cmd("set clipboard+=unnamedplus")
 
 require("plugins")
 require("colorbuddy").setup()
--- require("neosolarized").setup({
--- 	comment_italics = true,
--- })
 require("theme")
 require("keymaps")
 require("toggle_lsp_diagnostics").init({ start_on = true })

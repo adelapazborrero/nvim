@@ -44,13 +44,13 @@ return require("packer").startup(function()
 	use("williamboman/nvim-lsp-installer")
 
 	-- UI
+	use("sainnhe/everforest")
 	use("kyazdani42/nvim-web-devicons")
 	use("nvim-lualine/lualine.nvim")
 	use("arcticicestudio/nord-vim")
 	use("morhetz/gruvbox")
 	use("cocopon/iceberg.vim")
 	use("lifepillar/vim-solarized8")
-	-- use("overcache/NeoSolarized")
 	use("svrana/neosolarized.nvim")
 	use("tjdevries/colorbuddy.nvim")
 
