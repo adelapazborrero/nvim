@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
+  everforest = {
+    loaded = true,
+    path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/abeldlp/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
