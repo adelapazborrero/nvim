@@ -12,13 +12,13 @@ return require("packer").startup(function()
 	use("windwp/nvim-autopairs")
 	use("olimorris/persisted.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("jose-elias-alvarez/null-ls.nvim")
 	use("windwp/nvim-ts-autotag")
 	use("phaazon/hop.nvim")
-	use("ray-x/lsp_signature.nvim")
 	use({ "rrethy/vim-hexokinase", run = "make hexokinase" })
 
 	-- Language support
+	use("ray-x/lsp_signature.nvim")
+	use("jose-elias-alvarez/null-ls.nvim")
 	use("leafgarland/typescript-vim")
 	use("HerringtonDarkholme/yats.vim")
 	use("ianks/vim-tsx")
@@ -36,6 +36,7 @@ return require("packer").startup(function()
 	use("sindrets/diffview.nvim")
 	use("tpope/vim-commentary")
 	use("github/copilot.vim")
+	use({ "akinsho/bufferline.nvim", tag = "*" })
 
 	-- Installers
 	use("ncm2/ncm2")
@@ -43,7 +44,7 @@ return require("packer").startup(function()
 	use("ncm2/ncm2-path")
 	use("williamboman/nvim-lsp-installer")
 
-	-- UI
+	-- THEMES
 	use("sainnhe/everforest")
 	use("kyazdani42/nvim-web-devicons")
 	use("nvim-lualine/lualine.nvim")
@@ -53,15 +54,13 @@ return require("packer").startup(function()
 	use("lifepillar/vim-solarized8")
 	use("svrana/neosolarized.nvim")
 	use("tjdevries/colorbuddy.nvim")
-
 	use("chriskempson/base16-vim")
 	use("mhartington/oceanic-next")
 	use("EdenEast/nightfox.nvim")
-	use({ "akinsho/bufferline.nvim", tag = "*" })
 	use({ "kaicataldo/material.vim", branch = "main" })
 	use("kristijanhusak/vim-hybrid-material")
 	use("rakr/vim-one")
-	use("xiyaowong/nvim-transparent")
+	use({ "catppuccin/nvim", as = "catppuccin" })
 
 	-- LSP Config
 	use("folke/lsp-colors.nvim")

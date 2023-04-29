@@ -7,7 +7,8 @@ vim.cmd("hi! CocInfoSign guibg=#268BD2")
 vim.cmd("hi! CocWarningSign guifg=#D33682")
 
 -- COLOR THEMES --
-vim.cmd("colorscheme everforest")
+vim.cmd("colorscheme catppuccin-frappe") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+-- vim.cmd("colorscheme everforest")
 -- vim.cmd("colorscheme one")
 -- vim.cmd("colorscheme base16-default-dark")
 -- vim.cmd("colorscheme OceanicNext")
@@ -20,8 +21,8 @@ vim.cmd("colorscheme everforest")
 -- vim.cmd("colorscheme nord")
 
 vim.cmd("set cursorline")
-vim.cmd("highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40")
-vim.cmd("highlight LineNr cterm=NONE ctermfg=236 guifg=#4C566A guibg=#3B4252")
+-- vim.cmd("highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40")
+-- vim.cmd("highlight LineNr cterm=NONE ctermfg=236 guifg=#4C566A guibg=#3B4252")
 
 -- Diagnostics Colors
 vim.cmd("highlight DiagnosticError ctermfg=1 guifg=#CF5A68")
