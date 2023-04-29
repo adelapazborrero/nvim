@@ -28,8 +28,8 @@ vim.cmd("autocmd InsertLeave * set nopaste")
 vim.cmd("set formatoptions+=r")
 
 vim.cmd("filetype plugin indent on")
-vim.cmd("set shiftwidth=2") -- Tab width
-vim.cmd("set tabstop=2") -- Tab width
+vim.cmd("set shiftwidth=4") -- Tab width
+vim.cmd("set tabstop=4") -- Tab width
 vim.cmd("set ai ")
 vim.cmd("set si")
 vim.cmd("set nowrap")
