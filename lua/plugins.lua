@@ -14,7 +14,6 @@ return require("packer").startup(function()
 	use("lukas-reineke/indent-blankline.nvim")
 	use("windwp/nvim-ts-autotag")
 	use("phaazon/hop.nvim")
-	use({ "rrethy/vim-hexokinase", run = "make hexokinase" })
 
 	-- Language support
 	use("ray-x/lsp_signature.nvim")
