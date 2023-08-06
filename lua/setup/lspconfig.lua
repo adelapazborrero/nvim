@@ -6,9 +6,9 @@ end
 
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
-	{ name = "DiagnosticSignWarn", text = "" },
-	{ name = "DiagnosticSignHint", text = "" },
-	{ name = "DiagnosticSignInfo", text = "" },
+	{ name = "DiagnosticSignWarn", text = "" },
+	{ name = "DiagnosticSignHint", text = " " },
+	{ name = "DiagnosticSignInfo", text = " " },
 }
 
 for _, sign in ipairs(signs) do
@@ -73,34 +73,6 @@ nvim_lsp.lua_ls.setup({
 			},
 		},
 	},
-})
-
-nvim_lsp.volar.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-
-	settings = {
-		volar = {
-			takeOverMode = {
-				enabled = true,
-			},
-		},
-	},
-})
-
-nvim_lsp.rust_analyzer.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.tsserver.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.intelephense.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
 })
 
 nvim_lsp.jsonls.setup({

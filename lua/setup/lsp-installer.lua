@@ -13,9 +13,9 @@ installer.setup({
 		border = "none",
 
 		icons = {
-			server_installed = "",
+			server_installed = "✓",
 			server_pending = "",
-			server_uninstalled = " ﮊ",
+			server_uninstalled = "✗",
 		},
 		keymaps = {
 			toggle_server_expand = "<CR>",
