@@ -54,7 +54,7 @@ local mappings = {
 	},
 	{
 		toggle_modes,
-		"<A-i>",
+		"<C-i>",
 		function()
 			require("nvterm.terminal").toggle("float")
 		end,
