@@ -30,6 +30,8 @@ keymap.set("n", "K", ":Lspsaga hover_doc<CR>", opts)
 keymap.set("n", "[g", ":Lspsaga diagnostic_jump_prev<CR>", opts)
 keymap.set("n", "]g", ":Lspsaga diagnostic_jump_next<CR>", opts)
 keymap.set("n", "<C-k>", ":Lspsaga peek_definition<CR>", opts)
+keymap.set("n", "fo", ":Lspsaga finder def+ref<CR>", opts)
+keymap.set("n", "rn", ":Lspsaga rename<CR>")
 
 -- GitSigns
 keymap.set("n", "gb", ":Gitsigns blame_line<CR>", opts)
@@ -76,4 +78,3 @@ vim.api.nvim_set_keymap(
 
 -- Other
 keymap.set("n", "fn", ":noh<CR>", opts)
-keymap.set("n", "rn", ":%s/\\<<c-r><c-w>\\>//<left>", opts)
