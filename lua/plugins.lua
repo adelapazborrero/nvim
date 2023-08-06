@@ -12,17 +12,11 @@ return require("packer").startup(function()
 	use("windwp/nvim-autopairs")
 	use("olimorris/persisted.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("windwp/nvim-ts-autotag")
 	use("phaazon/hop.nvim")
 
 	-- Language support
 	use("ray-x/lsp_signature.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use("leafgarland/typescript-vim")
-	use("HerringtonDarkholme/yats.vim")
-	use("ianks/vim-tsx")
-	use("pangloss/vim-javascript")
-	use("mxw/vim-jsx")
 	use("roxma/nvim-yarp")
 
 	-- Utils
@@ -75,8 +69,6 @@ return require("packer").startup(function()
 	use("hrsh7th/cmp-vsnip")
 	use("hrsh7th/vim-vsnip")
 	use("onsails/lspkind.nvim")
-
-	use("leafOfTree/vim-vue-plugin")
 
 	use("groenewege/vim-less")
 	use("kchmck/vim-coffee-script")
