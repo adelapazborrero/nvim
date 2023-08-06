@@ -4,7 +4,7 @@ local formatting = null_ls.builtins.formatting
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local sources = {
-	formatting.prettierd, -- mainly ts, js, yml files
+	formatting.prettierd, -- mainly ts, js, yml files https://github.com/fsouza/prettierd
 	formatting.stylua, -- mainly for lua files
 	formatting.phpcsfixer, -- mainly for php files
 	formatting.gofmt, -- mainly for go files
