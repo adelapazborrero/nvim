@@ -70,6 +70,10 @@ return require("packer").startup(function()
 	use("hrsh7th/vim-vsnip")
 	use("onsails/lspkind.nvim")
 
+	-- GO
+	use("ray-x/go.nvim")
+	use("ray-x/guihua.lua") -- recommended if need floating window support
+
 	use("groenewege/vim-less")
 	use("kchmck/vim-coffee-script")
 end)
