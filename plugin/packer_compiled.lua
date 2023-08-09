@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["base16-vim"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/base16-vim",
-    url = "https://github.com/chriskempson/base16-vim"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -114,16 +109,6 @@ _G.packer_plugins = {
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  ["colorbuddy.nvim"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
-    url = "https://github.com/tjdevries/colorbuddy.nvim"
-  },
-  ["copilot.vim"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/copilot.vim",
-    url = "https://github.com/github/copilot.vim"
-  },
   ["diffview.nvim"] = {
     loaded = true,
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/diffview.nvim",
@@ -139,20 +124,25 @@ _G.packer_plugins = {
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["go.nvim"] = {
+    loaded = true,
+    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/go.nvim",
+    url = "https://github.com/ray-x/go.nvim"
+  },
   gruvbox = {
     loaded = true,
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
+  ["guihua.lua"] = {
+    loaded = true,
+    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/guihua.lua",
+    url = "https://github.com/ray-x/guihua.lua"
+  },
   ["hop.nvim"] = {
     loaded = true,
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
-  },
-  ["iceberg.vim"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/iceberg.vim",
-    url = "https://github.com/cocopon/iceberg.vim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -184,40 +174,10 @@ _G.packer_plugins = {
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["material.vim"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/material.vim",
-    url = "https://github.com/kaicataldo/material.vim"
-  },
-  ncm2 = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/ncm2",
-    url = "https://github.com/ncm2/ncm2"
-  },
-  ["ncm2-jedi"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/ncm2-jedi",
-    url = "https://github.com/ncm2/ncm2-jedi"
-  },
-  ["ncm2-path"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/ncm2-path",
-    url = "https://github.com/ncm2/ncm2-path"
-  },
   ["neoscroll.nvim"] = {
     loaded = true,
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
     url = "https://github.com/karb94/neoscroll.nvim"
-  },
-  ["neosolarized.nvim"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/neosolarized.nvim",
-    url = "https://github.com/svrana/neosolarized.nvim"
-  },
-  ["nightfox.nvim"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
-    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nord-vim"] = {
     loaded = true,
@@ -264,20 +224,10 @@ _G.packer_plugins = {
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["nvim-yarp"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/nvim-yarp",
-    url = "https://github.com/roxma/nvim-yarp"
-  },
   nvterm = {
     loaded = true,
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/nvterm",
     url = "https://github.com/NvChad/nvterm"
-  },
-  ["oceanic-next"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/oceanic-next",
-    url = "https://github.com/mhartington/oceanic-next"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -329,11 +279,6 @@ _G.packer_plugins = {
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
-  ["vim-hybrid-material"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/vim-hybrid-material",
-    url = "https://github.com/kristijanhusak/vim-hybrid-material"
-  },
   ["vim-less"] = {
     loaded = true,
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/vim-less",
@@ -348,11 +293,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
     url = "https://github.com/tpope/vim-rhubarb"
-  },
-  ["vim-solarized8"] = {
-    loaded = true,
-    path = "/Users/adelapazborrero/.local/share/nvim/site/pack/packer/start/vim-solarized8",
-    url = "https://github.com/lifepillar/vim-solarized8"
   },
   ["vim-vsnip"] = {
     loaded = true,

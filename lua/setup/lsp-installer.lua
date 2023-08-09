@@ -10,7 +10,7 @@ installer.setup({
 
 	ui = {
 		check_outdated_servers_on_open = true,
-		border = "none",
+		border = "solid",
 
 		icons = {
 			server_installed = "✓",

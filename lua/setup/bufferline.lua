@@ -1,4 +1,5 @@
 local present, bufferline = pcall(require, "bufferline")
+local mocha = require("catppuccin.palettes").get_palette("frappe")
 
 if not present then
 	return
@@ -25,15 +26,19 @@ bufferline.setup({
 		enforce_regular_tabs = false,
 		always_show_bufferline = true,
 		tab_size = 20,
-		highlights = {
-			tab = {
-				guifg = "#ffffff",
-				guibg = "#ffffff",
+		highlights = require("catppuccin.groups.integrations.bufferline").get({
+			styles = { "italic", "bold" },
+			custom = {
+				all = {
+					fill = { bg = "#000000" },
+				},
+				mocha = {
+					background = { fg = mocha.text },
+				},
+				latte = {
+					background = { fg = "#000000" },
+				},
 			},
-			tab_selected = {
-				guifg = "#ffffff",
-				guibg = "#ffffff",
-			},
-		},
+		}),
 	},
 })

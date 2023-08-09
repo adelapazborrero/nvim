@@ -32,7 +32,7 @@ require("lsp_signature").setup({
 	hint_scheme = "Type",
 	hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
 	handler_opts = {
-		border = "double", -- double, rounded, single, shadow, none
+		border = "none", -- double, rounded, single, shadow, none
 	},
 
 	always_trigger = false, -- sometime show signature on new line or in middle of parameter can be confusing, set it to false for #58
