@@ -2,6 +2,8 @@ vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
+
+	-- GIT
 	use("tpope/vim-fugitive")
 	use("tpope/vim-rhubarb")
 
@@ -17,7 +19,7 @@ return require("packer").startup(function()
 	-- Language support
 	use("ray-x/lsp_signature.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use("roxma/nvim-yarp")
+	use("williamboman/nvim-lsp-installer")
 
 	-- Utils
 	use("karb94/neoscroll.nvim")
@@ -28,30 +30,14 @@ return require("packer").startup(function()
 	use("NvChad/nvterm")
 	use("sindrets/diffview.nvim")
 	use("tpope/vim-commentary")
-	use("github/copilot.vim")
 	use({ "akinsho/bufferline.nvim", tag = "*" })
-
-	-- Installers
-	use("ncm2/ncm2")
-	use("ncm2/ncm2-jedi")
-	use("ncm2/ncm2-path")
-	use("williamboman/nvim-lsp-installer")
+	use("nvim-lualine/lualine.nvim")
+	use("kyazdani42/nvim-web-devicons")
 
 	-- THEMES
 	use("sainnhe/everforest")
-	use("kyazdani42/nvim-web-devicons")
-	use("nvim-lualine/lualine.nvim")
 	use("arcticicestudio/nord-vim")
 	use("morhetz/gruvbox")
-	use("cocopon/iceberg.vim")
-	use("lifepillar/vim-solarized8")
-	use("svrana/neosolarized.nvim")
-	use("tjdevries/colorbuddy.nvim")
-	use("chriskempson/base16-vim")
-	use("mhartington/oceanic-next")
-	use("EdenEast/nightfox.nvim")
-	use({ "kaicataldo/material.vim", branch = "main" })
-	use("kristijanhusak/vim-hybrid-material")
 	use("rakr/vim-one")
 	use({ "catppuccin/nvim", as = "catppuccin" })
 
@@ -60,7 +46,6 @@ return require("packer").startup(function()
 	use("neovim/nvim-lspconfig")
 	use("WhoIsSethDaniel/toggle-lsp-diagnostics.nvim")
 	use("glepnir/lspsaga.nvim")
-
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
@@ -72,7 +57,7 @@ return require("packer").startup(function()
 
 	-- GO
 	use("ray-x/go.nvim")
-	use("ray-x/guihua.lua") -- recommended if need floating window support
+	use("ray-x/guihua.lua")
 
 	use("groenewege/vim-less")
 	use("kchmck/vim-coffee-script")
