@@ -43,6 +43,9 @@ keymap.set("n", ";f", ":lua require('telescope.builtin').find_files()<CR>", opts
 keymap.set("n", ";r", ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap.set("n", ";;", ":lua require('telescope.builtin').grep_string()<CR>", opts)
 keymap.set("n", "\\\\", ":lua require('telescope.builtin').help_tags()<CR>", opts)
+keymap.set("n", "fr", ":lua require('telescope.builtin').lsp_references()<CR>", opts)
+keymap.set("n", "fi", ":lua require('telescope.builtin').lsp_implementations()<CR>", opts)
+keymap.set("n", "fd", ":lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 
 -- Bufferline
 keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>", opts)
