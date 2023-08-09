@@ -15,7 +15,7 @@ telescope.setup({
 			"--column",
 			"--smart-case",
 		},
-		prompt_prefix = "   ",
+		prompt_prefix = "   ",
 		selection_caret = "  ",
 		entry_prefix = "  ",
 		initial_mode = "insert",
@@ -41,13 +41,14 @@ telescope.setup({
 		path_display = { "truncate" },
 		winblend = 0,
 		border = {},
-		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-		--borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+		-- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+		borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
 		color_devicons = true,
 		set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
 		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+
 		-- Developer configurations: Not meant for general override
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		mappings = {
@@ -70,3 +71,9 @@ telescope.setup({
 })
 
 vim.g.theme_switcher_loaded = true
+-- vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#26283B" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#26283B" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#26283B", fg = "#5E81AC" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#26283B" })
+vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#26283B" })
+vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "#26283B" })
