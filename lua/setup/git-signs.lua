@@ -35,8 +35,8 @@ gitsigns.setup({
 	status_formatter = nil, -- Use default
 	max_file_length = 40000,
 	preview_config = {
-		border = "rounded",
-		style = "minimal",
+		border = "solid",
+		-- style = "minimal",
 		relative = "cursor", -- win, editor, cursor
 	},
 	yadm = {
