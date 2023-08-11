@@ -11,13 +11,17 @@ function OpenUI()
 	sidebar.open()
 end
 
-keymap.set("n", "bb", ":lua require('dap').toggle_breakpoint()<CR>", opts)
-keymap.set("n", "bs", ":lua require('dap').continue()<CR>", opts)
+-- GoDbgConfig
+
+-- keymap.set("n", "bb", ":lua require('dap').toggle_breakpoint()<CR>", opts)
+keymap.set("n", "bb", "::GoBreakToggle<CR>", opts)
+-- keymap.set("n", "bs", ":lua require('dap').continue()<CR>", opts) -- lightweight implementation
+keymap.set("n", "bs", "::GoDebug<CR>", opts) --heavy implementation
 keymap.set("n", "bu", ":lua require('dap').step_over()<CR>", opts)
 keymap.set("n", "bi", ":lua require('dap').step_into()<CR>", opts)
 keymap.set("n", "bo", ":lua require('dap').step_out()<CR>", opts)
 keymap.set("n", "bc", ":lua require('dap').terminate()<CR>", opts)
--- keymap.set("n", "bv", ":lua require('dapui').toggle()<CR>", opts)
+keymap.set("n", "bv", ":lua require('dapui').toggle()<CR>", opts)
 
 keymap.set("n", "bt", ":lua require('dap-go').debug_test()<CR>", opts)
 
