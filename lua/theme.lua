@@ -1,4 +1,4 @@
--- vim.cmd("set background=dark")
+vim.cmd("set background=dark")
 -- vim.cmd('set guifont="Hack Nerd Font"')
 vim.cmd("set cursorline")
 

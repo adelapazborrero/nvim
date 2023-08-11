@@ -44,8 +44,9 @@ require("lazy").setup({
 	{ "akinsho/bufferline.nvim", version = "*" },
 	"nvim-lualine/lualine.nvim",
 	"nvim-tree/nvim-web-devicons",
-	"VonHeikemen/fine-cmdline.nvim",
 	"MunifTanjim/nui.nvim",
+	{ "folke/noice.nvim", event = "VeryLazy" },
+	"rcarriga/nvim-notify",
 
 	-- THEMES
 	"sainnhe/everforest",
@@ -75,6 +76,7 @@ require("lazy").setup({
 	"leoluz/nvim-dap-go",
 	"rcarriga/nvim-dap-ui",
 	"theHamsta/nvim-dap-virtual-text",
+	"folke/trouble.nvim",
 
 	"groenewege/vim-less",
 	"kchmck/vim-coffee-script",

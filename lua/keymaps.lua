@@ -1,9 +1,6 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- CMDLine
-keymap.set("n", ":", ":FineCmdline<CR>", opts)
-
 -- Debugging
 function OpenUI()
 	local widgets = require("dap.ui.widgets")
@@ -103,6 +100,9 @@ vim.api.nvim_set_keymap(
 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>",
 	{}
 )
+
+--Trouble
+keymap.set("n", ",,", ":TroubleToggle<CR>", opts)
 
 -- Other
 keymap.set("n", "fn", ":noh<CR>", opts)
