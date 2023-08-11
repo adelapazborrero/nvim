@@ -58,6 +58,10 @@ return require("packer").startup(function()
 	-- GO
 	use("ray-x/go.nvim")
 	use("ray-x/guihua.lua")
+	use("mfussenegger/nvim-dap")
+	use("leoluz/nvim-dap-go")
+	use("rcarriga/nvim-dap-ui")
+	use("theHamsta/nvim-dap-virtual-text")
 
 	use("groenewege/vim-less")
 	use("kchmck/vim-coffee-script")
