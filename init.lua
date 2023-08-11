@@ -11,6 +11,7 @@ vim.cmd("set expandtab")
 vim.cmd("set backupskip=/tmp/*,/private/tmp/*")
 vim.cmd("set number ")
 vim.cmd("set termguicolors")
+vim.cmd("set noswapfile")
 vim.cmd("xnoremap p pgvy")
 
 vim.cmd(":set mouse=a")

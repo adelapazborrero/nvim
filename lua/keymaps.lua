@@ -2,7 +2,7 @@ local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 -- CMDLine
-keymap.set("n", ":", ":FineCmdline<CR>", { noremap = true })
+keymap.set("n", ":", ":FineCmdline<CR>", opts)
 
 -- Debugging
 function OpenUI()
@@ -14,9 +14,10 @@ end
 -- GoDbgConfig
 
 -- keymap.set("n", "bb", ":lua require('dap').toggle_breakpoint()<CR>", opts)
-keymap.set("n", "bb", "::GoBreakToggle<CR>", opts)
+keymap.set("n", "bb", ":GoBreakToggle<CR>", opts)
 -- keymap.set("n", "bs", ":lua require('dap').continue()<CR>", opts) -- lightweight implementation
-keymap.set("n", "bs", "::GoDebug<CR>", opts) --heavy implementation
+keymap.set("n", "bs", ":GoDebug<CR>", opts) --heavy implementation
+keymap.set("n", "bp", ":DapContinue<CR>", opts) --heavy implementation
 keymap.set("n", "bu", ":lua require('dap').step_over()<CR>", opts)
 keymap.set("n", "bi", ":lua require('dap').step_into()<CR>", opts)
 keymap.set("n", "bo", ":lua require('dap').step_out()<CR>", opts)
