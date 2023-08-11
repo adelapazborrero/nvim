@@ -1,10 +1,4 @@
-local present, tree = pcall(require, "nvim-tree")
-
-if not present then
-	return
-end
-
-tree.setup({
+require("nvim-tree").setup({
 	disable_netrw = true,
 	hijack_netrw = true,
 	-- ignore_ft_on_setup = { "alpha" },

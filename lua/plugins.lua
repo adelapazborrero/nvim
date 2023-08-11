@@ -1,68 +1,79 @@
-vim.cmd([[packadd packer.nvim]])
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
 
-return require("packer").startup(function()
-	use("wbthomason/packer.nvim")
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
 
 	-- GIT
-	use("tpope/vim-fugitive")
-	use("tpope/vim-rhubarb")
+	"tpope/vim-fugitive",
+	"tpope/vim-rhubarb",
 
 	-- IDE
-	use("lewis6991/gitsigns.nvim")
-	use("nvim-treesitter/nvim-treesitter")
-	use("kyazdani42/nvim-tree.lua")
-	use("windwp/nvim-autopairs")
-	use("olimorris/persisted.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
-	use("phaazon/hop.nvim")
+	"lewis6991/gitsigns.nvim",
+	"nvim-treesitter/nvim-treesitter",
+	"kyazdani42/nvim-tree.lua",
+	"windwp/nvim-autopairs",
+	"olimorris/persisted.nvim",
+	"lukas-reineke/indent-blankline.nvim",
+	"phaazon/hop.nvim",
 
 	-- Language support
-	use("ray-x/lsp_signature.nvim")
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("williamboman/nvim-lsp-installer")
+	"ray-x/lsp_signature.nvim",
+	"jose-elias-alvarez/null-ls.nvim",
+	"williamboman/nvim-lsp-installer",
 
 	-- Utils
-	use("karb94/neoscroll.nvim")
-	use("nvim-telescope/telescope.nvim")
-	use("nvim-lua/popup.nvim")
-	use("nvim-lua/plenary.nvim")
-	use("norcalli/snippets.nvim")
-	use("NvChad/nvterm")
-	use("sindrets/diffview.nvim")
-	use("tpope/vim-commentary")
-	use({ "akinsho/bufferline.nvim", tag = "*" })
-	use("nvim-lualine/lualine.nvim")
-	use("kyazdani42/nvim-web-devicons")
+	"karb94/neoscroll.nvim",
+	"nvim-telescope/telescope.nvim",
+	"nvim-lua/popup.nvim",
+	"nvim-lua/plenary.nvim",
+	"norcalli/snippets.nvim",
+	"NvChad/nvterm",
+	"sindrets/diffview.nvim",
+	"tpope/vim-commentary",
+	{ "akinsho/bufferline.nvim", version = "*" },
+	"nvim-lualine/lualine.nvim",
+	"nvim-tree/nvim-web-devicons",
 
 	-- THEMES
-	use("sainnhe/everforest")
-	use("arcticicestudio/nord-vim")
-	use("morhetz/gruvbox")
-	use("rakr/vim-one")
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	"sainnhe/everforest",
+	"arcticicestudio/nord-vim",
+	"morhetz/gruvbox",
+	"rakr/vim-one",
+	{ "catppuccin/nvim", as = "catppuccin" },
 
 	-- LSP Config
-	use("folke/lsp-colors.nvim")
-	use("neovim/nvim-lspconfig")
-	use("WhoIsSethDaniel/toggle-lsp-diagnostics.nvim")
-	use("glepnir/lspsaga.nvim")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-vsnip")
-	use("hrsh7th/vim-vsnip")
-	use("onsails/lspkind.nvim")
+	"folke/lsp-colors.nvim",
+	"neovim/nvim-lspconfig",
+	"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+	"glepnir/lspsaga.nvim",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-vsnip",
+	"hrsh7th/vim-vsnip",
+	"onsails/lspkind.nvim",
 
 	-- GO
-	use("ray-x/go.nvim")
-	use("ray-x/guihua.lua")
-	use("mfussenegger/nvim-dap")
-	use("leoluz/nvim-dap-go")
-	use("rcarriga/nvim-dap-ui")
-	use("theHamsta/nvim-dap-virtual-text")
+	"ray-x/go.nvim",
+	"ray-x/guihua.lua",
+	"mfussenegger/nvim-dap",
+	"leoluz/nvim-dap-go",
+	"rcarriga/nvim-dap-ui",
+	"theHamsta/nvim-dap-virtual-text",
 
-	use("groenewege/vim-less")
-	use("kchmck/vim-coffee-script")
-end)
+	"groenewege/vim-less",
+	"kchmck/vim-coffee-script",
+})

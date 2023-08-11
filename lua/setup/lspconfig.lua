@@ -1,9 +1,5 @@
-local present, nvim_lsp = pcall(require, "lspconfig")
+local nvim_lsp = require("lspconfig")
 local util = require("lspconfig/util")
-
-if not present then
-	return
-end
 
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
