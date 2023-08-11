@@ -1,11 +1,6 @@
-local present, bufferline = pcall(require, "bufferline")
 local mocha = require("catppuccin.palettes").get_palette("frappe")
 
-if not present then
-	return
-end
-
-bufferline.setup({
+require("bufferline").setup({
 	options = {
 		separator_style = "thin", -- slant, padded_slant, thick, thin
 		-- numbers = "ordinal",

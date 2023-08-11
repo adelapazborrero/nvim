@@ -1,10 +1,4 @@
-local present, installer = pcall(require, "nvim-lsp-installer")
-
-if not present then
-	return
-end
-
-installer.setup({
+require("nvim-lsp-installer").setup({
 	ensure_installed = {},
 	automatic_installation = false,
 

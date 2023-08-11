@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
+
 cmp.setup({
 	snippet = {
 		expand = function(args)

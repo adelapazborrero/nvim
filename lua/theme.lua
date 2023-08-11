@@ -2,10 +2,6 @@ vim.cmd("set background=dark")
 vim.cmd('set guifont="Hack Nerd Font"')
 vim.cmd("set cursorline")
 
-vim.cmd("hi! CocErrorSign guifg=#cc6666")
-vim.cmd("hi! CocInfoSign guibg=#268BD2")
-vim.cmd("hi! CocWarningSign guifg=#D33682")
-
 -- COLOR THEMES --
 vim.cmd("colorscheme catppuccin-frappe") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 -- vim.cmd("colorscheme everforest")

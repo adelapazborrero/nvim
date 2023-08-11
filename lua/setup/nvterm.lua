@@ -1,10 +1,4 @@
-local present, term = pcall(require, "nvterm")
-
-if not present then
-	return
-end
-
-term.setup({
+require("nvterm").setup({
 	terminals = {
 		list = {},
 		type_opts = {
