@@ -22,7 +22,7 @@ require("fine-cmdline").setup({
 			},
 		},
 		win_options = {
-			winblend = 10,
+			-- winblend = 10,
 			winhighlight = "Normal:Normal",
 		},
 	},
