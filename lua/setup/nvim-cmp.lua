@@ -4,7 +4,7 @@ local lspkind = require("lspkind")
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
+			require("luasnip").lsp_expand(args.body)
 		end,
 	},
 	window = {
@@ -33,7 +33,7 @@ cmp.setup({
 
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		{ name = "vsnip" },
+		{ name = "luasnip" },
 	}, {
 		{ name = "buffer" },
 	}),
