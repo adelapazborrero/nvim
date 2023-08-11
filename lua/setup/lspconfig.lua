@@ -1,4 +1,5 @@
 local present, nvim_lsp = pcall(require, "lspconfig")
+local util = require("lspconfig/util")
 
 if not present then
 	return
@@ -16,7 +17,7 @@ for _, sign in ipairs(signs) do
 end
 
 vim.diagnostic.config({
-	virtual_text = false,
+	virtual_text = true,
 	signs = {
 		active = signs,
 	},
@@ -32,11 +33,6 @@ vim.diagnostic.config({
 		prefix = "",
 	},
 })
--- local on_attach = function(client, bufnr)
---   if vim.g.config.use_winbar == true then
---     navic.attach(client, bufnr)
---   end
--- end
 
 local on_attach = function(client, bufnr)
 	local function buf_set_option(...)
@@ -46,51 +42,6 @@ local on_attach = function(client, bufnr)
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	local vim_version = vim.version()
-
-	if client.name == "gopls" then
-		client.server_capabilities.semanticTokensProvider = {
-			full = true,
-			legend = {
-				tokenTypes = {
-					"namespace",
-					"type",
-					"class",
-					"enum",
-					"interface",
-					"struct",
-					"typeParameter",
-					"parameter",
-					"variable",
-					"property",
-					"enumMember",
-					"event",
-					"function",
-					"method",
-					"macro",
-					"keyword",
-					"modifier",
-					"comment",
-					"string",
-					"number",
-					"regexp",
-					"operator",
-					"decorator",
-				},
-				tokenModifiers = {
-					"declaration",
-					"definition",
-					"readonly",
-					"static",
-					"deprecated",
-					"abstract",
-					"async",
-					"modification",
-					"documentation",
-					"defaultLibrary",
-				},
-			},
-		}
-	end
 
 	if vim_version.minor > 7 then
 		client.server_capabilities.documentFormattingProvider = false
@@ -135,16 +86,19 @@ nvim_lsp.yamlls.setup({
 	capabilities = capabilities,
 })
 
-local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*.go",
-	callback = function()
-		require("go.format").goimport()
-	end,
-	group = format_sync_grp,
-})
-
 nvim_lsp.gopls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	cmd = { "gopls" },
+	filetypes = { "go", "gomod", "gowork", "gotmpl" },
+	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+	settings = {
+		gopls = {
+			gofumpt = true,
+			completeUnimported = true,
+			analyses = {
+				unuseparams = true,
+			},
+		},
+	},
 })
