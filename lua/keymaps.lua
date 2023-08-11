@@ -1,6 +1,9 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+-- CMDLine
+keymap.set("n", ":", ":FineCmdline<CR>", { noremap = true })
+
 -- Debugging
 function OpenUI()
 	local widgets = require("dap.ui.widgets")

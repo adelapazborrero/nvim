@@ -44,6 +44,8 @@ require("lazy").setup({
 	{ "akinsho/bufferline.nvim", version = "*" },
 	"nvim-lualine/lualine.nvim",
 	"nvim-tree/nvim-web-devicons",
+	"VonHeikemen/fine-cmdline.nvim",
+	"MunifTanjim/nui.nvim",
 
 	-- THEMES
 	"sainnhe/everforest",
