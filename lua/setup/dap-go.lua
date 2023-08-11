@@ -1,37 +1,72 @@
-require("dap-go").setup({
-	-- Additional dap configurations can be added.
-	-- dap_configurations accepts a list of tables where each entry
-	-- represents a dap configuration. For more details do:
-	-- :help dap-configuration
-	dap_configurations = {
-		{
-			-- Must be "go" or it will be ignored by the plugin
-			type = "go",
-			name = "Attach remote",
-			mode = "remote",
-			request = "attach",
-		},
+local dap = require("dap")
+
+vim.fn.sign_define("DapBreakpoint", { text = "⬢", texthl = "Yellow", linehl = "", numhl = "Yellow" })
+vim.fn.sign_define("DapStopped", { text = "▶", texthl = "Green", linehl = "ColorColumn", numhl = "Green" })
+
+dap.adapters.go = function(callback, _)
+	local stdout = vim.loop.new_pipe(false)
+	local handle
+	local pid_or_err
+	local port = 38697
+	local opts = {
+		stdio = { nil, stdout },
+		args = { "dap", "-l", "127.0.0.1:" .. port },
+		detached = true,
+	}
+	handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
+		stdout:close()
+		handle:close()
+		if code ~= 0 then
+			print("dlv exited with code", code)
+		end
+	end)
+	assert(handle, "Error running dlv: " .. tostring(pid_or_err))
+	stdout:read_start(function(err, chunk)
+		assert(not err, err)
+		if chunk then
+			vim.schedule(function()
+				require("dap.repl").append(chunk)
+			end)
+		end
+	end)
+	vim.defer_fn(function()
+		callback({ type = "server", host = "127.0.0.1", port = port })
+	end, 100)
+end
+
+dap.configurations.go = {
+	{
+		type = "go",
+		name = "Debug",
+		request = "launch",
+		program = "${file}",
 	},
-	-- delve configurations
-	delve = {
-		-- the path to the executable dlv which will be used for debugging.
-		-- by default, this is the "dlv" executable on your PATH.
-		path = "dlv",
-		-- time to wait for delve to initialize the debug session.
-		-- default to 20 seconds
-		initialize_timeout_sec = 20,
-		-- a string that defines the port to start delve debugger.
-		-- default to string "${port}" which instructs nvim-dap
-		-- to start the process in a random available port
-		port = "${port}",
-		-- additional args to pass to dlv
-		args = {},
-		-- the build flags that are passed to delve.
-		-- defaults to empty string, but can be used to provide flags
-		-- such as "-tags=unit" to make sure the test suite is
-		-- compiled during debugging, for example.
-		-- passing build flags using args is ineffective, as those are
-		-- ignored by delve in dap mode.
-		build_flags = "",
+	{
+		type = "go",
+		name = "Debug test",
+		request = "launch",
+		mode = "test",
+		program = "${file}",
 	},
-})
+	{
+		type = "go",
+		name = "Debug test (go.mod)",
+		request = "launch",
+		mode = "test",
+		program = "./${relativeFileDirname}",
+	},
+}
+
+local dapui = require("dapui")
+
+dap.listeners.after.event_initialized["dapui_config"] = function()
+	dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+	dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+	dapui.close()
+end
+
+return dap

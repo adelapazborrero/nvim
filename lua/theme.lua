@@ -1,5 +1,5 @@
-vim.cmd("set background=dark")
-vim.cmd('set guifont="Hack Nerd Font"')
+-- vim.cmd("set background=dark")
+-- vim.cmd('set guifont="Hack Nerd Font"')
 vim.cmd("set cursorline")
 
 -- COLOR THEMES --
@@ -8,8 +8,6 @@ vim.cmd("colorscheme catppuccin-frappe") -- catppuccin-latte, catppuccin-frappe,
 -- vim.cmd("colorscheme one")
 -- vim.cmd("colorscheme gruvbox")
 -- vim.cmd("colorscheme nord")
-
-vim.cmd("set cursorline")
 
 -- Diagnostics Colors
 vim.cmd("highlight DiagnosticError ctermfg=1 guifg=#CF5A68")
