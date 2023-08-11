@@ -16,9 +16,8 @@ keymap.set("n", "bs", ":lua require('dap').continue()<CR>", opts)
 keymap.set("n", "bu", ":lua require('dap').step_over()<CR>", opts)
 keymap.set("n", "bi", ":lua require('dap').step_into()<CR>", opts)
 keymap.set("n", "bo", ":lua require('dap').step_out()<CR>", opts)
-keymap.set("n", "bp", ":lua require('dap').repl.open()<CR>", opts)
 keymap.set("n", "bc", ":lua require('dap').terminate()<CR>", opts)
-keymap.set("n", "bv", ":lua require('dapui').toggle()<CR>", opts)
+-- keymap.set("n", "bv", ":lua require('dapui').toggle()<CR>", opts)
 
 keymap.set("n", "bt", ":lua require('dap-go').debug_test()<CR>", opts)
 

@@ -66,7 +66,8 @@ require("setup.nvterm")
 require("setup.indent-blankline")
 require("setup.lsp-colors")
 require("setup.dap-go")
-require("dapui").setup()
+require("setup.dap-ui")
+
 require("nvim-dap-virtual-text").setup()
 
 -- vim.cmd("autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab")
