@@ -1,5 +1,9 @@
 require("nvim-lsp-installer").setup({
-	ensure_installed = {},
+	ensure_installed = {
+		"gopls",
+		"sumneko_lua",
+		"yamlls",
+	},
 	automatic_installation = false,
 
 	ui = {

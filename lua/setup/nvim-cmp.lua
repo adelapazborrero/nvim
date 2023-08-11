@@ -25,7 +25,7 @@ cmp.setup({
 			mode = "symbol",
 			maxwidth = 50,
 
-			before = function(entry, vim_item)
+			before = function(_, vim_item)
 				return vim_item
 			end,
 		}),
