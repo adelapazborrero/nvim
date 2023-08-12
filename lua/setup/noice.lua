@@ -33,13 +33,30 @@ require("noice").setup({
 		},
 
 		message = {
-			enabled = true,
+			enabled = false,
 			view = "mini",
 			opts = {},
 		},
 	},
+	routes = {
+		{
+			filter = {
+				event = "msg_show",
+				kind = "",
+				find = "written",
+			},
+			opts = { skip = true },
+		},
+		{
+			filter = {
+				event = "msg_show",
+				kind = "",
+			},
+			opts = { skip = true },
+		},
+	},
 	message = {
-		enabled = true,
+		enabled = false,
 		view = "mini",
 		opts = {},
 	},
