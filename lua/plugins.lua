@@ -46,7 +46,6 @@ require("lazy").setup({
 	"nvim-tree/nvim-web-devicons",
 	"MunifTanjim/nui.nvim",
 	{ "folke/noice.nvim", event = "VeryLazy" },
-	"rcarriga/nvim-notify",
 
 	-- THEMES
 	"sainnhe/everforest",

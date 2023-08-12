@@ -66,7 +66,7 @@ require("setup.nvterm")
 require("setup.indent-blankline")
 require("setup.lsp-colors")
 require("setup.dap-go")
--- require("setup.noice")
+require("setup.noice")
 require("trouble")
 -- require("setup.dap-ui")
 
