@@ -150,5 +150,5 @@ function ToggleGitHistory()
 	end
 end
 
-vim.api.nvim_set_keymap("n", ";g", ":lua ToggleGitDiff()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "gh", ":lua ToggleGitHistory()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", ";g", ":lua ToggleGitDiff()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "gh", ":lua ToggleGitHistory()<CR>", { noremap = true, silent = true })

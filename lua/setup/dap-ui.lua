@@ -1,4 +1,9 @@
 require("dapui").setup({
+	icons = {
+		collapsed = "",
+		current_frame = "",
+		expanded = "",
+	},
 	layouts = {
 		{
 			elements = {
