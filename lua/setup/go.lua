@@ -6,7 +6,8 @@ require("go").setup({
 	tag_transform = false,
 	test_dir = "",
 	comment_placeholder = "   ",
-	icons = { breakpoint = "", currentpos = "" }, -- set to false to disable
+	icons = false, -- set to false to disable
+	-- icons = { breakpoint = "", currentpos = "" }, -- set to false to disable
 	-- this option
 	verbose = false,
 	log_path = vim.fn.expand("$HOME") .. "/tmp/gonvim.log",
@@ -64,7 +65,7 @@ require("go").setup({
 	gocoverage_sign = "█",
 	sign_priority = 7,
 	dap_debug = true,
-	dap_debug_gui = true,
+	dap_debug_gui = false,
 	dap_debug_keymap = true, -- true: use keymap for debugger defined in go/dap.lua
 	-- false: do not use keymap in go/dap.lua.  you must define your own.
 	-- windows: use visual studio style of keymap

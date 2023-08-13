@@ -9,11 +9,15 @@ function OpenUI()
 end
 
 -- GoDbgConfig
+function StartGoDebug()
+	vim.api.nvim_out_write("  Starting debugger \n") -- Echo the message
+	-- keymap.set("n", "bs", ":lua require('dap').continue()<CR>", opts) -- lightweight implementation
+	vim.cmd(":GoDebug") -- heavy implementation
+end
 
 -- keymap.set("n", "bb", ":lua require('dap').toggle_breakpoint()<CR>", opts)
 keymap.set("n", "bb", ":GoBreakToggle<CR>", opts)
--- keymap.set("n", "bs", ":lua require('dap').continue()<CR>", opts) -- lightweight implementation
-keymap.set("n", "bs", ":GoDebug<CR>", opts) --heavy implementation
+keymap.set("n", "bs", ":lua StartGoDebug()<CR>", opts) --heavy implementation
 keymap.set("n", "bp", ":DapContinue<CR>", opts) --heavy implementation
 keymap.set("n", "bu", ":lua require('dap').step_over()<CR>", opts)
 keymap.set("n", "bi", ":lua require('dap').step_into()<CR>", opts)

@@ -41,10 +41,12 @@ vim.cmd("set completeopt=menu,menuone,noselect")
 vim.cmd("set clipboard+=unnamedplus")
 
 require("plugins")
-require("theme")
 require("setup.nvim-tree")
 require("setup.nvim-treesitter")
+require("setup.dap-ui")
 require("setup.go")
+require("setup.dap-go")
+require("theme")
 require("keymaps")
 require("toggle_lsp_diagnostics").init({ start_on = true })
 require("nvim-autopairs").setup({})
@@ -65,7 +67,6 @@ require("setup.lualine")
 require("setup.nvterm")
 require("setup.indent-blankline")
 require("setup.lsp-colors")
-require("setup.dap-go")
 require("setup.noice")
 require("trouble")
 require("transparent").setup({
@@ -96,8 +97,6 @@ require("transparent").setup({
 	extra_groups = {}, -- table: additional groups that should be cleared
 	exclude_groups = {}, -- table: groups you don't want to clear
 })
--- require("setup.dap-ui")
-
 require("nvim-dap-virtual-text").setup()
 
 -- vim.cmd("autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab")
