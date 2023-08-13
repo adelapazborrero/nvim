@@ -65,9 +65,3 @@ require("telescope").setup({
 })
 
 vim.g.theme_switcher_loaded = true
--- vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#26283B" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#26283B" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#26283B", fg = "#5E81AC" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#26283B" })
-vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#26283B" })
-vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "#26283B" })
