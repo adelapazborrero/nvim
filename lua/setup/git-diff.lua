@@ -2,10 +2,10 @@ local actions = require("diffview.actions")
 
 require("diffview").setup({
 	diff_binaries = false, -- Show diffs for binaries
-	enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
-	git_cmd = { "git" }, -- The git executable followed by default args.
-	use_icons = true, -- Requires nvim-web-devicons
-	icons = { -- Only applies when use_icons is true.
+	enhanced_diff_hl = true, -- See ':h diffview-config-enhanced_diff_hl'
+	git_cmd = { "git" },
+	use_icons = true,
+	icons = {
 		folder_closed = "",
 		folder_open = "",
 	},
@@ -58,6 +58,12 @@ require("diffview").setup({
 			["<C-w>gf"] = actions.goto_file_tab, -- Open the file in a new tabpage
 			["<leader>e"] = actions.focus_files, -- Bring focus to the files panel
 			["<leader>b"] = actions.toggle_files, -- Toggle the files panel.
+
+			-- conflicts
+			["[o"] = actions.conflict_choose("ours"),
+			["[t"] = actions.conflict_choose("theirs"),
+			["[b"] = actions.conflict_choose("base"),
+			["[n"] = actions.conflict_choose("none"),
 		},
 		file_panel = {
 			["j"] = actions.next_entry, -- Bring the cursor to the next file entry
