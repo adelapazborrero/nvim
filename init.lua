@@ -50,7 +50,6 @@ require("theme")
 require("keymaps")
 require("toggle_lsp_diagnostics").init({ start_on = true })
 require("nvim-autopairs").setup({})
-require("setup.hop")
 require("setup.lsp-installer")
 require("setup.lspsaga")
 require("setup.lspconfig")
@@ -69,35 +68,9 @@ require("setup.indent-blankline")
 require("setup.lsp-colors")
 require("setup.noice")
 require("trouble")
-require("transparent").setup({
-	groups = {
-		"Normal",
-		"NormalNC",
-		"Comment",
-		"Constant",
-		"Special",
-		"Identifier",
-		"Statement",
-		"PreProc",
-		"Type",
-		"Underlined",
-		"Todo",
-		"String",
-		"Function",
-		"Conditional",
-		"Repeat",
-		"Operator",
-		"Structure",
-		"LineNr",
-		"NonText",
-		"SignColumn",
-		"CursorLineNr",
-		"EndOfBuffer",
-	},
-	extra_groups = {}, -- table: additional groups that should be cleared
-	exclude_groups = {}, -- table: groups you don't want to clear
-})
 require("nvim-dap-virtual-text").setup()
+require("setup.transparent")
+require("setup.hop")
 
 -- vim.cmd("autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab")
 -- vim.cmd("autocmd FileType json setlocal ts=4 sts=4 sw=4 expandtab")
