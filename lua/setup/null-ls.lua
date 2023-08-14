@@ -6,7 +6,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local sources = {
 	formatting.stylua, -- mainly for lua files
 	formatting.gofmt, -- mainly for go files
-	formatting.gofumt, -- strict linting
+	-- formatting.gofumt, -- strict linting
 	formatting.goimports_reviser, -- importer
 }
 

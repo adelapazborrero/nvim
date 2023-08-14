@@ -65,12 +65,12 @@ require("setup.dev-icons")
 require("setup.git-signs")
 require("setup.lualine")
 require("setup.nvterm")
--- require("setup.indent-blankline")
+require("setup.indent-blankline")
 require("setup.lsp-colors")
 require("setup.noice")
 require("trouble")
 require("transparent").setup({
-	groups = { -- table: default groups
+	groups = {
 		"Normal",
 		"NormalNC",
 		"Comment",
