@@ -47,6 +47,7 @@ require("lazy").setup({
 	"MunifTanjim/nui.nvim",
 	{ "folke/noice.nvim", event = "VeryLazy" },
 	"xiyaowong/transparent.nvim",
+	"smjonas/inc-rename.nvim",
 
 	-- THEMES
 	"sainnhe/everforest",

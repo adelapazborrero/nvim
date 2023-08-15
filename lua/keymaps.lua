@@ -57,7 +57,6 @@ keymap.set("n", "[g", ":Lspsaga diagnostic_jump_prev<CR>", opts)
 keymap.set("n", "]g", ":Lspsaga diagnostic_jump_next<CR>", opts)
 keymap.set("n", "<C-k>", ":Lspsaga peek_definition<CR>", opts)
 keymap.set("n", "fo", ":Lspsaga finder def+ref<CR>", opts)
-keymap.set("n", "rn", ":Lspsaga rename<CR>")
 
 -- GitSigns
 keymap.set("n", "gb", ":Gitsigns blame_line<CR>", opts)
@@ -110,3 +109,4 @@ keymap.set("n", ",,", ":TroubleToggle<CR>", opts)
 
 -- Other
 keymap.set("n", "fn", ":noh<CR>", opts)
+vim.keymap.set("n", "rn", ":IncRename ")
