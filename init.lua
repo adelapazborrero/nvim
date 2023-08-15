@@ -71,6 +71,7 @@ require("trouble")
 require("nvim-dap-virtual-text").setup()
 require("setup.transparent")
 require("setup.hop")
+require("setup.inc-rename")
 
 -- vim.cmd("autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab")
 -- vim.cmd("autocmd FileType json setlocal ts=4 sts=4 sw=4 expandtab")
