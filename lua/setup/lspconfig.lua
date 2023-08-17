@@ -49,6 +49,10 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
 
 -- How to install lua_ls https://github.com/LuaLS/lua-language-server/wiki/Getting-Started#command-line
 nvim_lsp.lua_ls.setup({

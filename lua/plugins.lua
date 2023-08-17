@@ -27,6 +27,8 @@ require("lazy").setup({
 	"lukas-reineke/indent-blankline.nvim",
 	{ "folke/flash.nvim", event = "VeryLazy" },
 	"rcarriga/nvim-notify",
+	"kevinhwang91/nvim-ufo",
+	"kevinhwang91/promise-async",
 
 	-- Language support
 	"ray-x/lsp_signature.nvim",
