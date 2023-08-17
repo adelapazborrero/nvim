@@ -25,7 +25,7 @@ require("lazy").setup({
 	"windwp/nvim-autopairs",
 	"olimorris/persisted.nvim",
 	"lukas-reineke/indent-blankline.nvim",
-	"phaazon/hop.nvim",
+	{ "folke/flash.nvim", event = "VeryLazy" },
 
 	-- Language support
 	"ray-x/lsp_signature.nvim",

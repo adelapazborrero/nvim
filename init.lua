@@ -29,8 +29,8 @@ vim.cmd("autocmd InsertLeave * set nopaste")
 vim.cmd("set formatoptions+=r")
 
 vim.cmd("filetype plugin indent on")
-vim.cmd("set shiftwidth=4") -- Tab width
-vim.cmd("set tabstop=4") -- Tab width
+vim.cmd("set shiftwidth=4")
+vim.cmd("set tabstop=4")
 vim.cmd("set ai ")
 vim.cmd("set si")
 vim.cmd("set nowrap")
@@ -69,9 +69,5 @@ require("setup.lsp-colors")
 require("setup.noice")
 require("trouble")
 require("setup.transparent")
-require("setup.hop")
+require("setup.flash")
 require("setup.inc-rename")
-
--- vim.cmd("autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab")
--- vim.cmd("autocmd FileType json setlocal ts=4 sts=4 sw=4 expandtab")
--- vim.cmd("autocmd FileType tsx setlocal ts=2 sts=2 sw=2 expandtab")

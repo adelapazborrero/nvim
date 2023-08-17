@@ -15,6 +15,11 @@ function StartGoDebug()
 	vim.cmd(":GoDebug") -- heavy implementation
 end
 
+function StopGoDebug()
+	vim.cmd(":lua require('dap').terminate()")
+	vim.cmd(":GoDbgStop")
+end
+
 -- keymap.set("n", "bb", ":lua require('dap').toggle_breakpoint()<CR>", opts)
 keymap.set("n", "bb", ":GoBreakToggle<CR>", opts)
 keymap.set("n", "bs", ":lua StartGoDebug()<CR>", opts) --heavy implementation
@@ -22,7 +27,7 @@ keymap.set("n", "bp", ":DapContinue<CR>", opts) --heavy implementation
 keymap.set("n", "bu", ":lua require('dap').step_over()<CR>", opts)
 keymap.set("n", "bi", ":lua require('dap').step_into()<CR>", opts)
 keymap.set("n", "bo", ":lua require('dap').step_out()<CR>", opts)
-keymap.set("n", "bc", ":lua require('dap').terminate()<CR>", opts)
+keymap.set("n", "bc", ":lua StopGoDebug()<CR>", opts)
 keymap.set("n", "bv", ":lua require('dapui').toggle()<CR>", opts)
 
 keymap.set("n", "bt", ":lua require('dap-go').debug_test()<CR>", opts)
@@ -78,31 +83,14 @@ keymap.set("n", "<C-l>", ":BufferLineCycleNext<CR>", opts)
 keymap.set("n", "bh", ":BufferLineMovePrev<CR>", opts)
 keymap.set("n", "bl", ":BufferLineMoveNext<CR>", opts)
 
--- Hop
-vim.api.nvim_set_keymap(
-	"",
-	"s",
-	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = false })<cr>",
-	{}
-)
-vim.api.nvim_set_keymap(
-	"",
-	"S",
-	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = false })<cr>",
-	{}
-)
-vim.api.nvim_set_keymap(
-	"",
-	"t",
-	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>",
-	{}
-)
-vim.api.nvim_set_keymap(
-	"",
-	"T",
-	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>",
-	{}
-)
+-- Flash
+keymap.set("n", "s", ":lua require('flash').jump()<CR>", opts)
+keymap.set("x", "s", ":lua require('flash').jump()<CR>", opts)
+keymap.set("o", "s", ":lua require('flash').jump()<CR>", opts)
+
+keymap.set("n", "S", ":lua require('flash').treesitter()<CR>", opts)
+keymap.set("x", "S", ":lua require('flash').treesitter()<CR>", opts)
+keymap.set("o", "s", ":lua require('flash').treesitter()<CR>", opts)
 
 --Trouble
 keymap.set("n", ",,", ":TroubleToggle<CR>", opts)
