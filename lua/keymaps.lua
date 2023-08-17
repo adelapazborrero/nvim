@@ -92,6 +92,12 @@ keymap.set("n", "S", ":lua require('flash').treesitter()<CR>", opts)
 keymap.set("x", "S", ":lua require('flash').treesitter()<CR>", opts)
 keymap.set("o", "s", ":lua require('flash').treesitter()<CR>", opts)
 
+-- Ufo
+vim.keymap.set("n", "zR", ":lua require('ufo').openAllFolds()<CR>", opts)
+vim.keymap.set("n", "zM", ":lua require('ufo').closeAllFolds()<CR>", opts)
+vim.keymap.set("n", "zo", ":lua require('ufo').openFoldsExceptKinds()<CR>", opts)
+vim.keymap.set("n", "zm", ":lua require('ufo').closeFoldsWith()<CR>", opts)
+
 --Trouble
 keymap.set("n", ",,", ":TroubleToggle<CR>", opts)
 

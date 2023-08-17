@@ -38,6 +38,12 @@ vim.cmd("set nowrap")
 vim.cmd("set completeopt=menu,menuone,noselect")
 vim.cmd("set clipboard+=unnamedplus")
 
+vim.opt.fillchars = { fold = " " }
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = false
+vim.opt.foldlevel = 99
+
+-- Plugins
 require("plugins")
 require("toggle_lsp_diagnostics").init({ start_on = true })
 require("setup.notify")
@@ -52,6 +58,7 @@ require("nvim-autopairs").setup({})
 require("setup.lsp-installer")
 require("setup.lspsaga")
 require("setup.lspconfig")
+require("setup.ufo")
 require("setup.null-ls")
 require("setup.nvim-cmp")
 require("setup.git-diff")
