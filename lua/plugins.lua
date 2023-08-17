@@ -26,6 +26,7 @@ require("lazy").setup({
 	"olimorris/persisted.nvim",
 	"lukas-reineke/indent-blankline.nvim",
 	{ "folke/flash.nvim", event = "VeryLazy" },
+	"rcarriga/nvim-notify",
 
 	-- Language support
 	"ray-x/lsp_signature.nvim",

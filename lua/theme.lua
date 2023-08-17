@@ -78,3 +78,20 @@ vim.api.nvim_set_hl(0, "DapUIPlayPause", { fg = "#A6D189" }) -- Green
 vim.api.nvim_set_hl(0, "DapUIRestart", { fg = "#A6D189" }) -- Green
 vim.api.nvim_set_hl(0, "DapUIUnavailable", { fg = "#626880" }) -- Bright black (surface2)
 vim.api.nvim_set_hl(0, "DapUIWinSelect", { fg = "#81C8BE" }) -- Cyan (bold)
+
+-- Notify
+vim.api.nvim_set_hl(0, "NotifyERRORBorder", { fg = "#E78284" })
+vim.api.nvim_set_hl(0, "NotifyWARNBorder", { fg = "#E5C890" })
+vim.api.nvim_set_hl(0, "NotifyINFOBorder", { fg = "#8CAAEE" })
+vim.api.nvim_set_hl(0, "NotifyDEBUGBorder", { fg = "#B5BFE2" })
+vim.api.nvim_set_hl(0, "NotifyTRACEBorder", { fg = "#F4B8E4" })
+vim.api.nvim_set_hl(0, "NotifyERRORIcon", { fg = "#E78284" })
+vim.api.nvim_set_hl(0, "NotifyWARNIcon", { fg = "#E5C890" })
+vim.api.nvim_set_hl(0, "NotifyINFOIcon", { fg = "#8CAAEE" })
+vim.api.nvim_set_hl(0, "NotifyDEBUGIcon", { fg = "#B5BFE2" })
+vim.api.nvim_set_hl(0, "NotifyTRACEIcon", { fg = "#F4B8E4" })
+vim.api.nvim_set_hl(0, "NotifyERRORTitle", { fg = "#E78284" })
+vim.api.nvim_set_hl(0, "NotifyWARNTitle", { fg = "#E5C890" })
+vim.api.nvim_set_hl(0, "NotifyINFOTitle", { fg = "#8CAAEE" })
+vim.api.nvim_set_hl(0, "NotifyDEBUGTitle", { fg = "#B5BFE2" })
+vim.api.nvim_set_hl(0, "NotifyTRACETitle", { fg = "#F4B8E4" })
