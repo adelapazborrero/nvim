@@ -21,7 +21,17 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#26283B" })
 -- Telescope
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#26283B" })
 vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "#26283B" })
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "#26283B" })
+
+vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "#292c3c" })
+vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "#292c3c", fg = "#8caaee" })
+vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "#292c3c" })
+vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { bg = "#292c3c", fg = "#8caaee" })
+
+vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "#26283B" })
+vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "#26283B", fg = "#8caaee" })
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "#26283B" })
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "#26283B" })
+-- bg("TelescopeSelection", black2)
 
 -- LspSaga
 vim.api.nvim_set_hl(0, "LspFloatWinBorder", { bg = "#26283B", fg = "#26283B" })
