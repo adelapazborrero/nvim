@@ -36,6 +36,7 @@ require("lazy").setup({
 	"williamboman/nvim-lsp-installer",
 
 	-- Utils
+	{ "nvim-neorg/neorg", build = ":Neorg sync-parsers" },
 	"karb94/neoscroll.nvim",
 	"nvim-telescope/telescope.nvim",
 	"nvim-lua/popup.nvim",
