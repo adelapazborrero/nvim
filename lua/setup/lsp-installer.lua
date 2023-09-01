@@ -3,6 +3,8 @@ require("nvim-lsp-installer").setup({
 		"gopls",
 		"sumneko_lua",
 		"yamlls",
+		"jsonls",
+		"tsserver",
 	},
 	automatic_installation = false,
 
