@@ -23,7 +23,7 @@ require("go").setup({
 	lsp_diag_hdlr = true, -- hook lsp diag handler
 	lsp_diag_virtual_text = { space = 0, prefix = "■" }, -- lsp virtual text format
 	lsp_inlay_hints = {
-		enable = true,
+		enable = false,
 
 		-- Only show inlay hints for the current line
 		only_current_line = false,
