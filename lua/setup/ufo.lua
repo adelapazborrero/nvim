@@ -26,8 +26,19 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
 	return newVirtText
 end
 
+local ftMap = {
+	go = "",
+	yaml = "",
+	yml = "",
+	js = "",
+	ts = "",
+}
+
 require("ufo").setup({
 	open_fold_hl_timeout = 150,
 	fold_virt_text_handler = handler,
 	close_fold_kinds = { "imports", "comment" },
+	provider_selector = function(bufnr, filetype)
+		return ftMap[filetype]
+	end,
 })
