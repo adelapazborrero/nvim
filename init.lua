@@ -43,6 +43,12 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
 
+-- Copilot settings
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_tab_fallback = ""
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
 -- Plugins
 require("plugins")
 require("toggle_lsp_diagnostics").init({ start_on = true })
@@ -69,7 +75,7 @@ require("setup.bufferline")
 require("setup.dev-icons")
 require("setup.git-signs")
 require("setup.lualine")
-require("setup.nvterm")
+-- require("setup.nvterm")
 require("setup.indent-blankline")
 require("setup.lsp-colors")
 require("setup.noice")

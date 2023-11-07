@@ -29,6 +29,7 @@ require("lazy").setup({
 	"rcarriga/nvim-notify",
 	"kevinhwang91/nvim-ufo",
 	"kevinhwang91/promise-async",
+	"github/copilot.vim",
 
 	-- Language support
 	"ray-x/lsp_signature.nvim",
