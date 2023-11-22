@@ -24,7 +24,7 @@ require("lazy").setup({
 	"kyazdani42/nvim-tree.lua",
 	"windwp/nvim-autopairs",
 	"olimorris/persisted.nvim",
-	"lukas-reineke/indent-blankline.nvim",
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl" },
 	{ "folke/flash.nvim", event = "VeryLazy" },
 	"rcarriga/nvim-notify",
 	"kevinhwang91/nvim-ufo",
