@@ -22,6 +22,7 @@ require("lazy").setup({
 	"lewis6991/gitsigns.nvim",
 	"nvim-treesitter/nvim-treesitter",
 	"kyazdani42/nvim-tree.lua",
+	"windwp/nvim-ts-autotag",
 	"windwp/nvim-autopairs",
 	"olimorris/persisted.nvim",
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl" },

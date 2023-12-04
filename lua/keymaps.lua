@@ -62,7 +62,7 @@ keymap.set("n", "K", ":Lspsaga hover_doc<CR>", opts)
 keymap.set("n", "[g", ":Lspsaga diagnostic_jump_prev<CR>", opts)
 keymap.set("n", "]g", ":Lspsaga diagnostic_jump_next<CR>", opts)
 keymap.set("n", "<C-k>", ":Lspsaga peek_definition<CR>", opts)
-keymap.set("n", "fo", ":Lspsaga finder def+ref<CR>", opts)
+keymap.set("n", "fo", ":Lspsaga finder tyd+ref+imp+def<CR>", opts)
 
 -- GitSigns
 keymap.set("n", "gb", ":Gitsigns blame_line<CR>", opts)
