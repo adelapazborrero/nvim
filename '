@@ -5,7 +5,7 @@ require("neorg").setup({
         -- Adds pretty icons to your documents-- configuration here
 		["core.concealer"] = {
 			config = {
-				-- folds = false,
+				folds = false,
 				icon_preset = "varied",
                 icons = {
                     code_block = {

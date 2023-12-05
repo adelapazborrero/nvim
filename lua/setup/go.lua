@@ -20,8 +20,8 @@ require("go").setup({
 	-- when lsp_cfg is true
 	lsp_keymaps = true, -- true: apply default lsp keymaps
 	lsp_codelens = true,
-	lsp_diag_hdlr = true, -- hook lsp diag handler
-	lsp_diag_virtual_text = { space = 0, prefix = "■" }, -- lsp virtual text format
+	-- lsp_diag_hdlr = true, -- hook lsp diag handler
+	-- lsp_diag_virtual_text = { space = 0, prefix = "■" }, -- lsp virtual text format
 	lsp_inlay_hints = {
 		enable = false,
 
