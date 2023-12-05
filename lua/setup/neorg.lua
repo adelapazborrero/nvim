@@ -1,6 +1,18 @@
 require("neorg").setup({
 	load = {
-		["core.defaults"] = {}, -- Loads default behaviour
-		["core.concealer"] = {}, -- Adds pretty icons to your documents-- configuration here
+-- Loads default behaviour
+		["core.defaults"] = {},
+        -- Adds pretty icons to your documents-- configuration here
+		["core.concealer"] = {
+			config = {
+				-- folds = false,
+				icon_preset = "varied",
+                icons = {
+                    code_block = {
+                        conceal = true,
+                    },
+                },
+			},
+        }, 
 	},
 })

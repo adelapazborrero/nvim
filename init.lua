@@ -42,6 +42,7 @@ vim.opt.fillchars = { fold = " " }
 vim.opt.foldmethod = "indent"
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
+vim.opt.conceallevel = 3
 
 -- Copilot settings
 vim.g.copilot_no_tab_map = true

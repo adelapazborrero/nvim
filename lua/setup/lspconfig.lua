@@ -96,6 +96,11 @@ nvim_lsp.tsserver.setup({
 -- 	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
 -- 	cmd = { "typescript-language-server", "--stdio" },
 -- })
+--
+nvim_lsp.jedi_language_server.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
 nvim_lsp.pyright.setup({
 	on_attach = on_attach,
