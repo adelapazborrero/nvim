@@ -3,6 +3,8 @@
 -   Install packer
     `https://github.com/wbthomason/packer.nvim`
 
+    | Notes: If nvim-norg compilation gives error in arm64 consider installing gcc-11 and running the following `CC=gcc-11 nvim -c "TSInstall norg"`
+
 ## Installed language servers
 
 -   volar
