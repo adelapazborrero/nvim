@@ -59,5 +59,6 @@
   "vim-fugitive": { "branch": "master", "commit": "46eaf8918b347906789df296143117774e827616" },
   "vim-less": { "branch": "master", "commit": "6e818d5614d5fc18d95a48c92b89e6db39f9e3d6" },
   "vim-one": { "branch": "master", "commit": "187f5c85b682c1933f8780d4d419c55d26a82e24" },
+  "vim-phoenix": { "branch": "master", "commit": "c1b429574c4405192227bf341048d645c7692dcb" },
   "vim-rhubarb": { "branch": "master", "commit": "ee69335de176d9325267b0fd2597a22901d927b1" }
 }

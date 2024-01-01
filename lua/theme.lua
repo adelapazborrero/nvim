@@ -2,7 +2,9 @@ vim.cmd("set background=dark")
 vim.cmd("set cursorline")
 
 -- COLOR THEMES --
-vim.cmd("colorscheme catppuccin-frappe") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+-- vim.cmd("colorscheme catppuccin-frappe") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+vim.cmd("colorscheme phoenix")
+vim.cmd("PhoenixYellow")
 -- vim.cmd("colorscheme everforest")
 -- vim.cmd("colorscheme one")
 -- vim.cmd("colorscheme gruvbox")

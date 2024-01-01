@@ -62,6 +62,7 @@ require("lazy").setup({
 	"morhetz/gruvbox",
 	"rakr/vim-one",
 	{ "catppuccin/nvim", as = "catppuccin" },
+    "widatama/vim-phoenix",
 
 	-- LSP Config
 	"folke/lsp-colors.nvim",
