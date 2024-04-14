@@ -2,7 +2,8 @@ vim.cmd("set background=dark")
 vim.cmd("set cursorline")
 
 -- COLOR THEMES --
-vim.cmd("colorscheme catppuccin-frappe") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+vim.cmd("colorscheme catppuccin-mocha") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+-- vim.cmd("colorscheme hardhacker")
 -- vim.cmd("colorscheme everforest")
 -- vim.cmd("colorscheme one")
 -- vim.cmd("colorscheme gruvbox")
@@ -15,8 +16,8 @@ vim.cmd("highlight DiagnosticInfo ctermfg=1 guifg=#6AC0FF")
 vim.cmd("highlight DiagnosticHint ctermfg=1 guifg=#5581B0")
 
 -- Float colors
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#26283B" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#26283B" })
+-- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#26283B" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#26283B" })
 
 -- Telescope
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#26283B" })
@@ -31,12 +32,41 @@ vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "#26283B" })
 vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "#26283B", fg = "#8caaee" })
 vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "#26283B" })
 vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "#26283B" })
--- bg("TelescopeSelection", black2)
 
 -- LspSaga
-vim.api.nvim_set_hl(0, "LspFloatWinBorder", { bg = "#26283B", fg = "#26283B" })
+-- Border = {
+-- 	{ "╭", "FloatBorder" },
+-- 	{ "─", "FloatBorder" },
+-- 	{ "╮", "FloatBorder" },
+-- 	{ "│", "FloatBorder" },
+-- 	{ "╯", "FloatBorder" },
+-- 	{ "─", "FloatBorder" },
+-- 	{ "╰", "FloatBorder" },
+-- 	{ "│", "FloatBorder" },
+-- }
+
+-- vim.api.nvim_command(
+-- 	"autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({border="
+-- 		.. vim.inspect(Border)
+-- 		.. ", focusable=false})"
+-- )
 vim.api.nvim_set_hl(0, "LspSagaBorderTitle", { bg = "#26283B" })
-vim.api.nvim_set_hl(0, "LspLinesDiagBorder", { bg = "#26283B", fg = "#26283B" })
+vim.api.nvim_set_hl(0, "LspSagaNormalTitle", { bg = "#26283B" })
+vim.api.nvim_set_hl(0, "LspLinesDiagBorder", { bg = "#26283B", fg = "#8caaee" })
+vim.api.nvim_set_hl(0, "LspLinesDiagNormal", { bg = "#26283B", fg = "#26283B" })
+vim.api.nvim_set_hl(0, "LspFloatWinBorder", { bg = "#26283B", fg = "#8caaee" })
+vim.api.nvim_set_hl(0, "LspFloatWinNormal", { bg = "#26283B", fg = "#26283B" })
+vim.api.nvim_set_hl(0, "SagaBorder", { bg = "#26283B", fg = "#8caaee" })
+vim.api.nvim_set_hl(0, "SagaNormal", { bg = "#26283B", fg = "#26283B" })
+vim.api.nvim_set_hl(0, "HoverBorder", { bg = "#26283B", fg = "#8caaee" })
+vim.api.nvim_set_hl(0, "HoverNormal", { bg = "#26283B", fg = "#26283B" })
+vim.api.nvim_set_hl(0, "DiagnosticNormal", { bg = "#26283B", fg = "#26283B" })
+vim.api.nvim_set_hl(0, "DiagnosticBorder", { bg = "#26283B", fg = "#8caaee" })
+vim.api.nvim_set_hl(0, "ActionFix", { bg = "#26283B", fg = "#26283B" })
+vim.api.nvim_set_hl(0, "ActionPreviewNormal", { bg = "#26283B", fg = "#26283B" })
+vim.api.nvim_set_hl(0, "ActionPreviewBorder", { bg = "#26283B", fg = "#8caaee" })
+vim.api.nvim_set_hl(0, "ActionPreviewTitle", { bg = "#26283B", fg = "#26283B" })
+vim.api.nvim_set_hl(0, "SagaDetail", { bg = "#26283B", fg = "#26283B" })
 
 -- Debugger
 vim.api.nvim_set_hl(0, "red", { fg = "#CF5A68" })

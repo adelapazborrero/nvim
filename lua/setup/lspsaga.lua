@@ -81,6 +81,7 @@ saga.setup({
 		ref = "  ",
 		link = "󰿳 ",
 	},
+	lines = { "┗", "┣", "┃", "━", "┏" },
 	-- preview lines of lsp_finder and definition preview
 	max_preview_lines = 20,
 	finder_action_keys = {

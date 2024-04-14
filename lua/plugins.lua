@@ -62,6 +62,7 @@ require("lazy").setup({
 	"arcticicestudio/nord-vim",
 	"morhetz/gruvbox",
 	"rakr/vim-one",
+	{ "hardhackerlabs/theme-vim", as = "hardhacker" },
 	{ "catppuccin/nvim", as = "catppuccin" },
 
 	-- LSP Config

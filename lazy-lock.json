@@ -52,6 +52,7 @@
   "promise-async": { "branch": "main", "commit": "93540c168c5ed2b030ec3e6c40ab8bbb85e36355" },
   "snippets.nvim": { "branch": "master", "commit": "7b5fd8071d4fb6fa981a899aae56b55897c079fd" },
   "telescope.nvim": { "branch": "master", "commit": "4d4ade7f2b8f403e8816ca50c05ed16e259b21fb" },
+  "theme-vim": { "branch": "main", "commit": "2d7beee9a08560ee9574002f7b7b719bad53b0e5" },
   "toggle-lsp-diagnostics.nvim": { "branch": "main", "commit": "fd66db3ae533f548d6fe26346e6afee3f539bf10" },
   "transparent.nvim": { "branch": "main", "commit": "fd35a46f4b7c1b244249266bdcb2da3814f01724" },
   "trouble.nvim": { "branch": "main", "commit": "b9cf677f20bb2faa2dacfa870b084e568dca9572" },
