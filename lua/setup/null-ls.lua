@@ -7,7 +7,7 @@ local sources = {
 	formatting.stylua, -- mainly for lua files
 	formatting.gofmt, -- mainly for go files
 	formatting.goimports_reviser, -- importer
-	-- formatting.prettierd, -- mainly for js, ts, css, html, json, yaml, md files
+	formatting.prettierd, -- mainly for js, ts, css, html, json, yaml, md files
 }
 
 null_ls.setup({

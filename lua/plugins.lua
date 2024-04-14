@@ -39,6 +39,7 @@ require("lazy").setup({
 	"williamboman/nvim-lsp-installer",
 
 	-- Utils
+	{ "nvim-neotest/nvim-nio" },
 	{ "nvim-neorg/neorg", build = ":Neorg sync-parsers" },
 	"karb94/neoscroll.nvim",
 	"nvim-telescope/telescope.nvim",
@@ -74,7 +75,14 @@ require("lazy").setup({
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/nvim-cmp",
 	"saadparwaiz1/cmp_luasnip",
-	"L3MON4D3/LuaSnip",
+	-- "L3MON4D3/LuaSnip",
+	{
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp",
+	},
 	"onsails/lspkind.nvim",
 
 	-- GO
