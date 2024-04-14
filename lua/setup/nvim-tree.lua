@@ -2,7 +2,7 @@ require("nvim-tree").setup({
 	disable_netrw = true,
 	hijack_netrw = true,
 	-- ignore_ft_on_setup = { "alpha" },
-	open_on_tab = false,
+	open_on_tab = true,
 	hijack_cursor = true,
 	hijack_unnamed_buffer_when_opening = false,
 	update_cwd = true,
