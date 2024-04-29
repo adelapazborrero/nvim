@@ -2,12 +2,13 @@ vim.cmd("set background=dark")
 vim.cmd("set cursorline")
 
 -- COLOR THEMES --
-vim.cmd("colorscheme catppuccin-mocha") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+-- vim.cmd("colorscheme catppuccin-mocha") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 -- vim.cmd("colorscheme hardhacker")
 -- vim.cmd("colorscheme everforest")
 -- vim.cmd("colorscheme one")
 -- vim.cmd("colorscheme gruvbox")
 -- vim.cmd("colorscheme nord")
+-- vim.cmd("colorscheme cobalt2")
 
 -- Diagnostics Colors
 vim.cmd("highlight DiagnosticError ctermfg=1 guifg=#CF5A68")
@@ -20,18 +21,22 @@ vim.cmd("highlight DiagnosticHint ctermfg=1 guifg=#5581B0")
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#26283B" })
 
 -- Telescope
-vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#26283B" })
-vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "#26283B" })
+vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#0D3A58" })
+vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "#0D3A58" })
 
-vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "#292c3c" })
-vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "#292c3c", fg = "#8caaee" })
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "#292c3c" })
-vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { bg = "#292c3c", fg = "#8caaee" })
+vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "#0D3A58" })
+vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "#0D3A58", fg = "#1477da" })
+vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "#0D3A58" })
+vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { bg = "#0D3A58", fg = "#1477da" })
 
-vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "#26283B" })
-vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "#26283B", fg = "#8caaee" })
-vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "#26283B" })
-vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "#26283B" })
+vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "#0D3A58" })
+vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg = "#0D3A58", fg = "#1477da" })
+vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "#0D3A58" })
+
+vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "#0D3A58" })
+vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "#0D3A58", fg = "#1477da" })
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "#0D3A58" })
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "#0D3A58" })
 
 -- LspSaga
 -- Border = {
@@ -120,18 +125,18 @@ vim.api.nvim_set_hl(0, "DapUIUnavailable", { fg = "#626880" })
 vim.api.nvim_set_hl(0, "DapUIWinSelect", { fg = "#81C8BE" })
 
 -- Notify
-vim.api.nvim_set_hl(0, "NotifyERRORBorder", { fg = "#E78284" })
-vim.api.nvim_set_hl(0, "NotifyWARNBorder", { fg = "#E5C890" })
-vim.api.nvim_set_hl(0, "NotifyINFOBorder", { fg = "#8CAAEE" })
-vim.api.nvim_set_hl(0, "NotifyDEBUGBorder", { fg = "#B5BFE2" })
-vim.api.nvim_set_hl(0, "NotifyTRACEBorder", { fg = "#F4B8E4" })
-vim.api.nvim_set_hl(0, "NotifyERRORIcon", { fg = "#E78284" })
-vim.api.nvim_set_hl(0, "NotifyWARNIcon", { fg = "#E5C890" })
-vim.api.nvim_set_hl(0, "NotifyINFOIcon", { fg = "#8CAAEE" })
-vim.api.nvim_set_hl(0, "NotifyDEBUGIcon", { fg = "#B5BFE2" })
-vim.api.nvim_set_hl(0, "NotifyTRACEIcon", { fg = "#F4B8E4" })
-vim.api.nvim_set_hl(0, "NotifyERRORTitle", { fg = "#E78284" })
-vim.api.nvim_set_hl(0, "NotifyWARNTitle", { fg = "#E5C890" })
-vim.api.nvim_set_hl(0, "NotifyINFOTitle", { fg = "#8CAAEE" })
-vim.api.nvim_set_hl(0, "NotifyDEBUGTitle", { fg = "#B5BFE2" })
-vim.api.nvim_set_hl(0, "NotifyTRACETitle", { fg = "#F4B8E4" })
+-- vim.api.nvim_set_hl(0, "NotifyERRORBorder", { fg = "#E78284" })
+-- vim.api.nvim_set_hl(0, "NotifyWARNBorder", { fg = "#E5C890" })
+-- vim.api.nvim_set_hl(0, "NotifyINFOBorder", { fg = "#8CAAEE" })
+-- vim.api.nvim_set_hl(0, "NotifyDEBUGBorder", { fg = "#B5BFE2" })
+-- vim.api.nvim_set_hl(0, "NotifyTRACEBorder", { fg = "#F4B8E4" })
+-- vim.api.nvim_set_hl(0, "NotifyERRORIcon", { fg = "#E78284" })
+-- vim.api.nvim_set_hl(0, "NotifyWARNIcon", { fg = "#E5C890" })
+-- vim.api.nvim_set_hl(0, "NotifyINFOIcon", { fg = "#8CAAEE" })
+-- vim.api.nvim_set_hl(0, "NotifyDEBUGIcon", { fg = "#B5BFE2" })
+-- vim.api.nvim_set_hl(0, "NotifyTRACEIcon", { fg = "#F4B8E4" })
+-- vim.api.nvim_set_hl(0, "NotifyERRORTitle", { fg = "#E78284" })
+-- vim.api.nvim_set_hl(0, "NotifyWARNTitle", { fg = "#E5C890" })
+-- vim.api.nvim_set_hl(0, "NotifyINFOTitle", { fg = "#8CAAEE" })
+-- vim.api.nvim_set_hl(0, "NotifyDEBUGTitle", { fg = "#B5BFE2" })
+-- vim.api.nvim_set_hl(0, "NotifyTRACETitle", { fg = "#F4B8E4" })
