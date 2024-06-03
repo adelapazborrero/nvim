@@ -51,37 +51,50 @@ vim.g.copilot_tab_fallback = ""
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 -- Plugins
+-- Core setup
 require("plugins")
-require("toggle_lsp_diagnostics").init({ start_on = true })
-require("setup.notify")
-require("setup.dap-ui")
-require("setup.nvim-tree")
-require("setup.nvim-treesitter")
-require("setup.nvim-cmp")
-require("setup.go")
-require("setup.dap-go")
 require("theme")
 require("keymaps")
-require("nvim-autopairs").setup({})
+
+-- Diagnostic and LSP setups
+require("toggle_lsp_diagnostics").init({ start_on = true })
 require("setup.lsp-installer")
 require("setup.lspsaga")
 require("setup.lspconfig")
-require("setup.ufo")
 require("setup.null-ls")
-require("setup.git-diff")
-require("setup.neoscroll")
-require("setup.persisted-session")
+require("setup.lsp-colors")
+require("setup.inc-rename")
+
+-- Completion and other LSP utilities
+require("setup.nvim-cmp")
+
+-- Debugging
+require("setup.dap-ui")
+require("setup.dap-go")
+
+-- File management and navigation
+require("setup.nvim-tree")
 require("setup.telescope")
 require("setup.bufferline")
-require("setup.dev-icons")
-require("setup.git-signs")
+
+-- Treesitter and related plugins
+require("setup.nvim-treesitter")
+require("setup.nvim-ts-autotag")
+
+-- Appearance and UI enhancements
+require("setup.notify")
 require("setup.lualine")
 require("setup.indent-blankline")
-require("setup.lsp-colors")
+require("setup.transparent")
+require("setup.neoscroll")
+require("setup.persisted-session")
+require("setup.git-diff")
+require("setup.git-signs")
+require("setup.dev-icons")
 require("setup.noice")
 require("trouble")
-require("setup.transparent")
 require("setup.flash")
-require("setup.inc-rename")
--- require("setup.neorg")
-require("setup.nvim-ts-autotag")
+
+-- Other utility plugins
+require("setup.go")
+require("nvim-autopairs").setup({})
