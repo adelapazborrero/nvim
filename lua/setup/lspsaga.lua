@@ -17,25 +17,25 @@ saga.setup({
 		outgoing = " ",
 		colors = {
 			--float window normal background color
-			normal_bg = "#2d353b",
+			-- normal_bg = "#2d353b",
 			--title background color
-			title_bg = "#83c092",
-			red = "#ca7275",
-			magenta = "#b33076",
-			orange = "#e49774",
-			yellow = "#edd96f",
-			green = "#afd700",
-			cyan = "#36d0e0",
-			blue = "#61afef",
-			purple = "#CBA6F7",
-			white = "#d1d4cf",
-			black = "#1c1c19",
+			-- title_bg = "#83c092",
+			-- red = "#ca7275",
+			-- magenta = "#b33076",
+			-- orange = "#e49774",
+			-- yellow = "#edd96f",
+			-- green = "#afd700",
+			-- cyan = "#36d0e0",
+			-- blue = "#61afef",
+			-- purple = "#CBA6F7",
+			-- white = "#d1d4cf",
+			-- black = "#1c1c19",
 		},
 		kind = {},
 	},
 	-- Options with default value
 	-- "single" | "double" | "rounded" | "bold" | "plus"
-	border_style = "single",
+	border_style = "rounded",
 	--the range of 0 for fully opaque window (disabled) to 100 for fully
 	--transparent background. Values between 0-30 are typically most useful.
 	saga_winblend = 0,
