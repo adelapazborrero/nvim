@@ -40,7 +40,6 @@ require("lazy").setup({
 
 	-- Utils
 	{ "nvim-neotest/nvim-nio" },
-	{ "nvim-neorg/neorg", build = ":Neorg sync-parsers" },
 	"karb94/neoscroll.nvim",
 	"nvim-telescope/telescope.nvim",
 	"nvim-lua/popup.nvim",
