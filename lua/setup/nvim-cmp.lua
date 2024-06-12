@@ -9,12 +9,12 @@ cmp.setup({
 	},
 	window = {
 		completion = {
-			border = "single",
-			winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+			border = "single", -- "single" | "double" | "shadow" | "rounded" | "none"
+			-- 	winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,FloatWinBorder:FloatWinBorder,FloatBorder:FloatBorder,SelectedText:SelectedText",
 		},
 		documentation = {
-			border = "single",
-			winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+			border = "double", -- "single" | "double" | "shadow" | "rounded" | "none"
+			-- 	winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
 		},
 	},
 	mapping = cmp.mapping.preset.insert({
