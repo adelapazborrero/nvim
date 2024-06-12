@@ -8,8 +8,14 @@ cmp.setup({
 		end,
 	},
 	window = {
-		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered(),
+		completion = {
+			border = "single",
+			winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+		},
+		documentation = {
+			border = "single",
+			winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+		},
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-k>"] = cmp.mapping.scroll_docs(-4),
