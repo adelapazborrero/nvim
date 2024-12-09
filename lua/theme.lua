@@ -2,8 +2,11 @@ vim.cmd("set background=dark")
 vim.cmd("set cursorline")
 
 -- COLOR THEMES --
--- vim.cmd("colorscheme catppuccin-frappe") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-vim.cmd("colorscheme alabaster") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+-- vim.cmd("colorscheme catppuccin-macchiato") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+-- vim.cmd("colorscheme hackthebox")
+-- vim.cmd("colorscheme alabaster")
+-- vim.cmd("colorscheme lackluster-hack")
+vim.cmd("colorscheme lackluster-hack")
 -- vim.cmd("colorscheme hardhacker")
 -- vim.cmd("colorscheme everforest")
 -- vim.cmd("colorscheme one")

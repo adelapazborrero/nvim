@@ -91,11 +91,6 @@ nvim_lsp.tsserver.setup({
 	capabilities = capabilities,
 })
 
-nvim_lsp.jedi_language_server.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
 nvim_lsp.pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,

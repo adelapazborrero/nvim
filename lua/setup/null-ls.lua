@@ -8,6 +8,7 @@ local sources = {
 	formatting.gofmt, -- mainly for go files
 	formatting.goimports_reviser, -- importer
 	formatting.prettierd, -- mainly for js, ts, css, html, json, yaml, md files
+	formatting.black, -- mainly for python files
 }
 
 null_ls.setup({

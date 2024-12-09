@@ -3,6 +3,7 @@ require("lualine").setup({
 		icons_enabled = true,
 		--theme = 'solarized_dark',
 		theme = "auto",
+		-- theme = "lackluster",
 		--component_separators = { left = '', right = ''},
 		--section_separators = { left = '', right = ''},
 		section_separators = { left = "", right = "" },
