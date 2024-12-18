@@ -27,6 +27,7 @@ vim.cmd("set path+=**")
 vim.cmd("set wildignore+=*/node_modules/*")
 vim.cmd("autocmd InsertLeave * set nopaste")
 vim.cmd("set formatoptions+=r")
+vim.cmd("set guicursor=n-v-c-i:block")
 
 vim.cmd("filetype plugin indent on")
 vim.cmd("set shiftwidth=4")
