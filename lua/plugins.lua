@@ -35,7 +35,7 @@ require("lazy").setup({
 
 	-- Language support
 	"ray-x/lsp_signature.nvim",
-	"jose-elias-alvarez/null-ls.nvim",
+	"nvimtools/none-ls.nvim",
 	"williamboman/nvim-lsp-installer",
 
 	-- Utils
@@ -65,6 +65,8 @@ require("lazy").setup({
 	"rakr/vim-one",
 	{ "hardhackerlabs/theme-vim", as = "hardhacker" },
 	{ "catppuccin/nvim", as = "catppuccin" },
+	"rktjmp/lush.nvim",
+	"briones-gabriel/darcula-solid.nvim",
 
 	-- LSP Config
 	"folke/lsp-colors.nvim",

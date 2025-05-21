@@ -66,14 +66,14 @@ saga.setup({
 		enable_in_insert = false,
 		sign = false,
 		sign_priority = 20,
-		virtual_text = true,
+		virtual_text = false,
 	},
 	lightbulb = {
 		enable = false,
 		enable_in_insert = false,
 		sign = true,
 		sign_priority = 40,
-		virtual_text = true,
+		virtual_text = false,
 	},
 	-- finder icons
 	finder_icons = {
