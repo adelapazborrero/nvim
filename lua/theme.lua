@@ -12,6 +12,7 @@ vim.cmd("colorscheme catppuccin-frappe") -- catppuccin-latte, catppuccin-frappe,
 -- vim.cmd("colorscheme one")
 -- vim.cmd("colorscheme gruvbox")
 -- vim.cmd("colorscheme nord")
+-- vim.cmd("colorscheme cobalt2")
 
 -- Diagnostics Colors
 -- vim.cmd("highlight DiagnosticError ctermfg=1 guifg=#CF5A68")
@@ -36,6 +37,7 @@ vim.cmd("colorscheme catppuccin-frappe") -- catppuccin-latte, catppuccin-frappe,
 -- vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "#26283B", fg = "#8caaee" })
 -- vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "#26283B" })
 -- vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "#26283B" })
+
 
 -- LspSaga
 -- Border = {

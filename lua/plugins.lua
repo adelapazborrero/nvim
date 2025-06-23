@@ -63,6 +63,14 @@ require("lazy").setup({
 	"arcticicestudio/nord-vim",
 	"morhetz/gruvbox",
 	"rakr/vim-one",
+	{
+		"lalitmee/cobalt2.nvim",
+		event = { "ColorSchemePre" }, -- if you want to lazy load
+		dependencies = { "tjdevries/colorbuddy.nvim", tag = "v1.0.0" },
+		init = function()
+			require("colorbuddy").colorscheme("cobalt2")
+		end,
+	},
 	{ "hardhackerlabs/theme-vim", as = "hardhacker" },
 	{ "catppuccin/nvim", as = "catppuccin" },
 	"rktjmp/lush.nvim",
