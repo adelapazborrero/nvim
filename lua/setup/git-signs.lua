@@ -33,7 +33,7 @@ require("gitsigns").setup({
 		-- style = "minimal",
 		relative = "cursor", -- win, editor, cursor
 	},
-	yadm = {
-		enable = false,
-	},
+	-- yadm = {
+	-- 	enable = false,
+	-- },
 })
