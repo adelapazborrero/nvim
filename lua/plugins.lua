@@ -57,6 +57,7 @@ require("lazy").setup({
 	"smjonas/inc-rename.nvim",
 
 	-- THEMES
+
 	{ "catppuccin/nvim", as = "catppuccin" },
 
 	-- LSP Config

@@ -67,6 +67,7 @@ require("setup.lsp-colors")
 require("setup.inc-rename")
 require("setup.lsp-signature")
 
+
 -- Completion and other LSP utilities
 require("setup.nvim-cmp")
 
@@ -108,3 +109,4 @@ vim.diagnostic.config({
   update_in_insert = false,  -- don't update diagnostics while typing
   severity_sort = true,      -- sort by severity in float windows etc.
 })
+
