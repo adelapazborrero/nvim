@@ -23,10 +23,10 @@ local ruff_formatter = {
 
 local sources = {
 	formatting.stylua,
-	formatting.gofmt,
+	formatting.gofmt, -- auto installs with golang
 	formatting.goimports, -- auto removes unused imports
-	formatting.prettierd,
-	ruff_formatter,
+	formatting.prettierd, -- install with npm install -g @fsouza/prettierd
+	ruff_formatter, -- install with curl -LsSf https://astral.sh/ruff/install.sh | sh
 }
 
 -- #################################
