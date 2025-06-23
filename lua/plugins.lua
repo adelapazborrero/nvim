@@ -57,24 +57,7 @@ require("lazy").setup({
 	"smjonas/inc-rename.nvim",
 
 	-- THEMES
-	"audibleblink/hackthebox.vim",
-	"slugbyte/lackluster.nvim",
-	"sainnhe/everforest",
-	"arcticicestudio/nord-vim",
-	"morhetz/gruvbox",
-	"rakr/vim-one",
-	{
-		"lalitmee/cobalt2.nvim",
-		event = { "ColorSchemePre" }, -- if you want to lazy load
-		dependencies = { "tjdevries/colorbuddy.nvim", tag = "v1.0.0" },
-		init = function()
-			require("colorbuddy").colorscheme("cobalt2")
-		end,
-	},
-	{ "hardhackerlabs/theme-vim", as = "hardhacker" },
 	{ "catppuccin/nvim", as = "catppuccin" },
-	"rktjmp/lush.nvim",
-	"briones-gabriel/darcula-solid.nvim",
 
 	-- LSP Config
 	"folke/lsp-colors.nvim",
@@ -107,8 +90,8 @@ require("lazy").setup({
 
 	"groenewege/vim-less",
 	"kchmck/vim-coffee-script",
-},{
-    ui = {
-        border = "rounded"
-    }
+}, {
+	ui = {
+		border = "rounded",
+	},
 })
