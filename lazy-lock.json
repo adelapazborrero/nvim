@@ -59,7 +59,6 @@
   "theme-vim": { "branch": "main", "commit": "558d365d2678b5efa661310cc3b991486dcc78df" },
   "toggle-lsp-diagnostics.nvim": { "branch": "main", "commit": "4c515b1625433306807e4a47756592fde0b83c82" },
   "transparent.nvim": { "branch": "main", "commit": "8ac59883de84e9cd1850ea25cf087031c5ba7d54" },
-  "trouble.nvim": { "branch": "main", "commit": "85bedb7eb7fa331a2ccbecb9202d8abba64d37b3" },
   "vim-coffee-script": { "branch": "master", "commit": "28421258a8dde5a50deafbfc19cd9873cacfaa79" },
   "vim-commentary": { "branch": "master", "commit": "64a654ef4a20db1727938338310209b6a63f60c9" },
   "vim-fugitive": { "branch": "master", "commit": "593f831d6f6d779cbabb70a4d1e6b1b1936a88af" },

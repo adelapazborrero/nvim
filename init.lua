@@ -62,10 +62,10 @@ require("toggle_lsp_diagnostics").init({ start_on = true })
 require("setup.lsp-installer")
 require("setup.lspsaga")
 require("setup.lspconfig")
-require("setup.lsp-signature")
 require("setup.null-ls")
 require("setup.lsp-colors")
 require("setup.inc-rename")
+require("setup.lsp-signature")
 
 -- Completion and other LSP utilities
 require("setup.nvim-cmp")
@@ -94,7 +94,6 @@ require("setup.git-diff")
 require("setup.git-signs")
 require("setup.dev-icons")
 require("setup.noice")
-require("trouble")
 require("setup.flash")
 
 -- Other utility plugins

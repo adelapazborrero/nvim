@@ -104,8 +104,11 @@ require("lazy").setup({
 	"leoluz/nvim-dap-go",
 	"rcarriga/nvim-dap-ui",
 	"theHamsta/nvim-dap-virtual-text",
-	"folke/trouble.nvim",
 
 	"groenewege/vim-less",
 	"kchmck/vim-coffee-script",
+},{
+    ui = {
+        border = "rounded"
+    }
 })
