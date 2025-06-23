@@ -3,16 +3,6 @@ vim.cmd("set cursorline")
 
 -- COLOR THEMES --
 vim.cmd("colorscheme catppuccin-frappe") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
--- vim.cmd("colorscheme hackthebox")
--- vim.cmd("colorscheme alabaster")
--- vim.cmd("colorscheme lackluster-hack")
--- vim.cmd("colorscheme darcula-solid")
--- vim.cmd("colorscheme hardhacker")
--- vim.cmd("colorscheme everforest")
--- vim.cmd("colorscheme one")
--- vim.cmd("colorscheme gruvbox")
--- vim.cmd("colorscheme nord")
--- vim.cmd("colorscheme cobalt2")
 
 local cp = require("catppuccin.palettes").get_palette("frappe")
 
