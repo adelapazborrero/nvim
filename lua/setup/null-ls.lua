@@ -24,7 +24,7 @@ local ruff_formatter = {
 local sources = {
 	formatting.stylua,
 	formatting.gofmt,
-	-- formatting.goimports_reviser,
+	formatting.goimports, -- auto removes unused imports
 	formatting.prettierd,
 	ruff_formatter,
 }
