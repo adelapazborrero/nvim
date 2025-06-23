@@ -13,7 +13,7 @@ require("bufferline").setup({
 		right_trunc_marker = "",
 		offsets = { { filetype = "NvimTree", text = "構造", text_align = "center" } },
 		color_icons = true, -- whether or not to add the filetype icon highlights
-		show_buffer_icons = true, -- disable filetype icons for buffers
+		show_buffer_icons = false, -- disable filetype icons for buffers
 		show_buffer_close_icons = false,
 		-- show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
 		show_close_icon = true,

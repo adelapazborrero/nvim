@@ -1,15 +1,38 @@
-local null_ls = require("null-ls")
+local null_ls = require("null-ls") -- changed from "null-ls" to "none-ls"
+local helpers = require("null-ls.helpers")
 
+-- #################################
+-- #       SUPPORTED SOURCES       #
+-- #################################
 local formatting = null_ls.builtins.formatting
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-local sources = {
-	formatting.stylua, -- mainly for lua files
-	formatting.gofmt, -- mainly for go files
-	formatting.goimports_reviser, -- importer
-	formatting.prettierd, -- mainly for js, ts, css, html, json, yaml, md files
+-- #################################
+-- #         CUSTOM SOURCES        #
+-- #################################
+local ruff_formatter = {
+	method = null_ls.methods.FORMATTING,
+	filetypes = { "python" },
+	generator = helpers.formatter_factory({
+		command = "ruff",
+		args = { "--fix", "--stdin-filename", "$FILENAME", "-" },
+		to_stdin = true,
+	}),
+	name = "ruff",
 }
 
+local sources = {
+	formatting.stylua,
+	formatting.gofmt,
+	formatting.goimports_reviser,
+	formatting.prettierd,
+	-- formatting.black,
+	ruff_formatter,
+}
+
+-- #################################
+-- #          LOAD SOURCES         #
+-- #################################
 null_ls.setup({
 	sources = sources,
 	on_attach = function(client, bufnr)
@@ -19,8 +42,7 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-					vim.lsp.buf.format()
+					vim.lsp.buf.format({ bufnr = bufnr }) -- safer call
 				end,
 			})
 		end

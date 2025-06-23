@@ -13,7 +13,7 @@ for _, sign in ipairs(signs) do
 end
 
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_text = false,
 	signs = {
 		active = signs,
 	},
@@ -24,7 +24,8 @@ vim.diagnostic.config({
 		focusable = true,
 		style = "",
 		border = "rounded",
-		source = "always",
+		-- source = "always",
+		source = true,
 		header = "",
 		prefix = "",
 	},
@@ -54,7 +55,27 @@ capabilities.textDocument.foldingRange = {
 	lineFoldingOnly = true,
 }
 
--- How to install lua_ls https://github.com/LuaLS/lua-language-server/wiki/Getting-Started#command-line
+nvim_lsp.jsonls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.yamlls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.tsserver.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+-- #################################
+-- #           LUA SETUP           #
+-- #################################
+--
+-- Install lua_ls https://github.com/LuaLS/lua-language-server/wiki/Getting-Started#command-line
+--
 nvim_lsp.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -76,37 +97,57 @@ nvim_lsp.lua_ls.setup({
 	},
 })
 
-nvim_lsp.jsonls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.yamlls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.tsserver.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
--- nvim_lsp.tsserver.setup({
--- 	on_attach = on_attach,
--- 	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
--- 	cmd = { "typescript-language-server", "--stdio" },
--- })
+-- #################################
+-- #         PYTHON SETUP          #
+-- #################################
 --
-nvim_lsp.jedi_language_server.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
+-- ruff setup https://docs.astral.sh/ruff/editors/setup/#neovim
+-- ruff installation curl -LsSf https://astral.sh/ruff/install.sh | sh
+-- pyright can be installed with `LSPInstallInfo`
+--
 nvim_lsp.pyright.setup({
 	on_attach = on_attach,
-	capabilities = capabilities,
+	settings = {
+		pyright = {
+			-- Using Ruff's import organizer
+			disableOrganizeImports = true,
+		},
+		python = {
+			analysis = {
+				-- Ignore all files for analysis to exclusively use Ruff for linting
+				ignore = { "*" },
+			},
+		},
+	},
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client == nil then
+			return
+		end
+		if client.name == "ruff" then
+			-- Disable hover in favor of Pyright
+			client.server_capabilities.hoverProvider = false
+		end
+	end,
+	desc = "LSP: Disable hover capability from Ruff",
+})
+
+nvim_lsp.ruff.setup({
+	capabilities = capabilities,
+	init_options = {
+		settings = {
+			logLevel = "debug",
+		},
+	},
+})
+
+-- #################################
+-- #         GOLANG SETUP          #
+-- #################################
 nvim_lsp.gopls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,

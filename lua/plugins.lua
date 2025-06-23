@@ -30,12 +30,12 @@ require("lazy").setup({
 	"rcarriga/nvim-notify",
 	"kevinhwang91/nvim-ufo",
 	"kevinhwang91/promise-async",
-	"github/copilot.vim",
+	-- "github/copilot.vim",
 	"David-Kunz/gen.nvim",
 
 	-- Language support
 	"ray-x/lsp_signature.nvim",
-	"jose-elias-alvarez/null-ls.nvim",
+	"nvimtools/none-ls.nvim",
 	"williamboman/nvim-lsp-installer",
 
 	-- Utils
@@ -57,6 +57,8 @@ require("lazy").setup({
 	"smjonas/inc-rename.nvim",
 
 	-- THEMES
+	"audibleblink/hackthebox.vim",
+	"slugbyte/lackluster.nvim",
 	"sainnhe/everforest",
 	"arcticicestudio/nord-vim",
 	"morhetz/gruvbox",
@@ -71,6 +73,8 @@ require("lazy").setup({
 	},
 	{ "hardhackerlabs/theme-vim", as = "hardhacker" },
 	{ "catppuccin/nvim", as = "catppuccin" },
+	"rktjmp/lush.nvim",
+	"briones-gabriel/darcula-solid.nvim",
 
 	-- LSP Config
 	"folke/lsp-colors.nvim",
