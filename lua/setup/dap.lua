@@ -1,13 +1,15 @@
 local dap = require("dap")
 
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "red", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
-vim.fn.sign_define("DapStopped", { text = "", texthl = "green", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
-
 -- Installing dlv (Used for go)
 -- go install github.com/go-delve/delve/cmd/dlv@latest
 --
 -- Installing debugpy (Used for python)
 -- pip install debugpy
+
+
+-- #########################
+-- #       ADAPTERS        #
+-- #########################
 
 dap.adapters.go = function(callback, _)
 	local stdout = vim.loop.new_pipe(false)
@@ -45,6 +47,11 @@ dap.adapters.python = {
   command = vim.fn.exepath("python"),
   args = { "-m", "debugpy.adapter" },
 }
+
+
+-- #########################
+-- #        CONFIGS        #
+-- #########################
 
 dap.configurations = {
     go = {
@@ -88,6 +95,15 @@ dap.configurations = {
         },
     },
 }
+
+
+-- #########################
+-- #         INIT          #
+-- #########################
+
+
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "red", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
+vim.fn.sign_define("DapStopped", { text = "", texthl = "green", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
 
 local dapui = require("dapui")
 

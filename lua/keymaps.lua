@@ -11,8 +11,7 @@ end
 -- GoDbgConfig
 function StartDebugger()
 	vim.api.nvim_echo({ { "  Starting debugger \n", "Normal" } }, true, {})
-	-- vim.api.nvim_echo("  Starting debugger \n") -- Echo the message
-	keymap.set("n", "bs", ":lua require('dap').continue()<CR>", opts) -- lightweight implementation
+	vim.cmd(":lua require('dap').continue()")
 end
 
 function StopDebugger()
