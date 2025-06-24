@@ -79,12 +79,14 @@ require("lazy").setup({
 		build = "make install_jsregexp",
 	},
 	"onsails/lspkind.nvim",
+	"ray-x/guihua.lua",
 
 	-- GO
 	"ray-x/go.nvim",
-	"ray-x/guihua.lua",
-	"mfussenegger/nvim-dap",
+
+    -- DEBUGGER
 	"leoluz/nvim-dap-go",
+	"mfussenegger/nvim-dap",
 	"rcarriga/nvim-dap-ui",
 	"theHamsta/nvim-dap-virtual-text",
 
