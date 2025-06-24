@@ -47,11 +47,6 @@ keymap.set("n", "wk", "<C-w>k", opts)
 keymap.set("n", "wl", "<C-w>l", opts)
 keymap.set("n", "wp", "<C-w>q", opts)
 
--- Dianostics
-keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
-
 -- Nvim Tree
 keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 keymap.set("n", "<C-f>", ":NvimTreeFindFile<CR>", opts)
@@ -74,8 +69,8 @@ keymap.set("n", ";f", ":lua require('telescope.builtin').find_files()<CR>", opts
 keymap.set("n", ";r", ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap.set("n", ";;", ":lua require('telescope.builtin').grep_string()<CR>", opts)
 keymap.set("n", "\\\\", ":lua require('telescope.builtin').help_tags()<CR>", opts)
-keymap.set("n", "fr", ":lua require('telescope.builtin').lsp_references()<CR>", opts)
-keymap.set("n", "fi", ":lua require('telescope.builtin').lsp_implementations()<CR>", opts)
+-- keymap.set("n", "fr", ":lua require('telescope.builtin').lsp_references()<CR>", opts)
+-- keymap.set("n", "fi", ":lua require('telescope.builtin').lsp_implementations()<CR>", opts)
 keymap.set("n", "fd", ":lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 
 -- Bufferline
@@ -98,9 +93,6 @@ vim.keymap.set("n", "zR", ":lua require('ufo').openAllFolds()<CR>", opts)
 vim.keymap.set("n", "zM", ":lua require('ufo').closeAllFolds()<CR>", opts)
 vim.keymap.set("n", "zo", ":lua require('ufo').openFoldsExceptKinds()<CR>", opts)
 vim.keymap.set("n", "zm", ":lua require('ufo').closeFoldsWith()<CR>", opts)
-
---Trouble
-keymap.set("n", ",,", ":TroubleToggle<CR>", opts)
 
 -- Other
 keymap.set("n", "fn", ":noh<CR>", opts)
