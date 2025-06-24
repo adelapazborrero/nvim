@@ -11,19 +11,6 @@
 
 - @fsouza/prettierd _installed through npm_
 - stylua _installed as package depending on os_
-- php-cs-fixer _installed through composer_
-
-## Recommended Treesitter languages
-
-- vue
-- lua
-- typescript
-- vue _scheme has been added to support script tags_
-- html
-- css
-- javascript
-- scss
-- tsx
 
 ### If telescope running slow make sure to have this dependencies installed
 
