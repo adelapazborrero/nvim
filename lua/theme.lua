@@ -17,8 +17,6 @@ vim.api.nvim_set_hl(0, "green", { fg = cp.green })
 vim.api.nvim_set_hl(0, "yellow", { fg = cp.yellow })
 vim.api.nvim_set_hl(0, "orange", { fg = cp.peach })
 
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "red", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
-vim.fn.sign_define("DapStopped", { text = "", texthl = "green", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
 
 vim.fn.sign_define(
 	"DapBreakpointCondition",

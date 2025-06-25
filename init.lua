@@ -72,7 +72,7 @@ require("setup.nvim-cmp")
 
 -- Debugging
 require("setup.dap-ui")
-require("setup.dap-go")
+require("setup.dap")
 
 -- File management and navigation
 require("setup.nvim-tree")

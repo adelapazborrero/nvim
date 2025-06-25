@@ -1,5 +1,5 @@
 local keymap = vim.keymap
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true, silent = true , nowait = true}
 
 -- Debugging
 function OpenUI()
@@ -9,26 +9,24 @@ function OpenUI()
 end
 
 -- GoDbgConfig
-function StartGoDebug()
+function StartDebugger()
 	vim.api.nvim_echo({ { "  Starting debugger \n", "Normal" } }, true, {})
-	-- vim.api.nvim_echo("  Starting debugger \n") -- Echo the message
-	-- keymap.set("n", "bs", ":lua require('dap').continue()<CR>", opts) -- lightweight implementation
-	vim.cmd(":GoDebug") -- heavy implementation
+	vim.cmd(":lua require('dap').continue()")
 end
 
-function StopGoDebug()
+function StopDebugger()
 	vim.cmd(":lua require('dap').terminate()")
-	vim.cmd(":GoDbgStop")
+    vim.cmd(":lua require('dapui').close()")
 end
 
--- keymap.set("n", "bb", ":lua require('dap').toggle_breakpoint()<CR>", opts)
-keymap.set("n", "bb", ":GoBreakToggle<CR>", opts)
-keymap.set("n", "bs", ":lua StartGoDebug()<CR>", opts) --heavy implementation
-keymap.set("n", "bp", ":DapContinue<CR>", opts) --heavy implementation
+-- https://tamerlan.dev/a-guide-to-debugging-applications-in-neovim/
+keymap.set("n", "bs", ":lua StartDebugger()<CR>", opts)
+keymap.set("n", "bb", ":lua require('dap').toggle_breakpoint()<CR>", opts)
+keymap.set("n", "bp", ":lua require('dap').continue()<CR>", opts)
 keymap.set("n", "bu", ":lua require('dap').step_over()<CR>", opts)
 keymap.set("n", "bi", ":lua require('dap').step_into()<CR>", opts)
 keymap.set("n", "bo", ":lua require('dap').step_out()<CR>", opts)
-keymap.set("n", "bc", ":lua StopGoDebug()<CR>", opts)
+keymap.set("n", "bc", ":lua StopDebugger()<CR>", opts)
 keymap.set("n", "bv", ":lua require('dapui').toggle()<CR>", opts)
 
 keymap.set("n", "bt", ":lua require('dap-go').debug_test()<CR>", opts)
