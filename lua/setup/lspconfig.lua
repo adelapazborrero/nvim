@@ -65,10 +65,11 @@ nvim_lsp.yamlls.setup({
 	capabilities = capabilities,
 })
 
--- nvim_lsp.tsserver.setup({
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- })
+nvim_lsp.tsserver.setup({ -- Install with npm i -g typescript-language-server
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+})
 
 -- #################################
 -- #           LUA SETUP           #
