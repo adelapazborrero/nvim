@@ -2,6 +2,16 @@ local mocha = require("catppuccin.palettes").get_palette("frappe")
 
 require("bufferline").setup({
 	options = {
+		custom_areas = {
+			left = function()
+				return {
+					-- { text = "  ▌", fg = mocha.blue },
+					-- { text = "   ", fg = mocha.blue },
+					{ text = "    ", fg = mocha.green },
+					-- { text = " | ", fg = mocha.blue },
+				}
+			end,
+		},
 		separator_style = "thin", -- slant, padded_slant, thick, thin
 		-- numbers = "ordinal",
 		--indicator_icon = '▎',
@@ -11,7 +21,13 @@ require("bufferline").setup({
 		close_icon = "",
 		left_trunc_marker = "",
 		right_trunc_marker = "",
-		offsets = { { filetype = "NvimTree", text = "構造", text_align = "center" } },
+		offsets = {
+			{
+				filetype = "NvimTree",
+				text = "構造",
+				text_align = "center",
+			},
+		},
 		color_icons = true, -- whether or not to add the filetype icon highlights
 		show_buffer_icons = false, -- disable filetype icons for buffers
 		show_buffer_close_icons = false,

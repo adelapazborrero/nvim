@@ -11,12 +11,18 @@ vim.api.nvim_set_hl(0, "HoverBorder", { bg = cp.base, fg = cp.blue })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = cp.base })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = cp.base, fg = cp.blue })
 
+-- Telescope
+vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "none" })
+vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = cp.blue, bg = "none" })
+vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = cp.blue, bg = "none" })
+vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = cp.blue, bg = "none" })
+
 -- Debugger
 vim.api.nvim_set_hl(0, "red", { fg = cp.red })
 vim.api.nvim_set_hl(0, "green", { fg = cp.green })
 vim.api.nvim_set_hl(0, "yellow", { fg = cp.yellow })
 vim.api.nvim_set_hl(0, "orange", { fg = cp.peach })
-
 
 vim.fn.sign_define(
 	"DapBreakpointCondition",
