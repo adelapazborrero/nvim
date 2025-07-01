@@ -1,5 +1,5 @@
 local keymap = vim.keymap
-local opts = { noremap = true, silent = true , nowait = true}
+local opts = { noremap = true, silent = true, nowait = true }
 
 -- Debugging
 function OpenUI()
@@ -16,7 +16,7 @@ end
 
 function StopDebugger()
 	vim.cmd(":lua require('dap').terminate()")
-    vim.cmd(":lua require('dapui').close()")
+	vim.cmd(":lua require('dapui').close()")
 end
 
 -- https://tamerlan.dev/a-guide-to-debugging-applications-in-neovim/
@@ -78,9 +78,15 @@ keymap.set("n", "bh", ":BufferLineMovePrev<CR>", opts)
 keymap.set("n", "bl", ":BufferLineMoveNext<CR>", opts)
 
 -- Flash
-keymap.set("n", "s", ":lua require('flash').jump()<CR>", opts)
-keymap.set("x", "s", ":lua require('flash').jump()<CR>", opts)
-keymap.set("o", "s", ":lua require('flash').jump()<CR>", opts)
+keymap.set("n", "s", function()
+	require("flash").jump({ search = { mode = "plain", force = true } })
+end, opts)
+keymap.set("x", "s", function()
+	require("flash").jump({ search = { mode = "plain", force = true } })
+end, opts)
+keymap.set("o", "s", function()
+	require("flash").jump({ search = { mode = "plain", force = true } })
+end, opts)
 
 keymap.set("n", "S", ":lua require('flash').treesitter()<CR>", opts)
 keymap.set("x", "S", ":lua require('flash').treesitter()<CR>", opts)
