@@ -37,19 +37,19 @@ require("bufferline").setup({
 		enforce_regular_tabs = false,
 		always_show_bufferline = true,
 		tab_size = 20,
-		highlights = require("catppuccin.groups.integrations.bufferline").get({
-			styles = { "italic", "bold" },
-			custom = {
-				all = {
-					fill = { bg = "#000000" },
-				},
-				mocha = {
-					background = { fg = mocha.text },
-				},
-				latte = {
-					background = { fg = "#000000" },
-				},
-			},
-		}),
+		-- highlights = require("catppuccin.groups.integrations.bufferline").get({
+		-- 	styles = { "italic", "bold" },
+		-- 	custom = {
+		-- 		all = {
+		-- 			fill = { bg = "#000000" },
+		-- 		},
+		-- 		mocha = {
+		-- 			background = { fg = mocha.text },
+		-- 		},
+		-- 		latte = {
+		-- 			background = { fg = "#000000" },
+		-- 		},
+		-- 	},
+		-- }),
 	},
 })
