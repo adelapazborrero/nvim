@@ -137,10 +137,10 @@ nvim_lsp.pyright.setup({
 		python = {
 			analysis = {
 				-- Ignore all files for analysis to exclusively use Ruff for linting
-				-- ignore = { "*" },
-				typeCheckingMode = "strict",
-				autoSearchPaths = true,
-				useLibraryCodeForTypes = true,
+				ignore = { "*" },
+				-- typeCheckingMode = "strict",
+				-- autoSearchPaths = true,
+				-- useLibraryCodeForTypes = true,
 			},
 		},
 	},
