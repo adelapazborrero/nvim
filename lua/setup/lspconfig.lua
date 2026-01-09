@@ -99,6 +99,7 @@ nvim_lsp.ts_ls.setup({ --
 -- Install lua_ls https://github.com/LuaLS/lua-language-server/wiki/Getting-Started#command-line
 --
 nvim_lsp.lua_ls.setup({
+	cmd = { vim.fn.expand("~/.local/share/nvim/lsp_servers/lua_ls/extension/server/bin/lua-language-server") },
 	on_attach = on_attach,
 	capabilities = capabilities,
 
