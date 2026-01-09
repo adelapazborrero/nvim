@@ -1,4 +1,4 @@
-local nvim_treesitter = require("nvim-treesitter.configs")
+local nvim_treesitter = require("nvim-treesitter")
 
 nvim_treesitter.setup({
 	highlight = {
