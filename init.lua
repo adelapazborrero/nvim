@@ -99,6 +99,7 @@ require("setup.flash")
 -- Other utility plugins
 require("setup.go")
 require("nvim-autopairs").setup({})
+require("setup.claude-code")
 
 -- WORK AROUND TO OVERRIDE LSPSAGA
 vim.diagnostic.config({

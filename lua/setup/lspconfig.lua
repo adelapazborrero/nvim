@@ -86,7 +86,7 @@ nvim_lsp.yamlls.setup({
 -- Install with npm i -g typescript-language-server
 -- :TSInstall typescript javascript tsx
 --
-nvim_lsp.tsserver.setup({ --
+nvim_lsp.ts_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },

@@ -73,10 +73,7 @@ require("lazy").setup({
 	-- "L3MON4D3/LuaSnip",
 	{
 		"L3MON4D3/LuaSnip",
-		-- follow latest release.
-		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-		-- install jsregexp (optional!).
-		build = "make install_jsregexp",
+		version = "v2.*",
 	},
 	"onsails/lspkind.nvim",
 	"ray-x/guihua.lua",
@@ -84,7 +81,7 @@ require("lazy").setup({
 	-- GO
 	"ray-x/go.nvim",
 
-    -- DEBUGGER
+	-- DEBUGGER
 	"leoluz/nvim-dap-go",
 	"mfussenegger/nvim-dap",
 	"rcarriga/nvim-dap-ui",
@@ -92,6 +89,14 @@ require("lazy").setup({
 
 	"groenewege/vim-less",
 	"kchmck/vim-coffee-script",
+
+	-- AI Claude
+	{
+		"greggh/claude-code.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- Required for git operations
+		},
+	},
 }, {
 	ui = {
 		border = "rounded",
