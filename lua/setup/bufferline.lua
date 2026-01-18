@@ -7,7 +7,7 @@ require("bufferline").setup({
 				return {
 					-- { text = "  ▌", fg = mocha.blue },
 					-- { text = "   ", fg = mocha.blue },
-					{ text = "    ", fg = mocha.green },
+					-- { text = "    ", fg = mocha.green },
 					-- { text = " | ", fg = mocha.blue },
 				}
 			end,
