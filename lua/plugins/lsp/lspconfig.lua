@@ -5,9 +5,6 @@ return {
 		-- vim.diagnostic.config() call, or it clobbers virtual_text/signs back to true.
 		dependencies = { "hrsh7th/cmp-nvim-lsp", "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" },
 		config = function()
-			local nvim_lsp = require("lspconfig")
-			local util = require("lspconfig/util")
-
 			local signs = {
 				{ name = "DiagnosticSignError", text = "" },
 				{ name = "DiagnosticSignWarn", text = "" },
@@ -62,12 +59,12 @@ return {
 				lineFoldingOnly = true,
 			}
 
-			nvim_lsp.jsonls.setup({
+			vim.lsp.config("jsonls", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 
-			nvim_lsp.yamlls.setup({
+			vim.lsp.config("yamlls", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 				settings = {
@@ -93,7 +90,7 @@ return {
 			-- Install with npm i -g typescript-language-server
 			-- :TSInstall typescript javascript tsx
 			--
-			nvim_lsp.ts_ls.setup({ --
+			vim.lsp.config("ts_ls", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 				filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
@@ -103,10 +100,9 @@ return {
 			-- #           LUA SETUP           #
 			-- #################################
 			--
-			-- Install lua_ls https://github.com/LuaLS/lua-language-server/wiki/Getting-Started#command-line
+			-- Installed automatically via mason.nvim (see plugins/lsp/mason.lua)
 			--
-			nvim_lsp.lua_ls.setup({
-				cmd = { vim.fn.expand("~/.local/share/nvim/lsp_servers/lua_ls/extension/server/bin/lua-language-server") },
+			vim.lsp.config("lua_ls", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 
@@ -133,9 +129,9 @@ return {
 			--
 			-- ruff setup https://docs.astral.sh/ruff/editors/setup/#neovim
 			-- ruff installation curl -LsSf https://astral.sh/ruff/install.sh | sh
-			-- pyright can be installed with `LSPInstallInfo`
+			-- pyright can be installed via mason.nvim (:Mason)
 			--
-			nvim_lsp.pyright.setup({
+			vim.lsp.config("pyright", {
 				on_attach = on_attach,
 				settings = {
 					pyright = {
@@ -169,7 +165,7 @@ return {
 				desc = "LSP: Disable hover capability from Ruff",
 			})
 
-			nvim_lsp.ruff.setup({
+			vim.lsp.config("ruff", {
 				capabilities = capabilities,
 				init_options = {
 					settings = {
@@ -181,12 +177,14 @@ return {
 			-- #################################
 			-- #         GOLANG SETUP          #
 			-- #################################
-			nvim_lsp.gopls.setup({
+			--
+			-- nvim-lspconfig's built-in gopls root_dir detection (go.work/go.mod/.git,
+			-- with GOMODCACHE/GOROOT awareness) supersedes the old util.root_pattern
+			-- override, so it's intentionally not repeated here.
+			--
+			vim.lsp.config("gopls", {
 				on_attach = on_attach,
 				capabilities = capabilities,
-				cmd = { "gopls" },
-				filetypes = { "go", "gomod", "gowork", "gotmpl" },
-				root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 				settings = {
 					gopls = {
 						completeUnimported = true,
@@ -196,6 +194,8 @@ return {
 					},
 				},
 			})
+
+			vim.lsp.enable({ "jsonls", "yamlls", "ts_ls", "lua_ls", "pyright", "ruff", "gopls" })
 		end,
 	},
 	{
