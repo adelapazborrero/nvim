@@ -50,7 +50,38 @@ keymap.set("n", "<C-f>", ":NvimTreeFindFile<CR>", opts)
 keymap.set("n", "<leader>n", ":NvimTreeRefresh<CR>", opts)
 
 -- LSP Saga
-keymap.set("n", "K", ":Lspsaga hover_doc<CR>", opts)
+-- Lspsaga's hover float doesn't take focus when it opens, so plain "q"/"<Esc>"
+-- hit the source buffer instead of the float (macro-record prompt for "q",
+-- no-op for "<Esc>"), and the float only closes on the next CursorMoved.
+-- Close it directly instead, falling back to normal q/<Esc> behavior when
+-- there's no hover float open.
+local function close_lspsaga_hover()
+	local hover = require("lspsaga.hover")
+	if hover.winid and vim.api.nvim_win_is_valid(hover.winid) then
+		vim.api.nvim_win_close(hover.winid, true)
+		hover:clean()
+		return true
+	end
+	return false
+end
+
+keymap.set("n", "K", function()
+	if not close_lspsaga_hover() then
+		vim.cmd("Lspsaga hover_doc")
+	end
+end, opts)
+
+keymap.set("n", "q", function()
+	if not close_lspsaga_hover() then
+		vim.api.nvim_feedkeys("q", "n", false)
+	end
+end, opts)
+
+keymap.set("n", "<Esc>", function()
+	if not close_lspsaga_hover() then
+		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+	end
+end, opts)
 keymap.set("n", "[g", ":Lspsaga diagnostic_jump_prev<CR>", opts)
 keymap.set("n", "]g", ":Lspsaga diagnostic_jump_next<CR>", opts)
 keymap.set("n", "<C-k>", ":Lspsaga peek_definition<CR>", opts)
