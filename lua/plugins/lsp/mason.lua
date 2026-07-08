@@ -12,6 +12,20 @@ return {
 					},
 				},
 			})
+
+			-- null-ls formatters that aren't LSP servers, so they don't belong in
+			-- mason-lspconfig's ensure_installed. Without these, null-ls silently
+			-- fails to run its generator when the binary is missing.
+			local tools = { "goimports" }
+			local registry = require("mason-registry")
+			registry.refresh(function()
+				for _, name in ipairs(tools) do
+					local pkg = registry.get_package(name)
+					if not pkg:is_installed() then
+						pkg:install()
+					end
+				end
+			end)
 		end,
 	},
 	{
