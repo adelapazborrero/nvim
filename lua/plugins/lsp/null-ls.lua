@@ -28,6 +28,7 @@ return {
 			formatting.stylua,
 			formatting.gofmt, -- auto installs with golang
 			formatting.goimports, -- auto removes unused imports
+			formatting.clang_format, -- installed via mason (see plugins/lsp/mason.lua)
 			formatting.prettierd, -- install with npm install -g @fsouza/prettierd
 			ruff_formatter, -- install with curl -LsSf https://astral.sh/ruff/install.sh | sh
 		}

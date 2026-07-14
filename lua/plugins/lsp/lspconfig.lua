@@ -175,6 +175,22 @@ return {
 			})
 
 			-- #################################
+			-- #           C/C++ SETUP         #
+			-- #################################
+			--
+			-- Installed automatically via mason.nvim (see plugins/lsp/mason.lua).
+			-- clangd works fallback-flags out of the box for single files; drop a
+			-- compile_commands.json (e.g. via `bear -- make` or CMake's
+			-- CMAKE_EXPORT_COMPILE_COMMANDS=ON) at the project root for accurate
+			-- per-file flags on real projects.
+			--
+			vim.lsp.config("clangd", {
+				on_attach = on_attach,
+				capabilities = capabilities,
+				cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=iwyu" },
+			})
+
+			-- #################################
 			-- #         GOLANG SETUP          #
 			-- #################################
 			--
@@ -195,7 +211,7 @@ return {
 				},
 			})
 
-			vim.lsp.enable({ "jsonls", "yamlls", "ts_ls", "lua_ls", "pyright", "ruff", "gopls" })
+			vim.lsp.enable({ "jsonls", "yamlls", "ts_ls", "lua_ls", "pyright", "ruff", "gopls", "clangd" })
 		end,
 	},
 	{

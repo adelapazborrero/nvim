@@ -16,7 +16,7 @@ return {
 			-- null-ls formatters that aren't LSP servers, so they don't belong in
 			-- mason-lspconfig's ensure_installed. Without these, null-ls silently
 			-- fails to run its generator when the binary is missing.
-			local tools = { "goimports" }
+			local tools = { "goimports", "clang-format" }
 			local registry = require("mason-registry")
 			registry.refresh(function()
 				for _, name in ipairs(tools) do
@@ -35,6 +35,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"gopls",
+					"clangd",
 					"lua_ls",
 					"yamlls",
 					"jsonls",
