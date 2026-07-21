@@ -49,43 +49,30 @@ keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 keymap.set("n", "<C-f>", ":NvimTreeFindFile<CR>", opts)
 keymap.set("n", "<leader>n", ":NvimTreeRefresh<CR>", opts)
 
--- LSP Saga
--- Lspsaga's hover float doesn't take focus when it opens, so plain "q"/"<Esc>"
--- hit the source buffer instead of the float (macro-record prompt for "q",
--- no-op for "<Esc>"), and the float only closes on the next CursorMoved.
--- Close it directly instead, falling back to normal q/<Esc> behavior when
--- there's no hover float open.
-local function close_lspsaga_hover()
-	local hover = require("lspsaga.hover")
-	if hover.winid and vim.api.nvim_win_is_valid(hover.winid) then
-		vim.api.nvim_win_close(hover.winid, true)
-		hover:clean()
-		return true
+-- LSP
+local function close_float()
+	for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+		if vim.api.nvim_win_get_config(win).relative ~= "" then
+			vim.api.nvim_win_close(win, false)
+			return true
+		end
 	end
 	return false
 end
 
 keymap.set("n", "K", function()
-	if not close_lspsaga_hover() then
-		vim.cmd("Lspsaga hover_doc")
-	end
+	vim.lsp.buf.hover({ border = "rounded", focusable = true })
 end, opts)
-
-keymap.set("n", "q", function()
-	if not close_lspsaga_hover() then
-		vim.api.nvim_feedkeys("q", "n", false)
-	end
-end, opts)
-
+keymap.set("n", "ca", vim.lsp.buf.code_action, opts)
 keymap.set("n", "<Esc>", function()
-	if not close_lspsaga_hover() then
+	if not close_float() then
 		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
 	end
 end, opts)
-keymap.set("n", "[g", ":Lspsaga diagnostic_jump_prev<CR>", opts)
-keymap.set("n", "]g", ":Lspsaga diagnostic_jump_next<CR>", opts)
-keymap.set("n", "<C-k>", ":Lspsaga peek_definition<CR>", opts)
-keymap.set("n", "fo", ":Lspsaga finder tyd+ref+imp+def<CR>", opts)
+keymap.set("n", "[g", function() vim.diagnostic.goto_prev() end, opts)
+keymap.set("n", "]g", function() vim.diagnostic.goto_next() end, opts)
+keymap.set("n", "<C-k>", vim.lsp.buf.definition, opts)
+keymap.set("n", "fo", ":lua require('telescope.builtin').lsp_references()<CR>", opts)
 
 -- GitSigns
 keymap.set("n", "gb", ":Gitsigns blame_line<CR>", opts)
@@ -121,12 +108,6 @@ end, opts)
 keymap.set("n", "S", ":lua require('flash').treesitter()<CR>", opts)
 keymap.set("x", "S", ":lua require('flash').treesitter()<CR>", opts)
 keymap.set("o", "S", ":lua require('flash').treesitter()<CR>", opts)
-
--- Ufo
-vim.keymap.set("n", "zR", ":lua require('ufo').openAllFolds()<CR>", opts)
-vim.keymap.set("n", "zM", ":lua require('ufo').closeAllFolds()<CR>", opts)
-vim.keymap.set("n", "zo", ":lua require('ufo').openFoldsExceptKinds()<CR>", opts)
-vim.keymap.set("n", "zm", ":lua require('ufo').closeFoldsWith()<CR>", opts)
 
 -- Other
 vim.keymap.set("n", "rn", ":IncRename ")

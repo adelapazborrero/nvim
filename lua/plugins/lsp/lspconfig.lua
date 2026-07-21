@@ -3,7 +3,7 @@ return {
 		"neovim/nvim-lspconfig",
 		-- toggle-lsp-diagnostics must configure its defaults before this file's
 		-- vim.diagnostic.config() call, or it clobbers virtual_text/signs back to true.
-		dependencies = { "hrsh7th/cmp-nvim-lsp", "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" },
+		dependencies = { "Saghen/blink.cmp" },
 		config = function()
 			local signs = {
 				{ name = "DiagnosticSignError", text = "" },
@@ -53,11 +53,7 @@ return {
 				end
 			end
 
-			local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-			capabilities.textDocument.foldingRange = {
-				dynamicRegistration = false,
-				lineFoldingOnly = true,
-			}
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 			vim.lsp.config("jsonls", {
 				on_attach = on_attach,
@@ -211,7 +207,33 @@ return {
 				},
 			})
 
-			vim.lsp.enable({ "jsonls", "yamlls", "ts_ls", "lua_ls", "pyright", "ruff", "gopls", "clangd" })
+			-- #################################
+			-- #         R2D2 (bol IaC)        #
+			-- #################################
+			--
+			-- Custom language server for R2D2 spec files, built from
+			-- ~/Projects/SecOps/r2d2-lsp (`make install`). Attaches only to R2D2
+			-- specs (r2d2-*.yml/.yaml or anything under infra/r2d2/), so it runs
+			-- alongside yamlls without touching other YAML.
+			--
+			local function is_r2d2_file(name)
+				return name:match("r2d2%-[^/]*%.ya?ml$") ~= nil or name:match("/infra/r2d2/") ~= nil
+			end
+
+			vim.lsp.config("r2d2", {
+				cmd = { vim.fn.expand("~/go/bin/r2d2-lsp"), "--schema-version", "latest" },
+				filetypes = { "yaml" },
+				root_dir = function(bufnr, on_dir)
+					local name = vim.api.nvim_buf_get_name(bufnr)
+					if is_r2d2_file(name) then
+						on_dir(vim.fs.dirname(name))
+					end
+				end,
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
+			vim.lsp.enable({ "jsonls", "yamlls", "ts_ls", "lua_ls", "pyright", "ruff", "gopls", "clangd", "r2d2" })
 		end,
 	},
 	{

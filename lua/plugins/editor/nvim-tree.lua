@@ -1,6 +1,5 @@
 return {
 	"kyazdani42/nvim-tree.lua",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("nvim-tree").setup({
 			disable_netrw = true,
@@ -58,17 +57,17 @@ return {
 					webdev_colors = true,
 					git_placement = "before",
 					glyphs = {
-						default = "",
-						symlink = "",
+						default = "",
+						symlink = "",
 						folder = {
-							default = "",
-							empty = "",
-							empty_open = "",
-							open = "",
-							symlink = "",
-							symlink_open = "",
-							arrow_open = "",
-							arrow_closed = "",
+							default = "",
+							empty = "",
+							empty_open = "",
+							open = "",
+							symlink = "",
+							symlink_open = "",
+							arrow_open = "",
+							arrow_closed = "",
 						},
 						git = {
 							unstaged = "✗",

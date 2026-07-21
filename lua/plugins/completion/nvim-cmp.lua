@@ -1,81 +1,38 @@
 return {
-	"hrsh7th/nvim-cmp",
-	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
-		"saadparwaiz1/cmp_luasnip",
-		{
-			"L3MON4D3/LuaSnip",
-			-- follow latest release.
-			version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-			-- install jsregexp (optional!).
-			build = "make install_jsregexp",
+	"Saghen/blink.cmp",
+	version = "*",
+	opts = {
+		keymap = {
+			preset = "none",
+			["<C-Space>"] = { "show", "fallback" },
+			["<C-e>"] = { "cancel", "fallback" },
+			["<CR>"] = { "accept", "fallback" },
+			["<Tab>"] = { "select_next", "fallback" },
+			["<S-Tab>"] = { "select_prev", "fallback" },
+			["<C-k>"] = { "scroll_documentation_up", "fallback" },
+			["<C-j>"] = { "scroll_documentation_down", "fallback" },
 		},
-		"onsails/lspkind.nvim",
+		appearance = {
+			nerd_font_variant = "mono",
+		},
+		sources = {
+			default = { "lsp", "path", "snippets", "buffer" },
+		},
+		cmdline = {
+			sources = { "cmdline" },
+		},
+		completion = {
+			menu = {
+				border = "single",
+				min_width = 40,
+			},
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 200,
+				window = {
+					border = "double",
+				},
+			},
+		},
 	},
-	config = function()
-		local cmp = require("cmp")
-		local lspkind = require("lspkind")
-
-		cmp.setup({
-			snippet = {
-				expand = function(args)
-					require("luasnip").lsp_expand(args.body)
-				end,
-			},
-			window = {
-				completion = {
-					border = "single", -- "single" | "double" | "shadow" | "rounded" | "none"
-					-- 	winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,FloatWinBorder:FloatWinBorder,FloatBorder:FloatBorder,SelectedText:SelectedText",
-				},
-				documentation = {
-					border = "double", -- "single" | "double" | "shadow" | "rounded" | "none"
-					-- 	winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-				},
-			},
-			mapping = cmp.mapping.preset.insert({
-				["<C-k>"] = cmp.mapping.scroll_docs(-4),
-				["<C-j>"] = cmp.mapping.scroll_docs(4),
-				["<C-Space>"] = cmp.mapping.complete(),
-				["<C-e>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-				["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
-				["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
-			}),
-			formatting = {
-				format = lspkind.cmp_format({
-					mode = "symbol",
-					maxwidth = 50,
-
-					before = function(entry, vim_item)
-						return vim_item
-					end,
-				}),
-			},
-
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-			}, {
-				{ name = "buffer" },
-			}),
-		})
-
-		cmp.setup.filetype("gitcommit", {
-			sources = cmp.config.sources({
-				{ name = "cmp_git" },
-			}, {
-				{ name = "buffer" },
-			}),
-		})
-
-		cmp.setup.cmdline("/", {
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = {
-				{ name = "buffer" },
-			},
-		})
-	end,
 }

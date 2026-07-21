@@ -6,6 +6,12 @@ return {
 		vim.opt.background = "dark"
 		vim.opt.cursorline = true
 
+		require("catppuccin").setup({
+			integrations = {
+				blink_cmp = true,
+			},
+		})
+
 		-- COLOR THEMES --
 		vim.cmd("colorscheme catppuccin-frappe") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 

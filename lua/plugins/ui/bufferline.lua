@@ -1,7 +1,7 @@
 return {
 	"akinsho/bufferline.nvim",
 	version = "*",
-	dependencies = { "catppuccin/nvim", "nvim-tree/nvim-web-devicons" },
+	dependencies = { "catppuccin/nvim" },
 	config = function()
 		local mocha = require("catppuccin.palettes").get_palette("frappe")
 

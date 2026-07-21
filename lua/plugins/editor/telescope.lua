@@ -1,6 +1,10 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	dependencies = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
+	dependencies = {
+		"nvim-lua/popup.nvim",
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope-ui-select.nvim",
+	},
 	config = function()
 		require("telescope").setup({
 			defaults = {
@@ -66,7 +70,15 @@ return {
 					enable_preview = true,
 				},
 			},
+			extensions = {
+				["ui-select"] = {
+					require("telescope.themes").get_dropdown({}),
+				},
+			},
 		})
+
+		-- Route vim.ui.select (used by persistence.nvim's session picker) through telescope
+		require("telescope").load_extension("ui-select")
 
 		vim.g.theme_switcher_loaded = true
 	end,

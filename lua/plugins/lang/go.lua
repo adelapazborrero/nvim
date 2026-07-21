@@ -79,7 +79,7 @@ return {
 			build_tags = "", --- you can provide extra build tags for tests or debugger
 			test_runner = "go", -- one of {`go`, `richgo`, `dlv`, `ginkgo`}
 			run_in_floaterm = false, -- set to true to run in float window.
-			luasnip = true, -- set true to enable included luasnip
+			luasnip = false, -- disabled: no LuaSnip in this config anymore
 			iferr_vertical_shift = 4, -- defines where the cursor will end up vertically from the begining of if err statement after GoIfErr command
 		})
 	end,
