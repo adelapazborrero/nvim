@@ -34,4 +34,12 @@ vim.diagnostic.config({
 	underline = true, -- keep or disable underlining
 	update_in_insert = false, -- don't update diagnostics while typing
 	severity_sort = true, -- sort by severity in float windows etc.
+	jump = {
+		-- Show the diagnostic float on [g / ]g, the way goto_prev/goto_next did.
+		-- focus = false is required: a focusable float steals focus and then only
+		-- appears on every other jump.
+		on_jump = function(_, bufnr)
+			vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor", focus = false })
+		end,
+	},
 })

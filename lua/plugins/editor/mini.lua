@@ -33,19 +33,5 @@ return {
 		})
 		-- Make nvim-web-devicons calls fall through to mini.icons
 		MiniIcons.mock_nvim_web_devicons()
-
-		-- Replaces karb94/neoscroll.nvim
-		local animate = require("mini.animate")
-		-- Fixed total duration (distance-independent) so big Ctrl-d/Ctrl-u jumps
-		-- don't trail/lag. Scroll and cursor share the same duration so they stay
-		-- in sync. Lower the number to make it snappier, raise it for smoother.
-		local snappy = animate.gen_timing.linear({ duration = 90, unit = "total" })
-		animate.setup({
-			scroll = { enable = true, timing = snappy },
-			cursor = { enable = true, timing = snappy },
-			resize = { enable = false },
-			open = { enable = false },
-			close = { enable = false },
-		})
 	end,
 }

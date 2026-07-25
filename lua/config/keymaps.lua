@@ -69,8 +69,8 @@ keymap.set("n", "<Esc>", function()
 		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
 	end
 end, opts)
-keymap.set("n", "[g", function() vim.diagnostic.goto_prev() end, opts)
-keymap.set("n", "]g", function() vim.diagnostic.goto_next() end, opts)
+keymap.set("n", "[g", function() vim.diagnostic.jump({ count = -1 }) end, opts)
+keymap.set("n", "]g", function() vim.diagnostic.jump({ count = 1 }) end, opts)
 keymap.set("n", "<C-k>", vim.lsp.buf.definition, opts)
 keymap.set("n", "fo", ":lua require('telescope.builtin').lsp_references()<CR>", opts)
 
