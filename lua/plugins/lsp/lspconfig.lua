@@ -187,6 +187,54 @@ return {
 			})
 
 			-- #################################
+			-- #          RUST SETUP           #
+			-- #################################
+			--
+			-- rust-analyzer is installed via mason.nvim (see plugins/lsp/mason.lua),
+			-- but it drives the host toolchain, which needs two extra components:
+			--   sudo dnf install rust-src rustfmt   (stdlib go-to-def + formatting)
+			--   sudo dnf install clippy             (only for the check.command below)
+			--
+			-- Unlike every other language here, rust keeps its LSP formatting
+			-- capability instead of routing through null-ls: none-ls dropped its
+			-- rustfmt source upstream, and rust-analyzer reads the edition out of
+			-- Cargo.toml before shelling out to rustfmt, which a bare `rustfmt` on
+			-- stdin cannot do. So format-on-save is wired up locally here.
+			local rust_format_group = vim.api.nvim_create_augroup("RustLspFormatting", { clear = true })
+
+			vim.lsp.config("rust_analyzer", {
+				capabilities = capabilities,
+				on_attach = function(_, bufnr)
+					vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+					vim.api.nvim_clear_autocmds({ group = rust_format_group, buffer = bufnr })
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = rust_format_group,
+						buffer = bufnr,
+						callback = function()
+							vim.lsp.buf.format({ bufnr = bufnr, name = "rust_analyzer" })
+						end,
+					})
+				end,
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							allFeatures = true,
+							buildScripts = { enable = true },
+						},
+						procMacro = { enable = true },
+						checkOnSave = true,
+						-- Swap to clippy once `sudo dnf install clippy` has run;
+						-- with the package missing rust-analyzer errors on save.
+						check = { command = "check" },
+						inlayHints = {
+							parameterHints = { enable = false },
+						},
+					},
+				},
+			})
+
+			-- #################################
 			-- #         GOLANG SETUP          #
 			-- #################################
 			--
@@ -233,7 +281,18 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.lsp.enable({ "jsonls", "yamlls", "ts_ls", "lua_ls", "pyright", "ruff", "gopls", "clangd", "r2d2" })
+			vim.lsp.enable({
+				"jsonls",
+				"yamlls",
+				"ts_ls",
+				"lua_ls",
+				"pyright",
+				"ruff",
+				"gopls",
+				"clangd",
+				"rust_analyzer",
+				"r2d2",
+			})
 		end,
 	},
 	{

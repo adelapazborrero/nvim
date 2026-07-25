@@ -10,6 +10,9 @@ local ensure_installed = {
 	"gowork",
 	"c",
 	"cpp",
+	"rust",
+	-- Cargo.toml / Cargo.lock
+	"toml",
 	"lua",
 	"vim",
 	"vimdoc",

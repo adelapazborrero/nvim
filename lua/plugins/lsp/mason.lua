@@ -13,10 +13,11 @@ return {
 				},
 			})
 
-			-- null-ls formatters that aren't LSP servers, so they don't belong in
-			-- mason-lspconfig's ensure_installed. Without these, null-ls silently
-			-- fails to run its generator when the binary is missing.
-			local tools = { "goimports", "clang-format" }
+			-- Binaries that aren't LSP servers (null-ls formatters, DAP adapters),
+			-- so they don't belong in mason-lspconfig's ensure_installed. Without
+			-- these, null-ls silently fails to run its generator and nvim-dap
+			-- errors out on launch when the binary is missing.
+			local tools = { "goimports", "clang-format", "codelldb" }
 			local registry = require("mason-registry")
 			registry.refresh(function()
 				for _, name in ipairs(tools) do
@@ -36,6 +37,7 @@ return {
 				ensure_installed = {
 					"gopls",
 					"clangd",
+					"rust_analyzer",
 					"lua_ls",
 					"yamlls",
 					"jsonls",

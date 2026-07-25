@@ -9,6 +9,9 @@ return {
 		--
 		-- Installing debugpy (Used for python)
 		-- pip install debugpy
+		--
+		-- codelldb (Used for rust) installs automatically via mason.nvim
+		-- (see plugins/lsp/mason.lua)
 
 		-- #########################
 		-- #       ADAPTERS        #
@@ -45,6 +48,17 @@ return {
 			end, 100)
 		end
 
+		-- Resolved by path rather than exepath(): mason only prepends its bin dir
+		-- to $PATH when its own setup runs, which isn't ordered against this file.
+		dap.adapters.codelldb = {
+			type = "server",
+			port = "${port}",
+			executable = {
+				command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+				args = { "--port", "${port}" },
+			},
+		}
+
 		dap.adapters.python = {
 			type = "executable",
 			command = vim.fn.exepath("python"),
@@ -76,6 +90,21 @@ return {
 					request = "launch",
 					mode = "test",
 					program = "./${relativeFileDirname}",
+				},
+			},
+			-- codelldb debugs the compiled artifact, not the source, so `cargo
+			-- build` (or `cargo test --no-run`) has to have produced it first.
+			-- The prompt is pre-filled with target/debug/ -- <Tab> completes.
+			rust = {
+				{
+					type = "codelldb",
+					name = "Debug",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+					end,
+					cwd = "${workspaceFolder}",
+					stopOnEntry = false,
 				},
 			},
 			python = {

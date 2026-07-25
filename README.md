@@ -19,3 +19,16 @@
 - bat
 
 For python it is better to run pip3 istall --upgrade neovim
+
+### Rust
+
+rust-analyzer and codelldb install through mason, but they drive the host
+toolchain, so the components below have to come from the distro:
+
+`sudo dnf install rust-src rustfmt clippy`
+
+- rust-src — stdlib go-to-definition and completion
+- rustfmt — format on save (rust-analyzer shells out to it)
+- clippy — optional, see `check.command` in `lua/plugins/lsp/lspconfig.lua`
+
+`cargo install cargo-nextest` for the neotest adapter (`tn`, `tf`, `ts`).

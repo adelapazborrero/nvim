@@ -7,6 +7,7 @@ return {
 		"nvim-neotest/neotest-go",
 		"nvim-neotest/neotest-python",
 		"alfaix/neotest-gtest", -- Google Test adapter for C/C++
+		"rouge8/neotest-rust", -- runs via cargo-nextest: cargo install cargo-nextest
 	},
 	config = function()
 		require("neotest").setup({
@@ -14,6 +15,7 @@ return {
 				require("neotest-go"),
 				require("neotest-python"),
 				require("neotest-gtest"),
+				require("neotest-rust"),
 			},
 		})
 
