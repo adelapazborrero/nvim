@@ -72,7 +72,7 @@ lua/config/
   keymaps.lua             every global keymap (plugin-local ones live with the plugin)
 lua/plugins/
   lsp/                    lspconfig, mason, none-ls (formatting), inc-rename
-  completion/             blink.cmp
+  completion/             blink.cmp, neocodeium (AI ghost text)
   treesitter/             parser list + per-filetype highlight/indent/folds
   debug/                  nvim-dap, dap-ui, neotest
   git/                    gitsigns, diffview, fugitive
@@ -137,6 +137,27 @@ float on jump.
 
 `<C-Space>` open · `<CR>` accept · `<Tab>` / `<S-Tab>` next & previous ·
 `<C-j>` / `<C-k>` scroll docs · `<C-e>` cancel.
+
+### AI inline completion (neocodeium)
+
+Grey ghost text ahead of the cursor, independent of the blink.cmp menu. All
+insert mode, Alt-prefixed because blink owns every `<C-…>` and `<Tab>` binding.
+
+| Key     | Action                       |
+| ------- | ---------------------------- |
+| `<A-f>` | accept whole suggestion      |
+| `<A-w>` | accept next word             |
+| `<A-a>` | accept next line             |
+| `<A-e>` / `<A-r>` | next / previous suggestion |
+| `<A-c>` | dismiss                      |
+
+Run `:NeoCodeium auth` once — it opens a browser, and you paste the token back.
+The free Windsurf (ex-Codeium) individual tier needs an account but no card;
+the token lands in `~/.codeium` and persists across machines if you sync it.
+`:NeoCodeium disable` turns it off for the session, `:NeoCodeium toggle` flips it.
+
+Suggestions are cleared automatically whenever the blink.cmp menu opens, so the
+two never render on top of each other.
 
 ### Git
 
