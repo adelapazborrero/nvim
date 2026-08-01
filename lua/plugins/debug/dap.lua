@@ -133,9 +133,12 @@ return {
 
 		vim.fn.sign_define(
 			"DapBreakpoint",
-			{ text = "", texthl = "red", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+			{ text = "", texthl = "DapSignRed", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
 		)
-		vim.fn.sign_define("DapStopped", { text = "", texthl = "green", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
+		vim.fn.sign_define(
+			"DapStopped",
+			{ text = "", texthl = "DapSignGreen", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+		)
 
 		local dapui = require("dapui")
 

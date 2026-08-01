@@ -109,5 +109,8 @@ keymap.set("n", "S", ":lua require('flash').treesitter()<CR>", opts)
 keymap.set("x", "S", ":lua require('flash').treesitter()<CR>", opts)
 keymap.set("o", "S", ":lua require('flash').treesitter()<CR>", opts)
 
+-- Themes
+keymap.set("n", "<leader>th", ":Themery<CR>", opts)
+
 -- Other
 vim.keymap.set("n", "rn", ":IncRename ")
