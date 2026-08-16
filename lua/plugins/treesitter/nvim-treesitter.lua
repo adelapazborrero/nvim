@@ -10,6 +10,7 @@ local ensure_installed = {
 	"gowork",
 	"c",
 	"cpp",
+	"arduino",
 	"rust",
 	-- Cargo.toml / Cargo.lock
 	"toml",

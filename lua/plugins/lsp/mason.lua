@@ -42,6 +42,9 @@ return {
 					"yamlls",
 					"jsonls",
 					"ts_ls",
+					-- Started by hand from plugins/lang/arduino.lua, which has to
+					-- bake the sketch's fqbn into the server's argv.
+					"arduino_language_server",
 				},
 				-- lspconfig.lua owns vim.lsp.config()/vim.lsp.enable() for these
 				-- servers, so mason only installs binaries here.

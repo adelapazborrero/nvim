@@ -187,6 +187,14 @@ return {
 			})
 
 			-- #################################
+			-- #         ARDUINO SETUP         #
+			-- #################################
+			--
+			-- Deliberately not here: arduino-language-server takes the board's
+			-- fqbn as a command-line flag, so its cmd has to be built per sketch
+			-- rather than once at startup. See plugins/lang/arduino.lua.
+
+			-- #################################
 			-- #          RUST SETUP           #
 			-- #################################
 			--

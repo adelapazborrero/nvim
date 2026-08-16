@@ -40,7 +40,7 @@ Mason installs these automatically on first launch, no action needed:
 
 | Kind        | Packages                                                         |
 | ----------- | ---------------------------------------------------------------- |
-| LSP servers | `gopls`, `clangd`, `rust_analyzer`, `lua_ls`, `yamlls`, `jsonls`, `ts_ls` |
+| LSP servers | `gopls`, `clangd`, `rust_analyzer`, `lua_ls`, `yamlls`, `jsonls`, `ts_ls`, `arduino_language_server` |
 | Formatters  | `goimports`, `clang-format`                                       |
 | Debug       | `codelldb` (Rust/C/C++)                                           |
 
@@ -57,6 +57,12 @@ cargo install stylua cargo-nextest            # Lua formatting, Rust test runner
 go   install github.com/go-delve/delve/cmd/dlv@latest   # Go debugging
 pip  install debugpy                          # Python debugging
 curl -LsSf https://astral.sh/ruff/install.sh | sh       # Python lint + format
+
+# arduino-cli — see "Arduino" below. Not packaged for Fedora; grab the release
+# tarball and drop the single binary in ~/.local/bin
+curl -fsSL https://github.com/arduino/arduino-cli/releases/download/v1.5.1/arduino-cli_1.5.1_Linux_64bit.tar.gz \
+  | tar -xz -C ~/.local/bin arduino-cli
+arduino-cli config init && arduino-cli core install arduino:avr
 ```
 
 `fd`, `bat` and `plocate` are what keep telescope snappy — it degrades to slower
@@ -78,7 +84,7 @@ lua/plugins/
   git/                    gitsigns, diffview, fugitive
   ui/                     catppuccin, lualine, bufferline, indent-blankline, transparent
   editor/                 telescope, nvim-tree, flash, mini.nvim, persistence, neoscroll
-  lang/                   go.nvim, gen.nvim (Ollama)
+  lang/                   go.nvim, gen.nvim (Ollama), arduino (vim-arduino + its LSP)
 ```
 
 Every directory under `lua/plugins/` is imported as a group in
@@ -246,6 +252,48 @@ clangd works on single files out of the box. For real projects drop a
 `compile_commands.json` at the root (`bear -- make`, or CMake with
 `CMAKE_EXPORT_COMPILE_COMMANDS=ON`) so flags are accurate. Tests go through
 neotest-gtest.
+
+### Arduino
+
+`vim-arduino` drives `arduino-cli` for build/upload/serial, and
+`arduino-language-server` gives completion and diagnostics on top of clangd.
+Both need `arduino-cli` on `PATH` (see "External tools") and a core for your
+board: `arduino-cli core install arduino:avr` covers Uno/Nano/Mega, other
+families are `arduino:samd`, `esp32:esp32`, and so on.
+
+Everything keys off a per-sketch `sketch.yaml`. Create one with the board
+plugged in:
+
+```sh
+arduino-cli board list                                      # find fqbn + port
+arduino-cli sketch new blink && cd blink
+arduino-cli board attach -p /dev/ttyACM0 -b arduino:avr:uno blink.ino
+```
+
+which writes `default_fqbn` and `default_port`. On opening any `.ino`,
+`lua/plugins/lang/arduino.lua` reads that file and points both halves at the
+same board — the language server gets the fqbn on its command line, and
+vim-arduino's globals are overwritten to match. That sync exists because
+vim-arduino still looks for `sketch.json`, the format arduino-cli dropped in
+0.30; without it, compiles and diagnostics silently drift to different boards.
+
+Because the fqbn is baked into the server's argv, editing `sketch.yaml` needs a
+`:e` on the buffer to pick up the new board, not just `:LspRestart`.
+
+| Key           | Command                  | Action                              |
+| ------------- | ------------------------ | ----------------------------------- |
+| `\av`         | `:ArduinoVerify`         | Compile                             |
+| `\au`         | `:ArduinoUpload`         | Compile and flash                   |
+| `\aU`         | `:ArduinoUploadAndSerial`| Flash, then open the serial monitor |
+| `\as`         | `:ArduinoSerial`         | Serial monitor                      |
+| `\aa`         | `:ArduinoAttach`         | Detect the board and write `sketch.yaml` |
+| `\ab` / `\ap` | `:ArduinoChooseBoard/Port` | Pick board / port via telescope   |
+| `\ai`         | `:ArduinoInfo`           | Show what it thinks is selected     |
+
+The serial monitor runs `arduino-cli monitor` rather than upstream's default of
+`screen`, so there is no extra package to install; baud is
+`g:arduino_serial_baud` (9600). Serial access needs your user in the `dialout`
+group — `sudo usermod -aG dialout $USER`, then log back in.
 
 ### Python
 
