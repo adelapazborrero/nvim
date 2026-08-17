@@ -27,7 +27,7 @@ return {
 		-- config's insert mode is already claimed by blink.cmp.
 		local opts = { noremap = true, silent = true }
 
-		vim.keymap.set("i", "<A-f>", neocodeium.accept, opts)
+		vim.keymap.set("i", "<C-f>", neocodeium.accept, opts)
 		vim.keymap.set("i", "<A-w>", neocodeium.accept_word, opts)
 		vim.keymap.set("i", "<A-a>", neocodeium.accept_line, opts)
 		vim.keymap.set("i", "<A-e>", function() neocodeium.cycle_or_complete(1) end, opts)
